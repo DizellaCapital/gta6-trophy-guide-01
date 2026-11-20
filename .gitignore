@@ -1,8 +1,3 @@
-gta6-trophy-guide-01-kit/
-kit.tar.gz
-leaderboard-20261119.json
-LEADERBOARD-STUDY.md
-STATUS.md
-prompt.txt
-system-prompt.txt
+node_modules/
 out/
+.DS_Store
