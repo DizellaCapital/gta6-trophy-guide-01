@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Trophy Guide &amp; Tracker — all 55 GTA VI trophies, cited guides, audit strip, platinum roadmap</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero">
+  <p class="kicker">GRAND THEFT AUTO VI &middot; PLAYSTATION 5 &middot; LEONIDA</p>
+  <h1>Leonida Trophy Guide &amp; Tracker</h1>
+  <p class="sub">All <strong>55 trophies</strong> — official names &amp; descriptions, cited guides with dated sources, audit strip, platinum roadmap, missable watch list, spoiler hiding &amp; a saveable checklist. Works fully offline.</p>
+  <div class="audit" id="audit" role="status">
+    <span><b>55/55</b> described</span>
+    <span><b>55/55</b> cited</span>
+    <span><b>49/55</b> methods confirmed</span>
+    <span><b>1</b> missable flagged</span>
+    <span>last verified <b>20 Nov 2026</b></span>
+  </div>
+  <div class="progress-wrap">
+    <div class="progress-line"><span id="progressText">0 of 55 earned &middot; 0 / 1,350 PSN points</span><span id="progressPct">0%</span></div>
+    <div class="bar"><div id="barFill" style="width:0%"></div></div>
+    <p class="grade-counts" id="gradeCounts">Platinum 0/1 &middot; Gold 0/2 &middot; Silver 0/6 &middot; Bronze 0/46</p>
+  </div>
+</header>
+
+<main>
+<section id="roadmap" class="card">
+  <h2>Platinum roadmap — 7 stages to &ldquo;Vice Got a Price!&rdquo;</h2>
+  <p class="muted">~200 hours total (PowerPyx / GTABase estimate). One playthrough is enough; everything is offline and single-player. Cheats disable trophies — save them until after the Platinum.</p>
+  <ol class="stages" id="stages"></ol>
+  <p class="muted small">PSN points: Platinum 300 &middot; Gold 90 &middot; Silver 30 &middot; Bronze 15 &middot; full list = <b>1,350 points</b>.</p>
+</section>
+
+<section class="card watch">
+  <h2>&#9888; Missable watch list</h2>
+  <p><strong>Positive Mental Attitude</strong> (Bronze) — meditate at all 18 spots across Leonida. GTABase and PowerPyx flag it as the <strong>only possibly missable trophy</strong>: one meditation spot is at Jason&rsquo;s house in Chapter 1. A meditation only counts once the final &ldquo;zen&rdquo; animation plays. <strong>Do it early, in Chapter 1.</strong> Every other trophy can be cleaned up in free roam after the story.</p>
+  <p class="muted small">Source: EGamers.io (18 Nov 2026) reporting GTABase / PowerPyx; Push Square (18 Nov 2026).</p>
+</section>
+
+<section class="controls card">
+  <label>Search <input id="search" type="search" placeholder="trophy, mission, keyword&hellip;"></label>
+  <label>Grade <select id="grade"><option value="all">All grades</option><option value="platinum">Platinum</option><option value="gold">Gold</option><option value="silver">Silver</option><option value="bronze">Bronze</option></select></label>
+  <label>Category <select id="category"><option value="all">All categories</option><option value="story">Story</option><option value="strangers">Strangers &amp; Freaks</option><option value="activities">Activities</option><option value="crime">Crime</option><option value="collectibles">Collectibles &amp; exploration</option><option value="money">Money &amp; property</option><option value="misc">Misc</option><option value="platinum">Platinum road</option></select></label>
+  <label>Stage <select id="stage"><option value="all">All stages</option><option value="1">1 · Story</option><option value="2">2 · Strangers</option><option value="3">3 · Activities</option><option value="4">4 · Crime</option><option value="5">5 · Collectibles</option><option value="6">6 · Money &amp; misc</option><option value="7">7 · Platinum</option></select></label>
+  <label class="check"><input id="spoiler" type="checkbox"> Hide story spoilers until earned</label>
+  <label class="check"><input id="hideEarned" type="checkbox"> Hide earned</label>
+  <label class="check"><input id="onlyUnconfirmed" type="checkbox"> Only unconfirmed methods</label>
+  <button id="export" type="button">Export progress</button>
+  <label class="import">Import progress <input id="import" type="file" accept="application/json"></label>
+  <button id="reset" type="button">Reset</button>
+</section>
+
+<p class="count-line" id="countLine"></p>
+<section id="list" class="trophy-list" aria-live="polite"></section>
+</main>
+
+<footer class="card">
+  <h2>Sources — every guide step is cited with a date</h2>
+  <ul id="sources"></ul>
+  <p class="muted small">Names and official descriptions verified against Push Square (18 Nov 2026), GTABase (18 Nov 2026), Insider Gaming (18 Nov 2026), Radio Times (19 Nov 2026), EGamers.io (18 Nov 2026), KeenGamer (19 Nov 2026) and PlayHub (18 Nov 2026). Grade split 1 Platinum / 2 Gold / 6 Silver / 46 Bronze. 5 trophy methods are marked <b>unconfirmed</b> and 1 <b>partial</b> — the guide says so instead of guessing. Unofficial fan guide; not affiliated with Rockstar Games. No Rockstar logos or official artwork are used. Progress is stored only in your browser (localStorage).</p>
+</footer>
+<script type="module" src="app.js"></script>
+</body>
+</html>
