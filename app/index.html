@@ -4,106 +4,86 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Leonida Trophy Guide &amp; Tracker — All 55 GTA VI Trophies</title>
-<meta name="description" content="Every GTA VI trophy with its official description, a plain-words guide, dated sources, a platinum roadmap, a missable watch list and a saveable tracker. 55 trophies, 1,350 PSN points, one playthrough.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23151027'/%3E%3Ctext x='16' y='23' font-size='18' text-anchor='middle' fill='%23ff4d9d'%3E%E2%97%86%3C/text%3E%3C/svg%3E">
+<meta name="description" content="Every GTA VI trophy with its official description, numbered cited steps, dated sources, disputes shown both ways, a platinum roadmap and a saveable tracker. 55 trophies, 1,350 PSN points, one playthrough.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f6f1e5'/%3E%3Ctext x='16' y='23' font-size='18' text-anchor='middle' fill='%23b3261e'%3ELP%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="hero">
-  <p class="kicker">GRAND THEFT AUTO VI &middot; PLAYSTATION 5 &middot; LEONIDA</p>
-  <h1>Leonida Trophy Guide <span>&amp; Tracker</span></h1>
-  <p class="sub">All <strong>55 trophies</strong> — official descriptions, guides in plain words, dated sources, a platinum roadmap and a tracker that saves. One playthrough, no online trophies, about 200 hours.</p>
-
-  <section class="audit" id="audit" aria-label="Verification audit">
-    <div class="audit-cell"><span class="audit-num" id="audit-described">55/55</span><span class="audit-label">trophies described</span></div>
-    <div class="audit-cell"><span class="audit-num" id="audit-cited">55/55</span><span class="audit-label">guides cited &amp; dated</span></div>
-    <div class="audit-cell"><span class="audit-num" id="audit-confirmed">50/55</span><span class="audit-label">methods confirmed</span></div>
-    <div class="audit-cell"><span class="audit-num">1</span><span class="audit-label">possibly missable</span></div>
-    <div class="audit-cell"><span class="audit-num">1,350</span><span class="audit-label">PSN points total</span></div>
-    <div class="audit-cell"><span class="audit-num">20 Nov 2026</span><span class="audit-label">last verified</span></div>
-  </section>
-
-  <section class="progress" aria-label="Your progress">
-    <div class="progress-head">
-      <span><strong id="earned-count">0</strong> / 55 earned &middot; <strong id="earned-points">0</strong> / 1,350 PSN points</span>
-      <span id="progress-pct">0%</span>
+<header class="topbar">
+  <div class="brand">
+    <span class="logo">LP</span>
+    <div>
+      <h1>Leonida Trophy Guide</h1>
+      <p>GTA VI &middot; PS5 &middot; 55 TROPHIES &middot; EVERY STEP CITED</p>
     </div>
+  </div>
+  <div class="progress-wrap">
+    <div class="progress-line"><strong id="earned-count">0</strong> / 55 earned &middot; P <span id="pc-p">0</span>/1 &middot; G <span id="pc-g">0</span>/2 &middot; S <span id="pc-s">0</span>/6 &middot; B <span id="pc-b">0</span>/46 &middot; <strong id="earned-points">0</strong> / 1,350 PSN pts</div>
     <div class="bar"><div class="bar-fill" id="bar-fill" style="width:0%"></div></div>
-    <p class="progress-note">Progress saves in this browser (localStorage). Tick a trophy when it pops; export a backup before clearing browser data.</p>
-  </section>
+    <div class="demo-note" id="demo-note" hidden>DEMO &mdash; 14 trophies marked earned to show the tracker</div>
+  </div>
+  <div class="top-actions">
+    <label class="shield"><input type="checkbox" id="spoiler-shield" checked> Spoiler shield</label>
+    <button id="export-btn" type="button">Export</button>
+    <button id="import-btn" type="button">Import</button>
+    <button id="reset-btn" type="button">Reset</button>
+    <span class="saved">&#10003; Saved in this browser</span>
+  </div>
 </header>
 
+<section class="audit" id="audit" aria-label="Verification audit"></section>
+
+<nav class="tabs" id="tabs" aria-label="Guide sections">
+  <button type="button" data-tab="tracker" class="active">Tracker</button>
+  <button type="button" data-tab="roadmap">Roadmap</button>
+  <button type="button" data-tab="missables">Missables</button>
+  <button type="button" data-tab="sources">Sources</button>
+</nav>
+
 <main>
-  <section class="watch" aria-label="Missable watch list">
-    <h2>&#9888; Missable Watch List</h2>
-    <p><strong>Positive Mental Attitude</strong> is the only trophy reported as possibly missable. After the mission <em>Down to Earth</em>, find Lucia at Jason&rsquo;s house in the morning — she mentions meditating — follow her to the balcony, accept, and finish that meditation before leaving Chapter 1. Everything else can be done after the story in free roam.</p>
-    <ul>
-      <li><strong>No mission replay, no New Game Plus.</strong> Keep a manual save at the start and end of each chapter (15 slots + autosave).</li>
-      <li><strong>Cheats disable trophies and saving.</strong> Keep them off on your trophy save.</li>
-      <li><strong>5 hidden trophies still unconfirmed</strong> (20 Nov 2026): In The Beginning&hellip;, Capital Offense, Bad Luck, I Guess, The Truth Is Out There, Ten Pin. They are flagged <span class="flag-unconfirmed">method unconfirmed</span> below — do not trust a single-source method for them.</li>
-    </ul>
+  <section id="view-tracker" class="view">
+    <aside class="col-left">
+      <input type="search" id="search" placeholder="Search name, mission, keyword&hellip;" aria-label="Search trophies">
+      <div class="chips" id="chips"></div>
+      <div class="list-head"><span id="shown-count">55 SHOWN</span>
+        <label>Sort
+          <select id="sort">
+            <option value="roadmap">Roadmap order</option>
+            <option value="name">Name A&ndash;Z</option>
+            <option value="grade">Grade</option>
+          </select>
+        </label>
+      </div>
+      <div class="trophy-list" id="trophy-list"></div>
+    </aside>
+    <section class="col-center" id="detail" aria-live="polite"></section>
+    <aside class="col-right">
+      <section class="panel" id="nextup-panel">
+        <h2>NEXT UP &mdash; ROADMAP ORDER</h2>
+        <ol id="nextup"></ol>
+      </section>
+      <section class="panel" id="goal-panel">
+        <h2>GOAL &mdash; THE PLATINUM</h2>
+        <div id="goal-body"></div>
+      </section>
+      <section class="panel" id="srcs-panel">
+        <h2 id="srcs-title">SOURCES FOR THIS GUIDE</h2>
+        <ol id="srcs-list" class="src-list"></ol>
+      </section>
+    </aside>
   </section>
 
-  <section class="roadmap" id="roadmap" aria-label="Platinum roadmap">
-    <h2>Platinum Roadmap — 7 stages to &ldquo;Vice Got a Price!&rdquo;</h2>
-    <p class="roadmap-intro">Difficulty 4/10 &middot; ~200 hours &middot; 1 playthrough &middot; free roam after the story &middot; 100% checklist opens in Progress &gt; Stats after the credits.</p>
-    <ol class="stages" id="stages"></ol>
-  </section>
-
-  <section class="controls" aria-label="Find and filter trophies">
-    <input type="search" id="search" placeholder="Search a trophy, mission or keyword…" aria-label="Search trophies">
-    <label>Grade
-      <select id="filter-grade">
-        <option value="">All grades</option>
-        <option value="platinum">Platinum</option>
-        <option value="gold">Gold</option>
-        <option value="silver">Silver</option>
-        <option value="bronze">Bronze</option>
-      </select>
-    </label>
-    <label>Stage
-      <select id="filter-stage">
-        <option value="">All stages</option>
-        <option value="1">1 — Story: chapters</option>
-        <option value="2">2 — Story: named missions</option>
-        <option value="3">3 — Strangers &amp; side strands</option>
-        <option value="4">4 — Crime &amp; robberies</option>
-        <option value="5">5 — Activities &amp; races</option>
-        <option value="6">6 — Collectibles &amp; exploration</option>
-        <option value="7">7 — Money, misc &amp; Platinum</option>
-      </select>
-    </label>
-    <label>Status
-      <select id="filter-status">
-        <option value="">All</option>
-        <option value="remaining">Still to earn</option>
-        <option value="earned">Earned</option>
-        <option value="missable">Missable</option>
-        <option value="unconfirmed">Method unconfirmed</option>
-      </select>
-    </label>
-    <button id="toggle-spoilers" type="button" aria-pressed="true">Spoilers: hidden</button>
-    <button id="export-btn" type="button">Export progress</button>
-    <button id="import-btn" type="button">Import progress</button>
-    <input type="file" id="import-file" accept="application/json" hidden>
-    <button id="reset-btn" type="button">Reset progress</button>
-  </section>
-
-  <p class="count-line" id="count-line">Showing 55 of 55 trophies.</p>
-  <section class="grid" id="grid" aria-live="polite"></section>
-
-  <section class="sources" aria-label="Sources">
-    <h2>Sources &amp; verification</h2>
-    <p>Rockstar has published no official trophy list of its own. Names and official descriptions below are the ones the live lists agree on, cross-checked across at least two sources on 20 Nov 2026. &ldquo;Official&rdquo; means the description shown on the console / Xbox list as reported by these sources.</p>
-    <ul id="source-list"></ul>
-    <p class="fineprint">Grades: 1 Platinum, 2 Gold, 6 Silver, 46 Bronze. PSN points use the standard scale (Platinum 300, Gold 90, Silver 30, Bronze 15) = 1,350 total. Hidden count reported by EGamers.io (19 Nov 2026) is 28; 25 hidden flags are identified in this guide and 3 remain unconfirmed. GTA VI and Grand Theft Auto are trademarks of Rockstar Games. This is an unofficial fan guide.</p>
-  </section>
+  <section id="view-roadmap" class="view" hidden></section>
+  <section id="view-missables" class="view" hidden></section>
+  <section id="view-sources" class="view" hidden></section>
 </main>
 
 <footer>
+  <p>Every guide in this entry cites its source by number. Names, descriptions and grades are the official PlayStation list, cross-checked against Exophase and OutputLag on 20 Nov 2026. Sources were read on 20 Nov 2026. This guide works fully offline: it loads nothing from the network. GTA VI and Grand Theft Auto are trademarks of Rockstar Games. This is an unofficial fan guide.</p>
   <p>Leonida Trophy Guide &amp; Tracker — built for the make.fun gta6-trophy-guide-01 bounty. Verified 20 Nov 2026.</p>
 </footer>
 
+<input type="file" id="import-file" accept="application/json" hidden>
 <script src="app.js"></script>
 </body>
 </html>

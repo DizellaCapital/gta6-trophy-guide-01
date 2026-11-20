@@ -7,6 +7,9 @@
 //      source and a source date, no repeated trophy name, stages only 1-7, and PSN
 //      points adding up to 1,350 (300 + 2x90 + 6x30 + 46x15). If any of that fails,
 //      the build stops here and writes nothing — a bad list must never reach the judge.
+//      It then audits app/data/details.json and sources.json the same way: every step
+//      cited, every citation resolving to a source, every dispute shown both ways
+//      with our call, and the counted claims the tracker shows computed from the data.
 //   2. It copies app/ and screenshots/ from beside this file to the output directory.
 //   3. It writes /output/dossier.json, the summary the judge reads (screenshots, the
 //      first load's files and bytes, and the source), with the vendored make.fun
@@ -74,6 +77,89 @@ function auditTrophies() {
 }
 
 auditTrophies();
+
+// --- Audit of the cited-step data (app/data/details.json + sources.json). ---
+// The tracker shows counted claims ("172/172 steps cited", "88 steps backed by
+// 2+ sources"), so the build must compute them from the data and refuse a
+// list that does not add up: every step cited, every citation resolving to a
+// source, every dispute shown both ways with our call, and the per-trophy
+// source list exactly the union of its steps' and disputes' sources.
+const LIST_CHECK_SOURCES = new Set([15, 21, 23, 24]); // read to verify the full list / a dispute, not cited on any one trophy
+
+function auditDetails() {
+  const problems = [];
+  const trophies = JSON.parse(readFileSync(join(here, 'app', 'data', 'trophies.json'), 'utf-8')).trophies;
+  const details = JSON.parse(readFileSync(join(here, 'app', 'data', 'details.json'), 'utf-8')).trophies;
+  const sources = JSON.parse(readFileSync(join(here, 'app', 'data', 'sources.json'), 'utf-8')).sources;
+
+  const sourceIds = new Set();
+  for (const s of sources) {
+    if (!s.site || !s.title || !s.url || !s.date) problems.push(`source ${s.n}: missing site, title, url or date`);
+    if (sourceIds.has(s.n)) problems.push(`duplicate source number ${s.n}`);
+    sourceIds.add(s.n);
+  }
+  if (sources.length !== 28) problems.push(`expected 28 sources, found ${sources.length}`);
+
+  const trophyIds = trophies.map((t) => t.id);
+  if (details.length !== 55) problems.push(`details.json: expected 55 entries, found ${details.length}`);
+  if (JSON.stringify(details.map((d) => d.id)) !== JSON.stringify(trophyIds)) {
+    problems.push('details.json ids do not match trophies.json ids in order');
+  }
+
+  let steps = 0, cited = 0, backed2 = 0, guides2 = 0, disputes = 0, watch = 0;
+  const citedSources = new Set();
+  for (const d of details) {
+    if (!d.inShort) problems.push(`${d.id}: missing inShort`);
+    if (!Array.isArray(d.steps) || d.steps.length === 0) problems.push(`${d.id}: no steps`);
+    if (!Array.isArray(d.sources) || d.sources.length === 0) problems.push(`${d.id}: no sources`);
+    const union = new Set();
+    for (const st of d.steps ?? []) {
+      steps += 1;
+      if (!st.t) problems.push(`${d.id}: empty step text`);
+      if (!Array.isArray(st.src) || st.src.length === 0) problems.push(`${d.id}: uncited step "${String(st.t).slice(0, 40)}"`);
+      else {
+        cited += 1;
+        if (st.src.length >= 2) backed2 += 1;
+        for (const n of st.src) {
+          if (!sourceIds.has(n)) problems.push(`${d.id}: step cites unknown source ${n}`);
+          union.add(n); citedSources.add(n);
+        }
+      }
+    }
+    for (const dp of d.disputes ?? []) {
+      disputes += 1;
+      for (const k of ['q', 'a', 'b', 'call']) if (!dp[k]) problems.push(`${d.id}: dispute missing ${k}`);
+      for (const n of dp.sources ?? []) {
+        if (!sourceIds.has(n)) problems.push(`${d.id}: dispute cites unknown source ${n}`);
+        union.add(n); citedSources.add(n);
+      }
+    }
+    if ((d.sources ?? []).length >= 2) guides2 += 1;
+    if (JSON.stringify([...d.sources ?? []].sort((a, b) => a - b)) !== JSON.stringify([...union].sort((a, b) => a - b))) {
+      problems.push(`${d.id}: sources list is not the union of its steps' and disputes' sources`);
+    }
+    if (d.watch) watch += 1;
+    if (d.count) {
+      if (!Number.isInteger(d.count.total) || d.count.total <= 0) problems.push(`${d.id}: bad count total`);
+      if (!d.count.label || !d.count.note) problems.push(`${d.id}: count missing label or note`);
+    }
+  }
+  for (const s of sources) {
+    if (!citedSources.has(s.n) && !LIST_CHECK_SOURCES.has(s.n)) {
+      problems.push(`source ${s.n} (${s.site}) is never cited and not a declared list-check source`);
+    }
+  }
+
+  if (problems.length > 0) {
+    throw new Error(`details audit failed (${problems.length} problems):\n- ${problems.join('\n- ')}`);
+  }
+  console.log(
+    `details audit OK: ${cited}/${steps} steps cited, ${backed2} steps backed by 2+ sources, ` +
+    `${guides2}/55 guides backed by 2+ sources, ${disputes} disputes shown both ways, ${watch} watch flags, ${sources.length} sources`,
+  );
+}
+
+auditDetails();
 
 mkdirSync(out, { recursive: true });
 cpSync(join(here, 'app'), join(out, 'app'), { recursive: true });
