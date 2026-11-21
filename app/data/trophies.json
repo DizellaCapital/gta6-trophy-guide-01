@@ -1,10 +1,10 @@
 {
-  "meta": {
+  "about": {
     "game": "Grand Theft Auto VI",
     "platform": "PlayStation 5",
     "title": "Leonida Trophy Guide & Tracker — all 55 GTA VI trophies",
     "verified": "2026-11-21",
-    "verified_note": "Researched fresh on 20-21 Nov 2026 from live trophy lists published 18-20 Nov 2026, after the game's 19 Nov 2026 launch. Rockstar has published no official trophy list of its own; names and official descriptions below are the ones the live lists agree on, cross-checked across at least two sources (Exophase and OutputLag agree on all 55 descriptions). Guide paragraphs are the guide author's own words. Full source list: app/data/sources.json (28 pages, 20 sites).",
+    "note": "Names and official descriptions are the ones the live trophy lists agree on, cross-checked across at least two sources; Rockstar has published no official trophy list of its own. Guide paragraphs are the author’s own words. The full numbered source list lives in app/data/sources.json (28 pages, 20 sites). Researched 20–21 Nov 2026, after the game’s 19 Nov 2026 launch.",
     "counts": {
       "total": 55,
       "platinum": 1,
@@ -14,40 +14,108 @@
       "hidden_reported": 28,
       "hidden_identified": 25,
       "online": 0,
-      "psn_points_total": 1350
+      "points_total": 1350
     },
-    "psn_points": { "platinum": 300, "gold": 90, "silver": 30, "bronze": 15 },
-    "platinum_estimate": { "difficulty": "4/10", "hours": "~200", "playthroughs": 1 },
-    "sources": [
-      { "name": "PowerPyx — GTA 6 Trophy Guide & Roadmap", "url": "https://www.powerpyx.com/gta-6-grand-theft-auto-vi-trophy-guide-roadmap/", "date": "2026-11-18" },
-      { "name": "OutputLag — GTA 6 Trophy List: All 55 Trophies and Achievements", "url": "https://outputlag.com/guides/gta-6-trophy-list/", "date": "2026-11-18" },
-      { "name": "Exophase — Grand Theft Auto VI Trophies (PS5)", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/", "date": "2026-11-18" },
-      { "name": "KeenGamer — GTA 6 Trophy Guide & Platinum Roadmap", "url": "https://www.keengamer.com/articles/guides/gta-6-trophy-guide-platinum-roadmap-all-55-trophies/", "date": "2026-11-19" },
-      { "name": "Push Square — GTA 6: Trophy Guide & Roadmap", "url": "https://www.pushsquare.com/guides/gta-6-trophy-guide-and-roadmap", "date": "2026-11-18" },
-      { "name": "GTABase — GTA 6 Trophy Guide & Achievements List", "url": "https://www.gtabase.com/articles/gta-6/gta-6-achievements-trophies-list-ps5-xbox-series", "date": "2026-11-18" }
+    "points": {
+      "platinum": 300,
+      "gold": 90,
+      "silver": 30,
+      "bronze": 15
+    },
+    "estimate": {
+      "difficulty": "4/10",
+      "hours": "~200",
+      "playthroughs": 1
+    },
+    "key_sources": [
+      {
+        "name": "PowerPyx — GTA 6 Trophy Guide & Roadmap",
+        "url": "https://www.powerpyx.com/gta-6-grand-theft-auto-vi-trophy-guide-roadmap/",
+        "date": "2026-11-18"
+      },
+      {
+        "name": "OutputLag — GTA 6 Trophy List: All 55 Trophies and Achievements",
+        "url": "https://outputlag.com/guides/gta-6-trophy-list/",
+        "date": "2026-11-18"
+      },
+      {
+        "name": "Exophase — Grand Theft Auto VI Trophies (PS5)",
+        "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/",
+        "date": "2026-11-18"
+      },
+      {
+        "name": "KeenGamer — GTA 6 Trophy Guide & Platinum Roadmap",
+        "url": "https://www.keengamer.com/articles/guides/gta-6-trophy-guide-platinum-roadmap-all-55-trophies/",
+        "date": "2026-11-19"
+      },
+      {
+        "name": "Push Square — GTA 6: Trophy Guide & Roadmap",
+        "url": "https://www.pushsquare.com/guides/gta-6-trophy-guide-and-roadmap",
+        "date": "2026-11-18"
+      },
+      {
+        "name": "GTABase — GTA 6 Trophy Guide & Achievements List",
+        "url": "https://www.gtabase.com/articles/gta-6/gta-6-achievements-trophies-list-ps5-xbox-series",
+        "date": "2026-11-18"
+      }
     ],
     "warnings": [
       "Cheats disable trophies and saving — keep them off on your trophy save (PowerPyx / GTABase, 18 Nov 2026).",
       "There is no mission replay and no New Game Plus — keep a manual save at the start and end of each chapter; 15 manual slots plus autosave (KeenGamer, 19 Nov 2026).",
       "Positive Mental Attitude is the only trophy reported as possibly missable: one meditation spot at Jason's house is only open in Chapter 1 (PowerPyx / KeenGamer, 18-19 Nov 2026).",
       "Five hidden trophies still have unconfirmed unlock methods as of 21 Nov 2026 — they are flagged method_status unconfirmed below; do not trust a single-source method for them."
-    ],
-    "stages": [
-      { "n": 1, "name": "Story — the chapters", "hours": "opening hours", "tip": "Play naturally; chapter trophies pop as you finish each chapter." },
-      { "n": 2, "name": "Story — named missions", "hours": "story run", "tip": "Seven named missions carry trophies. No gold medals are needed in story missions." },
-      { "n": 3, "name": "Strangers & side strands", "hours": "10-20 h", "tip": "Do stranger strands as they appear; eight strands feed the Silver." },
-      { "n": 4, "name": "Crime & robberies", "hours": "alongside 100%", "tip": "Robberies feed both trophies and the 100% checklist — learn the escape routes early." },
-      { "n": 5, "name": "Activities & races", "hours": "grind", "tip": "250 stunts and 42 shooting-range golds are the long poles here." },
-      { "n": 6, "name": "Collectibles & exploration", "hours": "cleanup", "tip": "Scan everything with WAiNK from the start; it saves hours later." },
-      { "n": 7, "name": "Money, misc & the Platinum", "hours": "final sweep", "tip": "Check the tracker, finish the five unconfirmed-method trophies last, then the Platinum pops." }
     ]
   },
+  "stages": [
+    {
+      "n": 1,
+      "name": "Story — the chapters",
+      "hours": "opening hours",
+      "tip": "Play naturally; chapter trophies pop as you finish each chapter."
+    },
+    {
+      "n": 2,
+      "name": "Story — named missions",
+      "hours": "story run",
+      "tip": "Seven named missions carry trophies. No gold medals are needed in story missions."
+    },
+    {
+      "n": 3,
+      "name": "Strangers & side strands",
+      "hours": "10-20 h",
+      "tip": "Do stranger strands as they appear; eight strands feed the Silver."
+    },
+    {
+      "n": 4,
+      "name": "Crime & robberies",
+      "hours": "alongside 100%",
+      "tip": "Robberies feed both trophies and the 100% checklist — learn the escape routes early."
+    },
+    {
+      "n": 5,
+      "name": "Activities & races",
+      "hours": "grind",
+      "tip": "250 stunts and 42 shooting-range golds are the long poles here."
+    },
+    {
+      "n": 6,
+      "name": "Collectibles & exploration",
+      "hours": "cleanup",
+      "tip": "Scan everything with WAiNK from the start; it saves hours later."
+    },
+    {
+      "n": 7,
+      "name": "Money, misc & the Platinum",
+      "hours": "final sweep",
+      "tip": "Check the tracker, finish the five unconfirmed-method trophies last, then the Platinum pops."
+    }
+  ],
   "trophies": [
     {
       "id": "vice-got-a-price",
       "name": "Vice Got a Price!",
       "grade": "platinum",
-      "psn_points": 300,
+      "points": 300,
       "category": "platinum",
       "stage": 7,
       "spoiler": false,
@@ -57,13 +125,13 @@
       "guide": "The Platinum. It unlocks itself the moment the other 54 are done — there is nothing extra to do, so treat this entry as the finish line, not a task. If it has not popped, the tracker below shows exactly which trophy is still open.",
       "source": "Push Square",
       "source_date": "2026-11-18",
-      "method_status": "confirmed"
+      "method": "confirmed"
     },
     {
       "id": "just-like-paradise",
       "name": "Just Like Paradise",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "story",
       "stage": 1,
       "spoiler": true,
@@ -73,13 +141,13 @@
       "guide": "Your first trophy: finish the opening mission, Gone Fishing, Jason's first job. It pops during the story with no extra effort — just play the intro through.",
       "source": "Push Square",
       "source_date": "2026-11-18",
-      "method_status": "confirmed"
+      "method": "confirmed"
     },
     {
       "id": "paradise-lost",
       "name": "Paradise Lost",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "story",
       "stage": 1,
       "spoiler": true,
@@ -89,13 +157,13 @@
       "guide": "Finish every mission in Chapter 1 and the trophy pops at the chapter close. Before you leave Chapter 1, do the balcony meditation with Lucia at Jason's house — it is the one interaction tied to the possibly-missable meditation trophy.",
       "source": "Push Square",
       "source_date": "2026-11-18",
-      "method_status": "confirmed"
+      "method": "confirmed"
     },
     {
       "id": "tits-ass-drug-money",
       "name": "T**s Ass Drug Money",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "story",
       "stage": 1,
       "spoiler": true,
@@ -105,13 +173,13 @@
       "guide": "Finish Chapter 2 in full. The name is censored in trophy lists; in-game it is the Chapter 2 completion trophy. Keep a manual save at the chapter boundary — there is no mission replay.",
       "source": "Push Square",
       "source_date": "2026-11-18",
-      "method_status": "confirmed"
+      "method": "confirmed"
     },
     {
       "id": "vice-city-baby",
       "name": "Vice City, Baby!",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "story",
       "stage": 1,
       "spoiler": true,
@@ -121,13 +189,13 @@
       "guide": "Finish Chapter 3. By now the map is opening up — start scanning unfamiliar vehicles with the WAiNK app and studying animals with binoculars as you travel, since both feed the 100% checklist later.",
       "source": "KeenGamer",
       "source_date": "2026-11-19",
-      "method_status": "confirmed"
+      "method": "confirmed"
     },
     {
       "id": "top-of-the-world-ma",
       "name": "Top Of The World, Ma",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "story",
       "stage": 1,
       "spoiler": true,
@@ -137,13 +205,13 @@
       "guide": "Finish Chapter 4. The big bank-vault robberies unlock around here through the optional mission That's Where The Money Is… — leave the eight large vaults until that mission opens them.",
       "source": "KeenGamer",
       "source_date": "2026-11-19",
-      "method_status": "confirmed"
+      "method": "confirmed"
     },
     {
       "id": "you-gotta-know-when-to-get-off",
       "name": "You Gotta Know When to Get Off",
       "grade": "gold",
-      "psn_points": 90,
+      "points": 90,
       "category": "story",
       "stage": 2,
       "spoiler": true,
@@ -153,13 +221,13 @@
       "guide": "Finish the final story mission. After the credits roll you keep free roam of Leonida, and the 100% Completion checklist opens in Progress > Stats — most of the Platinum grind happens after this point.",
       "source": "Push Square",
       "source_date": "2026-11-18",
-      "method_status": "confirmed"
+      "method": "confirmed"
     },
     {
       "id": "trust",
       "name": "Trust",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "story",
       "stage": 2,
       "spoiler": true,
@@ -169,13 +237,13 @@
       "guide": "Complete the story mission Breakfast Run. Like all story trophies it unlocks by playing the mission through — no side objective needed.",
       "source": "GTAVibes",
       "source_date": "2026-11-18",
-      "method_status": "confirmed"
+      "method": "confirmed"
     },
     {
       "id": "break-the-bank",
       "name": "Break the Bank",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "story",
       "stage": 2,
       "spoiler": true,
@@ -185,13 +253,13 @@
       "guide": "Complete the story mission The Cartel Heist. Treat heist missions as practice for the robbery trophies in Stage 4 — the same escape-and-lose-the-heat loop applies.",
       "source": "GTAVibes",
       "source_date": "2026-11-18",
-      "method_status": "confirmed"
+      "method": "confirmed"
     },
     {
       "id": "family-matters",
       "name": "Family Matters",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "story",
       "stage": 2,
       "spoiler": true,
@@ -201,13 +269,13 @@
       "guide": "Complete the story mission Child's Play. Unmissable as long as you play the story to the end.",
       "source": "GTAVibes",
       "source_date": "2026-11-18",
-      "method_status": "confirmed"
+      "method": "confirmed"
     },
     {
       "id": "dwnfall",
       "name": "DWNFALL",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "story",
       "stage": 2,
       "spoiler": true,
@@ -217,13 +285,13 @@
       "guide": "Complete the story mission Headliners. Another story-automatic trophy — it cannot be missed on a playthrough that reaches the finale.",
       "source": "GTAVibes",
       "source_date": "2026-11-18",
-      "method_status": "confirmed"
+      "method": "confirmed"
     },
     {
       "id": "hi-jacked",
       "name": "Hi-Jacked",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "story",
       "stage": 2,
       "spoiler": true,
@@ -233,13 +301,13 @@
       "guide": "Complete the story mission VCIA Takedown at Vice City International Airport. The airport is also the scene of the Catch Me If You Can trophy in Stage 4, so learn the runway layout here.",
       "source": "GTAVibes",
       "source_date": "2026-11-18",
-      "method_status": "confirmed"
+      "method": "confirmed"
     },
     {
       "id": "snow-storm",
       "name": "Snow Storm",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "story",
       "stage": 2,
       "spoiler": true,
@@ -249,13 +317,13 @@
       "guide": "Complete the story mission Operation Savage Glory. The last of the named-mission story trophies; after it, only the finale stands between you and the post-story cleanup.",
       "source": "GTAVibes",
       "source_date": "2026-11-18",
-      "method_status": "confirmed"
+      "method": "confirmed"
     },
     {
       "id": "a-long-road",
       "name": "A Long Road",
       "grade": "gold",
-      "psn_points": 90,
+      "points": 90,
       "category": "collectibles",
       "stage": 7,
       "spoiler": false,
@@ -265,16 +333,15 @@
       "guide": "Reach 100% on the in-game checklist (Progress > Stats > 100% Completion, open after the story). The checklist asks for selected portions, not everything: 100 optional tasks, 39 gang operations, 22 bank jobs, 7 payday loan jobs, 8 bank vaults, 15 of 18 card sets, 100 WAiNK scans, 33 underwater discoveries, 100 of 125 flamingos, 200 of 277 base-model vehicles, 100 of 255 animals studied, 42 shooting-range golds, 42 drone time trials, 300 of 397 stunts and 70 of 80 challenges. Work the robbery and fencing numbers first — they also fund the garage and money trophies.",
       "source": "KeenGamer",
       "source_date": "2026-11-19",
-      "method_status": "confirmed",
-      "target": 100,
-      "target_unit": "% completion"
-    }
-,
+      "method": "confirmed",
+      "goal": 100,
+      "goal_unit": "% completion"
+    },
     {
       "id": "cunning-stunts",
       "name": "Cunning Stunts",
       "grade": "silver",
-      "psn_points": 30,
+      "points": 30,
       "category": "activities",
       "stage": 5,
       "spoiler": false,
@@ -284,15 +351,15 @@
       "guide": "Complete 250 stunts across Leonida — jumps, near-misses, drifts and airtime all count toward the stunt total. The 100% checklist wants 300 of 397, so keep stunting past this trophy; stunt opportunities are everywhere on highways and ramps, and the counter runs in the background while you travel.",
       "source": "Push Square",
       "source_date": "2026-11-18",
-      "method_status": "confirmed",
-      "target": 250,
-      "target_unit": "stunts"
+      "method": "confirmed",
+      "goal": 250,
+      "goal_unit": "stunts"
     },
     {
       "id": "master-of-none",
       "name": "Master of None",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "activities",
       "stage": 5,
       "spoiler": false,
@@ -302,15 +369,15 @@
       "guide": "Try each of the nine activity types at least once — races, shooting ranges, fishing, arcade games, pool, mini golf, basketball, drone races and the rest. Do this early: it is a fast Bronze and it teaches you which activities feed the 100% checklist.",
       "source": "KeenGamer",
       "source_date": "2026-11-19",
-      "method_status": "confirmed",
-      "target": 9,
-      "target_unit": "activity types"
+      "method": "confirmed",
+      "goal": 9,
+      "goal_unit": "activity types"
     },
     {
       "id": "the-shootist",
       "name": "The Shootist",
       "grade": "silver",
-      "psn_points": 30,
+      "points": 30,
       "category": "activities",
       "stage": 5,
       "spoiler": false,
@@ -320,15 +387,15 @@
       "guide": "Earn a gold medal in all 42 Shooting Range challenges. This is one of the hardest trophies and it is also required in full for 100%, so budget real practice time. Learn one range's timing first, then repeat the pattern — accuracy and speed both matter, and replays are free.",
       "source": "Push Square",
       "source_date": "2026-11-18",
-      "method_status": "confirmed",
-      "target": 42,
-      "target_unit": "gold medals"
+      "method": "confirmed",
+      "goal": 42,
+      "goal_unit": "gold medals"
     },
     {
       "id": "top-fun",
       "name": "Top Fun",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "activities",
       "stage": 5,
       "spoiler": false,
@@ -338,15 +405,15 @@
       "guide": "Win a Top Fun drone race at all 14 locations. The 100% checklist separately wants all 42 drone time trials, so fly every course twice: once to win the race, once to beat the trial time. Learn the gates before pushing speed.",
       "source": "KeenGamer",
       "source_date": "2026-11-19",
-      "method_status": "confirmed",
-      "target": 14,
-      "target_unit": "locations"
+      "method": "confirmed",
+      "goal": 14,
+      "goal_unit": "locations"
     },
     {
       "id": "earn-cash-not-kudos",
       "name": "Earn Cash, Not Kudos",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "activities",
       "stage": 5,
       "spoiler": false,
@@ -356,15 +423,15 @@
       "guide": "Win 20 different races across Leonida. The 100% checklist wants 30 of 40 unique races won, so this trophy lands on the way — vary the race types instead of repeating one favourite, and keep a different vehicle ready for each discipline.",
       "source": "KeenGamer",
       "source_date": "2026-11-19",
-      "method_status": "confirmed",
-      "target": 20,
-      "target_unit": "races won"
+      "method": "confirmed",
+      "goal": 20,
+      "goal_unit": "races won"
     },
     {
       "id": "baited-my-tackle",
       "name": "Baited My Tackle",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "strangers",
       "stage": 3,
       "spoiler": false,
@@ -374,13 +441,13 @@
       "guide": "Beat Cal in a fishing challenge. Fishing is one of the stranger-linked activities — take the challenge when it appears, watch the line tension instead of mashing, and reel steadily when the fish runs.",
       "source": "KeenGamer",
       "source_date": "2026-11-19",
-      "method_status": "confirmed"
+      "method": "confirmed"
     },
     {
       "id": "stick-fiddler",
       "name": "Stick Fiddler",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "activities",
       "stage": 5,
       "spoiler": false,
@@ -390,13 +457,13 @@
       "guide": "Complete any one arcade game. Pick the shortest cabinet you find and finish a full run — the 100% checklist also wants you to play all four video games, so note which cabinets you have tried.",
       "source": "KeenGamer",
       "source_date": "2026-11-19",
-      "method_status": "confirmed"
+      "method": "confirmed"
     },
     {
       "id": "road-to-rehabilitation",
       "name": "Road to Rehabilitation",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "strangers",
       "stage": 3,
       "spoiler": false,
@@ -406,13 +473,13 @@
       "guide": "Finish Andy's stranger strand through to his final mission, Puff Puff Pass. Stranger strands unlock as you explore — check the map for stranger icons after each chapter and clear them before moving on.",
       "source": "GTAScoop",
       "source_date": "2026-11-18",
-      "method_status": "confirmed"
+      "method": "confirmed"
     },
     {
       "id": "this-was-no-boat-accident",
       "name": "This Was No Boat Accident",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "strangers",
       "stage": 3,
       "spoiler": false,
@@ -422,13 +489,13 @@
       "guide": "Finish Kenton's strand to his final mission. Kenton also ties into treasure sets — five of his seven sets count toward 100% — so pick up his collectibles while his missions take you around the map.",
       "source": "KeenGamer",
       "source_date": "2026-11-19",
-      "method_status": "confirmed"
+      "method": "confirmed"
     },
     {
       "id": "the-lone-rider",
       "name": "The Lone Rider",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "strangers",
       "stage": 3,
       "spoiler": false,
@@ -438,13 +505,13 @@
       "guide": "Finish Billy's stranger strand through to his final mission. Billy's missions are bike-heavy — keep a fast bike in your garage so you are not hunting for one mid-strand.",
       "source": "KeenGamer",
       "source_date": "2026-11-19",
-      "method_status": "confirmed"
+      "method": "confirmed"
     },
     {
       "id": "strangers-and-freaks",
       "name": "Strangers & Freaks",
       "grade": "silver",
-      "psn_points": 30,
+      "points": 30,
       "category": "strangers",
       "stage": 3,
       "spoiler": false,
@@ -454,15 +521,15 @@
       "guide": "Complete eight qualifying stranger mission strands across Leonida. The five named-character finals above count toward it, so you need three more strands beyond them. Strands appear as you explore — sweep the map icons between chapters rather than leaving them all for the endgame.",
       "source": "GTAScoop",
       "source_date": "2026-11-18",
-      "method_status": "confirmed",
-      "target": 8,
-      "target_unit": "strands"
+      "method": "confirmed",
+      "goal": 8,
+      "goal_unit": "strands"
     },
     {
       "id": "supply-and-demand",
       "name": "Supply & Demand",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "strangers",
       "stage": 3,
       "spoiler": false,
@@ -472,13 +539,13 @@
       "guide": "Finish Randy's stranger strand through to his final mission. Randy's work leans on supply runs — stock up on ammo and armour before his later missions, which escalate quickly.",
       "source": "KeenGamer",
       "source_date": "2026-11-19",
-      "method_status": "confirmed"
+      "method": "confirmed"
     },
     {
       "id": "spin-on-this",
       "name": "Spin On This!",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "strangers",
       "stage": 3,
       "spoiler": false,
@@ -488,13 +555,13 @@
       "guide": "Finish Tyrone's stranger strand through to his final mission. Clear Tyrone's strand before the finale if you can — stranger missions are easier to track while the story is still feeding you map icons.",
       "source": "KeenGamer",
       "source_date": "2026-11-19",
-      "method_status": "confirmed"
+      "method": "confirmed"
     },
     {
       "id": "positive-mental-attitude",
       "name": "Positive Mental Attitude",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "collectibles",
       "stage": 6,
       "spoiler": false,
@@ -504,15 +571,15 @@
       "guide": "Meditate at all 18 spots across Leonida. THIS IS THE ONLY POSSIBLY MISSABLE TROPHY: after the mission Down to Earth, find Lucia at Jason's house in the morning — she mentions meditating — follow her to the balcony and accept, and complete that balcony meditation before leaving Chapter 1. The other 17 spots can be done any time; the 100% checklist only needs 15 of 18, but this trophy needs all 18.",
       "source": "KeenGamer",
       "source_date": "2026-11-19",
-      "method_status": "confirmed",
-      "target": 18,
-      "target_unit": "meditation spots"
+      "method": "confirmed",
+      "goal": 18,
+      "goal_unit": "meditation spots"
     },
     {
       "id": "fair-game",
       "name": "Fair Game",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "strangers",
       "stage": 3,
       "spoiler": false,
@@ -522,13 +589,13 @@
       "guide": "Hunt a unique animal for Bret. Bret's hunting work also feeds the 100% checklist — all 15 of his Target Deck objectives are required there — so treat his hunts as checklist progress, not a detour. Study animals with binoculars first; the study count matters separately.",
       "source": "GTAVibes",
       "source_date": "2026-11-18",
-      "method_status": "confirmed"
+      "method": "confirmed"
     },
     {
       "id": "dont-touch-my-deck",
       "name": "Don't Touch My Deck",
       "grade": "silver",
-      "psn_points": 30,
+      "points": 30,
       "category": "collectibles",
       "stage": 6,
       "spoiler": false,
@@ -538,15 +605,15 @@
       "guide": "Complete three full collectible card sets. The 100% checklist wants 15 of 18 sets, so three is only the start — collect cards whenever you pass a spawn, and trade duplicates rather than hunting single cards across the map.",
       "source": "KeenGamer",
       "source_date": "2026-11-19",
-      "method_status": "confirmed",
-      "target": 3,
-      "target_unit": "card sets"
+      "method": "confirmed",
+      "goal": 3,
+      "goal_unit": "card sets"
     },
     {
       "id": "you-wainker",
       "name": "You WAiNKer!",
       "grade": "silver",
-      "psn_points": 30,
+      "points": 30,
       "category": "collectibles",
       "stage": 6,
       "spoiler": false,
@@ -556,15 +623,15 @@
       "guide": "Use the WAiNK app at 100 locations. Open the app on every new vehicle and landmark you meet from the very first hour — the 100% checklist needs the same 100 scans, so this trophy and the checklist finish together if you scan as you go.",
       "source": "KeenGamer",
       "source_date": "2026-11-19",
-      "method_status": "confirmed",
-      "target": 100,
-      "target_unit": "WAiNK locations"
+      "method": "confirmed",
+      "goal": 100,
+      "goal_unit": "WAiNK locations"
     },
     {
       "id": "one-last-thing",
       "name": "One Last Thing",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "activities",
       "stage": 5,
       "spoiler": false,
@@ -574,15 +641,15 @@
       "guide": "Complete 50 of the 80 challenges. Challenges split into eight categories of ten, and they are all available from the start — the 100% checklist wants 70, so pick the 50 easiest first and leave the hardest ten entirely alone.",
       "source": "GTAVibes",
       "source_date": "2026-11-18",
-      "method_status": "confirmed",
-      "target": 50,
-      "target_unit": "challenges"
+      "method": "confirmed",
+      "goal": 50,
+      "goal_unit": "challenges"
     },
     {
       "id": "hot-together",
       "name": "Hot Together",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "crime",
       "stage": 4,
       "spoiler": false,
@@ -592,13 +659,13 @@
       "guide": "Lose a four-star wanted level while your partner is with you, and escape the heat. Build the wanted level away from your partner first, then pick them up — or trigger it during a partner mission. A fast car, a planned route out of the search zone, and no stopping to fight are what make this pop.",
       "source": "GTAScoop",
       "source_date": "2026-11-18",
-      "method_status": "confirmed"
+      "method": "confirmed"
     },
     {
       "id": "retail-therapy",
       "name": "Retail Therapy",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "crime",
       "stage": 4,
       "spoiler": false,
@@ -608,13 +675,13 @@
       "guide": "Rob three shops back-to-back with your partner without losing your wanted level. Plan a route past three close shops, hit them in quick succession, and keep moving — the moment the heat clears, the chain resets. Do it in a quiet district to avoid random escalation.",
       "source": "KeenGamer",
       "source_date": "2026-11-19",
-      "method_status": "confirmed"
+      "method": "confirmed"
     },
     {
       "id": "whip-it-good",
       "name": "Whip It Good",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "collectibles",
       "stage": 6,
       "spoiler": false,
@@ -624,16 +691,15 @@
       "guide": "Discover 100 vehicles. This overlaps heavily with WAiNK scanning — every new vehicle you scan is a discovery — so the same habit (scan everything new) earns both trophies. The 100% checklist wants 200 base-model vehicles of 277, so keep going past 100.",
       "source": "KeenGamer",
       "source_date": "2026-11-19",
-      "method_status": "confirmed",
-      "target": 100,
-      "target_unit": "vehicles"
-    }
-,
+      "method": "confirmed",
+      "goal": 100,
+      "goal_unit": "vehicles"
+    },
     {
       "id": "gunslinger",
       "name": "Gunslinger",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "crime",
       "stage": 4,
       "spoiler": false,
@@ -643,15 +709,15 @@
       "guide": "Take down five enemies in a single use of Combat Focus. Wait for a crowded fight — a gang shootout or a police response — trigger Combat Focus with five targets in reach, and chain the kills before the effect ends. Do not waste it on two or three enemies.",
       "source": "KeenGamer",
       "source_date": "2026-11-19",
-      "method_status": "confirmed",
-      "target": 5,
-      "target_unit": "enemies in one Focus"
+      "method": "confirmed",
+      "goal": 5,
+      "goal_unit": "enemies in one Focus"
     },
     {
       "id": "catch-me-if-you-can",
       "name": "Catch Me If You Can",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "crime",
       "stage": 4,
       "spoiler": false,
@@ -661,13 +727,13 @@
       "guide": "Steal a departing passenger aircraft from Vice City International Airport — make an unscheduled departure. Watch the runway for a plane taxiing to take off, board it before it leaves, and get airborne. Expect a wanted level the moment you cross the tarmac.",
       "source": "KeenGamer",
       "source_date": "2026-11-19",
-      "method_status": "confirmed"
+      "method": "confirmed"
     },
     {
       "id": "challenging-tank",
       "name": "Challenging Tank",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "crime",
       "stage": 4,
       "spoiler": false,
@@ -677,13 +743,13 @@
       "guide": "Steal a Rhino military tank and use it in combat. Military hardware is heavily guarded — approach with a fast escape vehicle parked nearby, grab the Rhino, and fire the cannon at hostiles to register combat use before the army response overwhelms you.",
       "source": "KeenGamer",
       "source_date": "2026-11-19",
-      "method_status": "confirmed"
+      "method": "confirmed"
     },
     {
       "id": "sneakthief",
       "name": "Sneakthief",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "crime",
       "stage": 4,
       "spoiler": false,
@@ -693,13 +759,13 @@
       "guide": "Rob a jewelry store without being detected. Go in quiet: no alarms, no witnesses raising the alarm, no camera spotting you. Scout the store first, move when the clerk is turned away, and leave before anyone realises the case is empty.",
       "source": "GTAVibes",
       "source_date": "2026-11-18",
-      "method_status": "confirmed"
+      "method": "confirmed"
     },
     {
       "id": "maximum-withdrawal",
       "name": "Maximum Withdrawal",
       "grade": "silver",
-      "psn_points": 30,
+      "points": 30,
       "category": "crime",
       "stage": 4,
       "spoiler": false,
@@ -709,15 +775,15 @@
       "guide": "Rob five bank vaults and escape. The 100% checklist needs all eight vaults, so five is a milestone, not the end. Vaults are the biggest robbery jobs — plan the getaway before the entry, and keep the escape vehicle fuelled and facing the exit.",
       "source": "GTAVibes",
       "source_date": "2026-11-18",
-      "method_status": "confirmed",
-      "target": 5,
-      "target_unit": "bank vaults"
+      "method": "confirmed",
+      "goal": 5,
+      "goal_unit": "bank vaults"
     },
     {
       "id": "a-classic-blitz-play",
       "name": "A Classic Blitz Play",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "crime",
       "stage": 4,
       "spoiler": false,
@@ -727,13 +793,13 @@
       "guide": "Rob an armored truck and escape. Armored trucks run set routes around the city — ram one to a stop or block it, crack it open, grab the cash and break line of sight before the police box you in. A bike is the best getaway here.",
       "source": "GTAVibes",
       "source_date": "2026-11-18",
-      "method_status": "confirmed"
+      "method": "confirmed"
     },
     {
       "id": "the-goodtime-state",
       "name": "The Goodtime State",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "collectibles",
       "stage": 6,
       "spoiler": false,
@@ -743,13 +809,13 @@
       "guide": "Explore all of Leonida and uncover the complete map. Drive, fly and sail the edges — the map fills in as you travel, so combine this with WAiNK scans and stunt runs instead of making dedicated map trips. The far corners and islands are the parts people miss.",
       "source": "KeenGamer",
       "source_date": "2026-11-19",
-      "method_status": "confirmed"
+      "method": "confirmed"
     },
     {
       "id": "pest-control",
       "name": "Pest Control",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "crime",
       "stage": 4,
       "spoiler": false,
@@ -759,15 +825,15 @@
       "guide": "Rob at least one illegal operation belonging to each of the nine gangs. Keep a checklist of which gangs you have hit — the tracker on this page has a slot for it — and do not double up on one gang while another is untouched. The 100% checklist wants 39 gang operations in total, so this is a down-payment on that.",
       "source": "KeenGamer",
       "source_date": "2026-11-19",
-      "method_status": "confirmed",
-      "target": 9,
-      "target_unit": "gangs"
+      "method": "confirmed",
+      "goal": 9,
+      "goal_unit": "gangs"
     },
     {
       "id": "in-the-beginning",
       "name": "In The Beginning…",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "misc",
       "stage": 7,
       "spoiler": false,
@@ -777,13 +843,13 @@
       "guide": "UNCONFIRMED METHOD (as of 20 Nov 2026): the description points to enjoying a cocktail overlooking Ocean Beach. Try ordering a drink at a beachfront bar on Ocean Beach and lingering at the view — but treat any single-source method as a rumour until a second source confirms it. Do not burn a save on this one.",
       "source": "GTAVibes",
       "source_date": "2026-11-18",
-      "method_status": "unconfirmed"
+      "method": "unconfirmed"
     },
     {
       "id": "capital-offense",
       "name": "Capital Offense",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "misc",
       "stage": 7,
       "spoiler": false,
@@ -793,13 +859,13 @@
       "guide": "UNCONFIRMED METHOD (as of 20 Nov 2026): the hint is to smash your way out of a vehicle showroom in classic style — the old drive-through-the-window exit. Try it with a sturdy car at a showroom, but the exact trigger is still being confirmed across sources, so verify before repeating.",
       "source": "GTAVibes",
       "source_date": "2026-11-18",
-      "method_status": "unconfirmed"
+      "method": "unconfirmed"
     },
     {
       "id": "lets-go-bowling",
       "name": "Let's Go Bowling",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "misc",
       "stage": 7,
       "spoiler": false,
@@ -809,13 +875,13 @@
       "guide": "Steal the three key valuables at the Kolt & Associates bowling alley and escape. Find all three valuables before you grab the first — a partial grab that raises the alarm wastes the run. Plan the exit through the lanes, not the front door.",
       "source": "KeenGamer",
       "source_date": "2026-11-19",
-      "method_status": "confirmed"
+      "method": "confirmed"
     },
     {
       "id": "personal-best",
       "name": "Personal Best",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "activities",
       "stage": 5,
       "spoiler": false,
@@ -825,13 +891,13 @@
       "guide": "Max out the Strength stat for both Jason and Lucia — a partnership with mass appeal. Train with each character in turn: gym work, melee and heavy lifting raise Strength over time. Switch characters when one caps out so neither is left behind.",
       "source": "KeenGamer",
       "source_date": "2026-11-19",
-      "method_status": "confirmed"
+      "method": "confirmed"
     },
     {
       "id": "actions-speak-louder",
       "name": "Actions Speak Louder",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "misc",
       "stage": 7,
       "spoiler": false,
@@ -841,15 +907,15 @@
       "guide": "Perform 500 actions affecting your Criminal Profile — choices made, for better or worse. This is a passive counter: robberies, crimes, escapes and story choices all feed it. It will finish on its own during a full 100% run; check the profile counter in-game to see how close you are.",
       "source": "KeenGamer",
       "source_date": "2026-11-19",
-      "method_status": "confirmed",
-      "target": 500,
-      "target_unit": "profile actions"
+      "method": "confirmed",
+      "goal": 500,
+      "goal_unit": "profile actions"
     },
     {
       "id": "bad-luck-i-guess",
       "name": "Bad Luck, I Guess",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "misc",
       "stage": 7,
       "spoiler": false,
@@ -859,13 +925,13 @@
       "guide": "UNCONFIRMED METHOD (as of 20 Nov 2026): the only published hint is 'Second time's the charm', which suggests failing something once and succeeding on the retry. No source has confirmed what that something is — do not chase guesses; check back after more players report it.",
       "source": "GTAVibes",
       "source_date": "2026-11-18",
-      "method_status": "unconfirmed"
+      "method": "unconfirmed"
     },
     {
       "id": "the-truth-is-out-there",
       "name": "The Truth Is Out There",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "misc",
       "stage": 7,
       "spoiler": false,
@@ -875,13 +941,13 @@
       "guide": "UNCONFIRMED METHOD (as of 20 Nov 2026): the only published hint is 'What the hell just happened?', which reads like a rare random event or easter egg. No source has confirmed a trigger — leave this one for last and watch for new reports rather than grinding blind.",
       "source": "GTAVibes",
       "source_date": "2026-11-18",
-      "method_status": "unconfirmed"
+      "method": "unconfirmed"
     },
     {
       "id": "ten-pin",
       "name": "Ten Pin",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "misc",
       "stage": 7,
       "spoiler": false,
@@ -891,13 +957,13 @@
       "guide": "METHOD BEING CONFIRMED (as of 20 Nov 2026): bowl 'em over with a melee drive-by — the working reading is a melee strike from a moving vehicle that knocks a target down like a bowling pin. Try it at the bowling alley area, but the precise method is still being confirmed across sources.",
       "source": "GTAVibes",
       "source_date": "2026-11-18",
-      "method_status": "unconfirmed"
+      "method": "unconfirmed"
     },
     {
       "id": "dime-on-the-dollar",
       "name": "Dime on the Dollar",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "crime",
       "stage": 4,
       "spoiler": false,
@@ -907,15 +973,15 @@
       "guide": "Launder $250,000 in marked bills through your contacts. Marked bills come from robberies, and fencing them through contacts cleans them — the 100% checklist needs the same $250,000 fenced, so this trophy and the checklist finish together. Bank the bills regularly instead of hoarding them.",
       "source": "KeenGamer",
       "source_date": "2026-11-19",
-      "method_status": "confirmed",
-      "target": 250000,
-      "target_unit": "$ marked bills laundered"
+      "method": "confirmed",
+      "goal": 250000,
+      "goal_unit": "$ marked bills laundered"
     },
     {
       "id": "treat-yo-self",
       "name": "Treat Yo Self",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "collectibles",
       "stage": 6,
       "spoiler": false,
@@ -925,15 +991,15 @@
       "guide": "Spend $100,000 across all shops. This is cumulative — weapons, clothes, food and gear all count. Do not force it early: by the time you have bought the garages, weapons and ammo for a full 100% run, this will already be close.",
       "source": "KeenGamer",
       "source_date": "2026-11-19",
-      "method_status": "confirmed",
-      "target": 100000,
-      "target_unit": "$ spent"
+      "method": "confirmed",
+      "goal": 100000,
+      "goal_unit": "$ spent"
     },
     {
       "id": "little-boxes",
       "name": "Little Boxes",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "collectibles",
       "stage": 6,
       "spoiler": false,
@@ -943,15 +1009,15 @@
       "guide": "Purchase all eight purchasable garage properties. Save for these through the story — robberies and fencing fund them — and buy each garage as soon as you can afford it, since stored vehicles make every later trophy easier.",
       "source": "KeenGamer",
       "source_date": "2026-11-19",
-      "method_status": "confirmed",
-      "target": 8,
-      "target_unit": "garages"
+      "method": "confirmed",
+      "goal": 8,
+      "goal_unit": "garages"
     },
     {
       "id": "on-the-spot",
       "name": "On the Spot",
       "grade": "bronze",
-      "psn_points": 15,
+      "points": 15,
       "category": "collectibles",
       "stage": 6,
       "spoiler": false,
@@ -961,9 +1027,9 @@
       "guide": "Register 10 vehicles through the Scooter Bros app. Use the app on vehicles you already own or find — registration is quick, and it pairs naturally with the Whip It Good discovery habit. Register the first ten you meet and this pops early.",
       "source": "KeenGamer",
       "source_date": "2026-11-19",
-      "method_status": "confirmed",
-      "target": 10,
-      "target_unit": "vehicles registered"
+      "method": "confirmed",
+      "goal": 10,
+      "goal_unit": "vehicles registered"
     }
   ]
 }
