@@ -1,189 +1,226 @@
 /* Leonida Trophy Guide & Tracker — dense 3-column tracker.
-   Renders app/data/trophies.json + details.json + sources.json, keeps earned ticks
-   and the meditation count in localStorage, and filters without any network calls.
-   Filters compare category and grade SLUGS (t.category / t.grade), never display
-   names — the old chip bug compared display names and silently dropped trophies. */
+   Loads app/data/trophies.json, details.json and sources.json; every audit
+   number on screen is computed from that data, not typed in. */
 (function () {
   'use strict';
 
   var STORE_KEY = 'leonida-tracker-v3';
-  var DEMO_KEY = 'leonida-tracker-v3-demo';
-  var COUNT_KEY = 'leonida-tracker-v3-counts';
-
-  var STAGE_NAMES = {
-    1: 'Story: chapters',
-    2: 'Story: named missions',
-    3: 'Strangers & side strands',
-    4: 'Crime & robberies',
-    5: 'Activities & races',
-    6: 'Collectibles & exploration',
-    7: 'Money, misc & Platinum',
-  };
-  var CATEGORY_LABELS = {
-    story: 'Story', collectibles: 'Collectibles', activities: 'Activities',
-    crime: 'Crime', strangers: 'Strangers', misc: 'Misc', platinum: 'Platinum',
-  };
-  var GRADE_LABELS = { platinum: 'Platinum', gold: 'Gold', silver: 'Silver', bronze: 'Bronze' };
-
-  // The 14 bronze trophies the demo seed marks earned on first load (210 pts, 25%).
-  var DEMO_EARNED = [
-    'just-like-paradise', 'paradise-lost', 'tits-ass-drug-money', 'vice-city-baby',
-    'top-of-the-world-ma', 'trust', 'break-the-bank', 'family-matters',
-    'dwnfall', 'hi-jacked', 'snow-storm',
-    'baited-my-tackle', 'road-to-rehabilitation', 'this-was-no-boat-accident',
-  ];
+  var PMA_ID = 'positive-mental-attitude';
+  var PMA_TOTAL = 18;
+  var DEMO_EARNED_COUNT = 14;
   var DEMO_PMA_COUNT = 6;
 
-  // One-line watch notes for the 9 watch-flagged trophies.
-  var WATCH_TEXT = {
-    'positive-mental-attitude': 'Possibly missable: do the Chapter 1 balcony meditation with Lucia before leaving Chapter 1, and keep a Chapter 1 save until the trophy pops.',
-    'gunslinger': 'Police, soldiers and civilians do NOT count — pick a gang shootout at an illegal operation.',
-    'catch-me-if-you-can': 'Only large planes at gates E3/E4 count, and the trophy is delayed until you fly about 1 km away.',
-    'strangers-and-freaks': 'Sources disagree on which strands count — check the in-game strand counter after each strand you finish.',
-    'lets-go-bowling': 'You do not need all 3 valuables in one visit; the operation respawns, and the trophy pops after escaping the police.',
-    'in-the-beginning': 'Method unconfirmed — a single source only. Do not trust a single-source method for this trophy.',
-    'capital-offense': 'Method unconfirmed — a single source only. Do not trust a single-source method for this trophy.',
-    'bad-luck-i-guess': 'Method unconfirmed — a single source only. Do not trust a single-source method for this trophy.',
-    'the-truth-is-out-there': 'Method unconfirmed — no source has confirmed a trigger yet. Leave this one for last.',
-  };
+  /* 100% Completion checklist, 35 lines in 3 groups — PowerPyx,
+     "GTA 6 100% Completion Checklist & Guide", read 21 Nov 2026. */
+  var CHECKLIST = [
+    { group: 'Story & Tasks', weight: '45%', lines: [
+      'Story Completion (finish the story)',
+      '100 Optional Tasks Completed',
+      '39 of 39 Gang Operations Cleared',
+      '22 of 22 Bank Jobs Fully Completed',
+      '7 of 7 Payday Loan Jobs Fully Completed',
+      '34 of 35 Smash ‘N’ Grabs Fully Completed',
+      '50 of 91 Stick Ups Fully Completed',
+      '$100,000 Narcotics Fenced',
+      '$100,000 Jewelry Fenced',
+      '$250,000 Marked Bills Fenced',
+      '8 of 8 Vaults Hit',
+      '$200,000 Vehicles Fenced'
+    ]},
+    { group: 'Exploration & Activities', weight: '45%', lines: [
+      '5 of 7 Kenton Sets Completed',
+      '15 of 18 Collectible Card Sets Found',
+      '100 WAiNK Locations Scanned',
+      '33 of 33 Underwater Discoveries Found',
+      '30 of 34 Magazines, Books & Comics Found (includes 27 Magazines and 7 Book Swaps)',
+      '15 of 18 Meditation Spots Completed',
+      '100 of 125 Cocaine Flamingos Destroyed',
+      '2 of 2 Unique Playlists Completed',
+      '70 of 79 Discovered Styles',
+      '30 of 40 Unique Races Won',
+      '10 of 13 Race Challenge Gold Medals',
+      '42 of 42 Shooting Range Gold Medals',
+      '4 of 4 Video Games Played',
+      '5 of 7 Pool Opponents Defeated',
+      '2 of 3 Mini Golf Locations Played',
+      '90 of 100 Basketball Hoops',
+      '42 of 42 Drone Time Trials Completed',
+      '300 of 397 Stunts Completed (130 Stunt Jumps, 202 Under the Bridges, 40 Knife Flights, 25 Base Jumps)',
+      '70 of 80 Challenges Completed',
+      '15 of 15 Bret’s Target Decks'
+    ]},
+    { group: 'Discovery', weight: '10%', lines: [
+      '200 of 277 Base Model Vehicles scanned',
+      '50 of 66 Standard Issue Weapons found (53 Guns, 9 Melee, 4 Explosives)',
+      '100 of 255 Animals studied'
+    ]}
+  ];
 
-  // The 35-line 100% checklist (PowerPyx 100% guide + Push Square 100% checklist).
-  var CHECKLIST_100 = {
-    story: [
-      'Finish the story — all 91 missions (50% of the checklist)',
-      '100 optional tasks',
-      '39 gang operations',
-      '22 bank jobs',
-      '7 payday loan jobs',
-      "34 of 35 smash 'n' grabs",
-      '50 of 91 stick ups',
-      '$100,000 narcotics fenced',
-      '$100,000 jewelry fenced',
-      '$250,000 marked bills fenced',
-      '8 bank vaults',
-      '$200,000 vehicles fenced',
-    ],
-    activities: [
-      '5 of 7 Kenton sets',
-      '15 of 18 collectible card sets',
-      '100 WAiNK scans',
-      '33 underwater discoveries',
-      '30 of 34 magazines / books / comics',
-      '15 of 18 meditations',
-      '100 of 125 flamingos',
-      '2 playlists',
-      '70 of 79 styles',
-      '30 of 40 races won',
-      '10 of 13 race challenge gold medals',
-      '42 shooting-range gold medals',
-      '4 video games played',
-      '5 of 7 pool opponents beaten',
-      '2 of 3 mini golf courses',
-      '90 of 100 basketball hoops',
-      '42 drone time trials',
-      '300 of 397 stunts',
-      '70 of 80 challenges',
-      "15 of 15 Bret's target decks",
-    ],
-    discovery: [
-      '200 of 277 base-model vehicles scanned',
-      '50 of 66 standard-issue weapons found',
-      '100 of 255 animals studied',
-    ],
-  };
+  /* Guide-level disputes (the whole guide disagrees, not one trophy).
+     Sourced from the 28 pages read 21 Nov 2026. */
+  var GUIDE_DISPUTES = [
+    { q: 'How many story missions are there — 91, 93, 95 or 122?',
+      a: 'KeenGamer counts 91 story missions.',
+      b: 'Insider Gaming and Push Square count 93; VGC counts 95; GTABay counts 122 including optional missions.',
+      call: 'The count depends on what you count — the prologue and optional missions move the number. The trophy list itself (55 trophies) is the same on every list.' },
+    { q: 'Platinum hours — about 200, or up to 300?',
+      a: 'PowerPyx, KeenGamer, GTABase and OutputLag put the Platinum at about 200 hours.',
+      b: 'Push Square says “up to 300 hours or more” — and marks its guide work in progress.',
+      call: 'Plan for ~200 hours; 300 is the work-in-progress upper bound, not the measured figure.' },
+    { q: 'Meditations — 15 or 18?',
+      a: 'The 100% checklist needs 15 of 18 meditation spots (PowerPyx 100% guide).',
+      b: 'The Positive Mental Attitude trophy needs all 18 meditations (Beebom, GameTrek).',
+      call: 'Do all 18. The trophy is the stricter requirement, and the checklist line is covered on the way.' }
+  ];
 
   var state = {
-    trophies: [], details: {}, sources: [],
-    earned: {}, counts: {}, demo: false,
-    spoilersShown: false,
-    query: '', filter: { type: 'all' },
-    selectedId: 'positive-mental-attitude',
-    tab: 'tracker',
+    trophies: [], meta: null, detailsById: {}, sources: [], sourcesMeta: null,
+    roadmap: [], earned: {}, pmaCount: 0, demo: false, spoilersShown: false,
+    query: '', filterKey: '', selectedId: PMA_ID, tab: 'tracker'
   };
 
   function $(id) { return document.getElementById(id); }
-
   function esc(s) {
     return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   }
-
-  function loadJSON(path) {
-    return fetch(path).then(function (r) {
-      if (!r.ok) throw new Error('failed to load ' + path);
-      return r.json();
-    });
+  function gradeLabel(g) { return g.charAt(0).toUpperCase() + g.slice(1); }
+  function catLabel(c) { return c.charAt(0).toUpperCase() + c.slice(1); }
+  function trophyById(id) { return state.trophies.find(function (t) { return t.id === id; }); }
+  function detailsFor(id) { return state.detailsById[id] || { steps: [], disputes: [], sources: [] }; }
+  function roadmapPos(id) { return state.roadmap.findIndex(function (t) { return t.id === id; }) + 1; }
+  function stageName(n) {
+    var s = (state.meta && state.meta.stages || []).find(function (x) { return x.n === n; });
+    return s ? 'Stage ' + n + ' — ' + s.name : 'Stage ' + n;
   }
+  function sourceByN(n) { return state.sources.find(function (s) { return s.n === n; }); }
+  function cite(n) {
+    var s = sourceByN(n);
+    var title = s ? esc(s.site + ' — ' + s.title) : '';
+    return '<sup class="cite" title="' + title + '">[' + n + ']</sup>';
+  }
+  function cites(nums) { return (nums || []).map(cite).join(' '); }
 
-  function loadStore() {
-    try {
-      var raw = localStorage.getItem(STORE_KEY);
-      state.earned = raw ? JSON.parse(raw) : {};
-      var counts = localStorage.getItem(COUNT_KEY);
-      state.counts = counts ? JSON.parse(counts) : {};
-      state.demo = localStorage.getItem(DEMO_KEY) === '1';
-    } catch (e) { state.earned = {}; state.counts = {}; state.demo = false; }
-    if (!state.demo && Object.keys(state.earned).length === 0) {
-      // First load: demo seed — 14 bronze trophies earned, PMA count 6/18.
-      DEMO_EARNED.forEach(function (id) { state.earned[id] = true; });
-      state.counts['positive-mental-attitude'] = DEMO_PMA_COUNT;
-      state.demo = true;
-      saveStore();
+  function loadStored() {
+    var stored = null;
+    try { stored = JSON.parse(localStorage.getItem(STORE_KEY) || 'null'); } catch (e) { stored = null; }
+    if (stored && stored.earned) {
+      state.earned = stored.earned || {};
+      state.pmaCount = stored.pma || 0;
+      state.demo = !!stored.demo;
+      state.spoilersShown = !!stored.spoilers;
+      return;
     }
+    /* Demo seed on first load: the first 14 bronze trophies in roadmap
+       order (14 × 15 pts = 210 pts, 25%), PMA counter at 6/18. */
+    state.roadmap.filter(function (t) { return t.grade === 'bronze'; }).slice(0, DEMO_EARNED_COUNT)
+      .forEach(function (t) { state.earned[t.id] = true; });
+    state.pmaCount = DEMO_PMA_COUNT;
+    state.demo = true;
+    saveStored();
   }
-
-  function saveStore() {
+  function saveStored() {
     try {
-      localStorage.setItem(STORE_KEY, JSON.stringify(state.earned));
-      localStorage.setItem(COUNT_KEY, JSON.stringify(state.counts));
-      localStorage.setItem(DEMO_KEY, state.demo ? '1' : '0');
+      localStorage.setItem(STORE_KEY, JSON.stringify({
+        earned: state.earned, pma: state.pmaCount, demo: state.demo, spoilers: state.spoilersShown
+      }));
     } catch (e) { /* storage blocked: progress just won't persist */ }
   }
 
-  // Roadmap order: stage, then file order, platinum pinned last.
-  function roadmapOrder() {
-    return state.trophies.slice().sort(function (a, b) {
-      if (a.grade === 'platinum' && b.grade !== 'platinum') return 1;
-      if (b.grade === 'platinum' && a.grade !== 'platinum') return -1;
-      if (a.stage !== b.stage) return a.stage - b.stage;
-      return state.trophies.indexOf(a) - state.trophies.indexOf(b);
-    });
-  }
-
-  function roadmapPosition(id) {
-    var order = roadmapOrder();
-    for (var i = 0; i < order.length; i++) if (order[i].id === id) return i + 1;
-    return null;
-  }
-
-  function trophyById(id) {
-    for (var i = 0; i < state.trophies.length; i++) if (state.trophies[i].id === id) return state.trophies[i];
-    return null;
-  }
-
-  function detailsFor(id) { return state.details[id] || { steps: [], disputes: [], sources: [] }; }
-
-  function sourceByNum(n) {
-    for (var i = 0; i < state.sources.length; i++) if (state.sources[i].n === n) return state.sources[i];
-    return null;
-  }
-
-  function citedByCount(n) {
-    var count = 0;
+  /* ---------- audit strip (computed from data) ---------- */
+  function renderAudit() {
+    var counts = state.meta.counts;
+    var totalSteps = 0, citedSteps = 0, backedSteps = 0, backedGuides = 0, disputes = 0;
+    var watch = 0, unconfirmed = 0, missable = 0;
     state.trophies.forEach(function (t) {
       var d = detailsFor(t.id);
-      if ((d.sources || []).indexOf(n) !== -1) count += 1;
+      totalSteps += d.steps.length;
+      d.steps.forEach(function (s) {
+        if (s.src && s.src.length) citedSteps++;
+        if (s.src && s.src.length >= 2) backedSteps++;
+      });
+      if (d.steps.some(function (s) { return s.src && s.src.length >= 2; })) backedGuides++;
+      disputes += d.disputes.length;
+      if (d.watch) watch++;
+      if (d.unconfirmed) unconfirmed++;
+      if (t.missable) missable++;
     });
-    return count;
+    var g = counts;
+    $('audit-line-1').innerHTML =
+      '<strong>' + g.total + '/' + g.total + '</strong> official name, description, grade &middot; ' +
+      '<strong>' + g.platinum + 'P ' + g.gold + 'G ' + g.silver + 'S ' + g.bronze + 'B</strong> &middot; ' +
+      '<strong>' + g.psn_points_total.toLocaleString('en-US') + '</strong> PSN points &middot; ' +
+      '<strong>' + citedSteps + '/' + totalSteps + ' steps cited</strong> &middot; ' +
+      '<strong>' + backedSteps + ' steps backed by 2+ sources</strong> &middot; ' +
+      '<strong>' + backedGuides + '/' + g.total + ' guides backed by 2+ sources</strong>';
+    $('audit-line-2').textContent =
+      (state.sourcesMeta.pages || '') + ' pages · ' + (state.sourcesMeta.sites || '') + ' sites read ' +
+      (state.sourcesMeta.read || '') + ' · ' + counts.hidden_reported + ' PSN-hidden (' +
+      counts.hidden_identified + ' identified) · ' + missable + ' possibly missable · ' + watch +
+      ' watch · ' + unconfirmed + ' unconfirmed · ' + disputes +
+      ' disputes shown both ways · ~200 h · difficulty 4/10 · one playthrough · game launched 19 Nov 2026';
   }
 
+  /* ---------- progress ---------- */
+  function earnedList() { return state.trophies.filter(function (t) { return state.earned[t.id]; }); }
+  function updateProgress() {
+    var list = earnedList();
+    var points = list.reduce(function (s, t) { return s + t.psn_points; }, 0);
+    var total = state.trophies.length;
+    var pct = total ? Math.round(list.length / total * 100) : 0;
+    $('earned-count').textContent = list.length;
+    $('earned-points').textContent = points;
+    $('progress-pct').textContent = pct + '%';
+    $('bar-fill').style.width = pct + '%';
+    $('goal-count').textContent = list.length + ' / ' + total;
+    $('goal-points').textContent = points + ' / 1,350';
+    $('goal-bar').style.width = pct + '%';
+    $('demo-label').hidden = !state.demo;
+  }
+
+  /* ---------- filter chips (16) ---------- */
+  function chipDefs() {
+    var c = state.meta.counts;
+    var defs = [
+      { key: '', label: 'All', n: c.total, aria: 'Show all trophies' },
+      { key: 'grade:platinum', label: 'Platinum', n: c.platinum, aria: 'Filter by grade: Platinum' },
+      { key: 'grade:gold', label: 'Gold', n: c.gold, aria: 'Filter by grade: Gold' },
+      { key: 'grade:silver', label: 'Silver', n: c.silver, aria: 'Filter by grade: Silver' },
+      { key: 'grade:bronze', label: 'Bronze', n: c.bronze, aria: 'Filter by grade: Bronze' }
+    ];
+    ['story', 'collectibles', 'activities', 'crime', 'strangers', 'misc', 'platinum'].forEach(function (cat) {
+      var n = state.trophies.filter(function (t) { return t.category === cat; }).length;
+      defs.push({ key: 'category:' + cat, label: catLabel(cat), n: n, aria: 'Filter by category: ' + catLabel(cat) });
+    });
+    var earnedN = earnedList().length;
+    defs.push(
+      { key: 'status:earned', label: 'Earned', n: earnedN, aria: 'Show earned trophies' },
+      { key: 'status:remaining', label: 'Remaining', n: c.total - earnedN, aria: 'Show trophies still to earn' },
+      { key: 'status:missable', label: 'Missable', n: state.trophies.filter(function (t) { return t.missable; }).length, aria: 'Show possibly missable trophies' },
+      { key: 'status:disputed', label: 'Disputed', n: state.trophies.filter(function (t) { return detailsFor(t.id).disputes.length; }).length, aria: 'Show trophies where sources disagree' }
+    );
+    return defs;
+  }
+  function renderChips() {
+    $('chips').innerHTML = chipDefs().map(function (d) {
+      return '<button type="button" class="chip-btn' + (state.filterKey === d.key ? ' active' : '') +
+        '" data-chip="' + esc(d.key) + '" aria-label="' + esc(d.aria) + '">' + esc(d.label) +
+        ' <span class="n">' + d.n + '</span></button>';
+    }).join('');
+  }
+  function matchesFilter(t) {
+    if (!state.filterKey) return true;
+    var parts = state.filterKey.split(':');
+    var kind = parts[0], val = parts[1];
+    if (kind === 'grade') return t.grade === val;
+    if (kind === 'category') return t.category === val;
+    if (kind === 'status' && val === 'earned') return !!state.earned[t.id];
+    if (kind === 'status' && val === 'remaining') return !state.earned[t.id];
+    if (kind === 'status' && val === 'missable') return !!t.missable;
+    if (kind === 'status' && val === 'disputed') return detailsFor(t.id).disputes.length > 0;
+    return true;
+  }
   function matches(t) {
-    var f = state.filter;
-    if (f.type === 'category' && t.category !== f.value) return false;
-    if (f.type === 'grade' && t.grade !== f.value) return false;
-    if (f.type === 'earned' && !state.earned[t.id]) return false;
-    if (f.type === 'remaining' && state.earned[t.id]) return false;
-    if (f.type === 'missable' && !t.missable) return false;
-    if (f.type === 'unconfirmed' && t.method_status === 'confirmed') return false;
+    if (!matchesFilter(t)) return false;
     if (state.query) {
       var hay = (t.name + ' ' + t.official + ' ' + t.guide + ' ' + t.category).toLowerCase();
       if (hay.indexOf(state.query) === -1) return false;
@@ -191,300 +228,284 @@
     return true;
   }
 
+  /* ---------- checklist (left column) ---------- */
   function tagsFor(t) {
     var d = detailsFor(t.id);
-    var tags = [];
-    if (t.hidden) tags.push(['tag-hidden', 'Hidden']);
-    if (t.missable) tags.push(['tag-missable', 'Missable']);
-    if (d.disputes && d.disputes.length) tags.push(['tag-disputed', 'Disputed']);
-    if (d.watch) tags.push(['tag-watch', 'Watch']);
-    if (t.method_status !== 'confirmed') tags.push(['tag-unconfirmed', 'Unconfirmed']);
-    if (state.earned[t.id]) tags.push(['tag-earned', 'Earned']);
-    return tags;
+    var out = '';
+    if (t.hidden) out += '<span class="tag tag-hidden">HIDDEN</span>';
+    if (t.missable) out += '<span class="tag tag-missable">MISSABLE</span>';
+    if (d.disputes.length) out += '<span class="tag tag-disputed">DISPUTED · ' + d.disputes.length + '</span>';
+    if (d.watch) out += '<span class="tag tag-watch">WATCH</span>';
+    if (state.earned[t.id]) out += '<span class="tag tag-earned">EARNED</span>';
+    return out;
   }
-
-  function renderChips() {
-    var counts = {};
-    state.trophies.forEach(function (t) {
-      counts['category:' + t.category] = (counts['category:' + t.category] || 0) + 1;
-      counts['grade:' + t.grade] = (counts['grade:' + t.grade] || 0) + 1;
-    });
-    var earnedCount = Object.keys(state.earned).filter(function (id) { return state.earned[id]; }).length;
-    var missableCount = state.trophies.filter(function (t) { return t.missable; }).length;
-    var unconfirmedCount = state.trophies.filter(function (t) { return t.method_status !== 'confirmed'; }).length;
-
-    var chips = [{ type: 'all', label: 'All ' + state.trophies.length }];
-    ['story', 'collectibles', 'activities', 'crime', 'strangers', 'misc', 'platinum'].forEach(function (cat) {
-      chips.push({ type: 'category', value: cat, label: CATEGORY_LABELS[cat] + ' ' + (counts['category:' + cat] || 0) });
-    });
-    ['platinum', 'gold', 'silver', 'bronze'].forEach(function (g) {
-      chips.push({ type: 'grade', value: g, label: GRADE_LABELS[g] + ' ' + (counts['grade:' + g] || 0) });
-    });
-    chips.push({ type: 'earned', label: 'Earned ' + earnedCount });
-    chips.push({ type: 'remaining', label: 'Remaining ' + (state.trophies.length - earnedCount) });
-    chips.push({ type: 'missable', label: 'Missable ' + missableCount });
-    chips.push({ type: 'unconfirmed', label: 'Unconfirmed ' + unconfirmedCount });
-
-    $('chips').innerHTML = chips.map(function (c) {
-      var active = state.filter.type === c.type && (c.type === 'all' || state.filter.value === c.value || (c.type !== 'category' && c.type !== 'grade'));
-      var label = c.type === 'category' ? 'Filter by category ' + CATEGORY_LABELS[c.value]
-        : c.type === 'grade' ? 'Filter by grade ' + GRADE_LABELS[c.value]
-        : 'Filter: ' + c.label;
-      return '<button class="chip" type="button" data-filter-type="' + c.type + '" data-filter-value="' + esc(c.value || '') + '"' +
-        ' aria-pressed="' + active + '" aria-label="' + esc(label) + '">' + esc(c.label) + '</button>';
-    }).join('');
-
-    $('chips').querySelectorAll('.chip').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var type = btn.getAttribute('data-filter-type');
-        var value = btn.getAttribute('data-filter-value') || undefined;
-        state.filter = type === 'all' ? { type: 'all' } : { type: type, value: value };
-        renderAll();
-      });
-    });
-  }
-
-  function renderChecklist() {
-    var shown = state.trophies.filter(matches);
-    $('count-line').textContent = 'Showing ' + shown.length + ' of ' + state.trophies.length + ' trophies.';
-    var groups = {};
-    shown.forEach(function (t) {
-      (groups[t.stage] = groups[t.stage] || []).push(t);
-    });
-    var html = '';
-    Object.keys(groups).sort(function (a, b) { return a - b; }).forEach(function (stage) {
-      var list = groups[stage];
-      html += '<section class="stage-group"><h3>Stage ' + stage + ' — ' + esc(STAGE_NAMES[stage]) + ' (' + list.length + ')</h3>';
-      list.forEach(function (t) {
-        var d = detailsFor(t.id);
-        var tags = tagsFor(t).map(function (tag) {
-          return '<span class="tag ' + tag[0] + '">' + esc(tag[1]) + '</span>';
-        }).join('');
-        html += '<div class="trophy-row' + (state.earned[t.id] ? ' earned' : '') + (state.selectedId === t.id ? ' selected' : '') + '" role="button" tabindex="0" data-trophy-id="' + esc(t.id) + '">' +
-          '<input type="checkbox" class="trophy-check" data-check-id="' + esc(t.id) + '"' + (state.earned[t.id] ? ' checked' : '') + ' aria-label="Mark ' + esc(t.name) + ' earned">' +
-          '<span class="trophy-main"><span class="trophy-name">' + esc(t.name) + '</span>' +
-          '<span class="trophy-sub grade-' + esc(t.grade) + '"> ' + esc(GRADE_LABELS[t.grade]) + ' · ' + t.psn_points + ' pts · Stage ' + t.stage + '</span>' +
-          '<span class="tags">' + tags + '</span></span>' +
-          '<span class="trophy-sources">' + (d.sources || []).length + ' sources</span></div>';
-      });
-      html += '</section>';
-    });
-    $('stage-groups').innerHTML = html || '<p>No trophies match this filter.</p>';
-
-    $('stage-groups').querySelectorAll('.trophy-row').forEach(function (row) {
-      row.addEventListener('click', function (e) {
-        if (e.target.classList.contains('trophy-check')) return;
-        selectTrophy(row.getAttribute('data-trophy-id'));
-      });
-      row.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectTrophy(row.getAttribute('data-trophy-id')); }
-      });
-    });
-    $('stage-groups').querySelectorAll('.trophy-check').forEach(function (box) {
-      box.addEventListener('change', function () {
-        var id = box.getAttribute('data-check-id');
-        if (box.checked) state.earned[id] = true; else delete state.earned[id];
-        state.demo = false;
-        saveStore();
-        renderAll();
-      });
-    });
-  }
-
-  function renderDetail() {
-    var t = trophyById(state.selectedId) || state.trophies[0];
-    if (!t) return;
-    var d = detailsFor(t.id);
-    $('detail-grade').textContent = GRADE_LABELS[t.grade] + ' · ' + t.psn_points + ' PSN points';
-    $('detail-grade').className = 'detail-grade grade-' + t.grade;
-    $('detail-name').textContent = t.name;
-    var pos = roadmapPosition(t.id);
-    $('detail-meta').textContent = 'Trophy ' + pos + '/55 in roadmap order · Stage ' + t.stage + ' — ' + STAGE_NAMES[t.stage] + ' · ' + CATEGORY_LABELS[t.category] + ' · Source: ' + t.source + ', ' + t.source_date;
-    $('detail-tags').innerHTML = tagsFor(t).map(function (tag) {
-      return '<span class="tag ' + tag[0] + '">' + esc(tag[1]) + '</span>';
-    }).join('');
-    $('detail-official').textContent = '\u201C' + t.official + '\u201D';
-    $('detail-guide').textContent = t.guide;
-    $('detail-steps').innerHTML = (d.steps || []).map(function (s, i) {
-      var cites = (s.src || []).map(function (n) {
-        var src = sourceByNum(n);
-        return src ? src.site : ('#' + n);
-      }).join(', ');
-      return '<li><span class="step-text">' + esc(s.text) + '</span> <span class="cite">[' + esc(cites) + ']</span></li>';
-    }).join('');
-
-    var watch = d.watch ? WATCH_TEXT[t.id] : null;
-    $('watch-box').hidden = !watch;
-    if (watch) $('watch-text').textContent = watch;
-
-    // PMA meditation stepper (demo count 6/18).
-    var isPMA = t.id === 'positive-mental-attitude';
-    $('count-stepper').hidden = !isPMA;
-    if (isPMA) {
-      var count = state.counts[t.id] || 0;
-      $('count-value').textContent = count + '/18';
-      $('count-note').textContent = 'meditations done — the 100% checklist needs 15, this trophy needs all 18';
+  function renderList() {
+    var list = state.roadmap.filter(matches);
+    $('count-line').textContent = 'Showing ' + list.length + ' of ' + state.trophies.length + ' trophies.';
+    if (!list.length) {
+      $('trophy-list').innerHTML = '<p class="empty">No trophies match these filters. Clear the search or pick another chip.</p>';
+      return;
     }
-
-    $('disputes').innerHTML = (d.disputes || []).map(function (dp) {
-      var cites = (dp.sources || []).map(function (n) {
-        var src = sourceByNum(n);
-        return src ? src.site : ('#' + n);
-      }).join(', ');
-      return '<section class="dispute"><h3>Sources differ</h3><p>' + esc(dp.q) + '</p>' +
-        '<div class="versions"><div class="version"><strong>Version A</strong>' + esc(dp.a) + '</div>' +
-        '<div class="version"><strong>Version B</strong>' + esc(dp.b) + '</div></div>' +
-        '<p class="call"><strong>Our call:</strong> ' + esc(dp.call) + '</p>' +
-        '<p class="cite">Sources: ' + esc(cites) + '</p></section>';
-    }).join('');
-
-    $('toggle-spoiler').setAttribute('aria-pressed', String(state.spoilersShown));
-    $('toggle-spoiler').textContent = state.spoilersShown ? 'Hide guide & steps' : 'Show guide & steps';
-    $('spoiler-body').hidden = !state.spoilersShown;
-
-    // Right sidebar: next up, goal, per-trophy sources.
-    var order = roadmapOrder();
-    var next = order.filter(function (x) { return !state.earned[x.id] && x.grade !== 'platinum'; }).slice(0, 5);
-    $('next-up').innerHTML = next.map(function (x) {
-      return '<li><a href="#" data-next-id="' + esc(x.id) + '">' + esc(x.name) + '</a> <span class="trophy-sub">(' + esc(GRADE_LABELS[x.grade]) + ', Stage ' + x.stage + ')</span></li>';
-    }).join('') || '<li>All non-platinum trophies earned.</li>';
-    $('next-up').querySelectorAll('[data-next-id]').forEach(function (a) {
-      a.addEventListener('click', function (e) { e.preventDefault(); selectTrophy(a.getAttribute('data-next-id')); });
-    });
-    var earnedCount = Object.keys(state.earned).filter(function (id) { return state.earned[id]; }).length;
-    var milestones = [14, 28, 41, 54];
-    var nextMilestone = milestones.find(function (m) { return earnedCount < m; }) || 55;
-    $('goal-text').textContent = earnedCount >= 55
-      ? 'Platinum earned — Vice Got a Price! is yours. 1,350 PSN points.'
-      : 'Goal: reach ' + nextMilestone + ' of 55 trophies (' + Math.round(nextMilestone / 55 * 100) + '%) — ' + (nextMilestone - earnedCount) + ' to go. The Platinum, Vice Got a Price!, pops when the other 54 are done.';
-    $('per-sources').innerHTML = (d.sources || []).map(function (n) {
-      var src = sourceByNum(n);
-      if (!src) return '<li>Source ' + n + '</li>';
-      return '<li><a href="' + esc(src.url) + '" target="_blank" rel="noopener">' + esc(src.title) + '</a> <span class="src-meta">(' + esc(src.site) + ', ' + esc(src.date) + ')</span></li>';
+    var byStage = {};
+    list.forEach(function (t) { (byStage[t.stage] = byStage[t.stage] || []).push(t); });
+    $('trophy-list').innerHTML = Object.keys(byStage).sort(function (a, b) { return a - b; }).map(function (sn) {
+      var group = byStage[sn];
+      var done = group.filter(function (t) { return state.earned[t.id]; }).length;
+      return '<div class="stage-group"><h3>' + esc(stageName(Number(sn))) + ' &middot; ' + done + '/' + group.length + ' earned</h3>' +
+        group.map(function (t) {
+          var d = detailsFor(t.id);
+          return '<button type="button" class="trow' + (t.id === state.selectedId ? ' selected' : '') + (state.earned[t.id] ? ' earned-row' : '') +
+            '" data-select="' + esc(t.id) + '">' +
+            '<input type="checkbox" data-check="' + esc(t.id) + '"' + (state.earned[t.id] ? ' checked' : '') +
+            ' aria-label="Mark ' + esc(t.name) + ' earned">' +
+            '<span><span class="tname">' + esc(t.name) + '</span>' +
+            '<span class="tmeta">' + roadmapPos(t.id) + '/55 &middot; ' + esc(gradeLabel(t.grade)) + ' &middot; ' +
+            t.psn_points + ' pts &middot; ' + d.sources.length + ' sources</span>' +
+            '<span class="tmeta">' + tagsFor(t) + '</span></span></button>';
+        }).join('') + '</div>';
     }).join('');
   }
 
-  function renderProgress() {
-    var earnedCount = Object.keys(state.earned).filter(function (id) { return state.earned[id]; }).length;
-    var points = state.trophies.reduce(function (sum, t) { return sum + (state.earned[t.id] ? t.psn_points : 0); }, 0);
-    $('earned-count').textContent = earnedCount;
-    $('earned-points').textContent = points;
-    $('progress-pct').textContent = Math.round(earnedCount / 55 * 100) + '%';
-    $('bar-fill').style.width = (earnedCount / 55 * 100) + '%';
-    $('demo-note').hidden = !state.demo;
+  /* ---------- detail (centre column) ---------- */
+  function renderDetail() {
+    var t = trophyById(state.selectedId) || state.roadmap[0];
+    if (!t) { $('detail').innerHTML = '<p class="empty">No trophy selected.</p>'; return; }
+    var d = detailsFor(t.id);
+    var masked = t.spoiler && !state.spoilersShown;
+    var badges = '';
+    if (t.missable) badges += '<span class="badge badge-missable">POSSIBLY MISSABLE</span>';
+    if (d.disputes.length) badges += '<span class="badge badge-differ">SOURCES DIFFER · ' + d.disputes.length + '</span>';
+    if (t.hidden) badges += '<span class="badge badge-hidden">HIDDEN</span>';
+    if (d.unconfirmed) badges += '<span class="badge badge-unconfirmed">METHOD UNCONFIRMED</span>';
+    if (d.watch) badges += '<span class="badge badge-watch">WATCH</span>';
+    if (state.earned[t.id]) badges += '<span class="badge badge-earned">EARNED</span>';
+    var body = masked
+      ? '<p class="spoiler-note">Story spoiler — hidden. Use the “Spoilers” button to reveal.</p>'
+      : '<p class="official">&ldquo;' + esc(t.official) + '&rdquo;</p>' +
+        '<p class="guide">' + esc(t.guide) + '</p>';
+    var steps = d.steps.length
+      ? '<ol class="steps">' + d.steps.map(function (s) {
+          return '<li>' + esc(s.text) + ' ' + cites(s.src) + '</li>';
+        }).join('') + '</ol>'
+      : '';
+    var disputes = d.disputes.map(function (dp) {
+      return '<div class="dispute"><h4>SOURCES DIFFER — ' + esc(dp.q) + '</h4>' +
+        '<p><span class="va">Version A:</span> ' + esc(dp.a) + ' ' + cites(dp.sources) + '</p>' +
+        '<p><span class="vb">Version B:</span> ' + esc(dp.b) + ' ' + cites(dp.sources) + '</p>' +
+        '<p><strong>Our call:</strong> ' + esc(dp.call.replace(/^Our call:\s*/i, '')) + '</p></div>';
+    }).join('');
+    var watchBox = d.watch
+      ? '<div class="watch-box"><strong>Watch:</strong> this trophy is flagged — ' +
+        (t.missable ? 'possibly missable, ' : '') +
+        (d.disputes.length ? 'sources disagree, ' : '') +
+        (d.unconfirmed ? 'method unconfirmed, ' : '') +
+        'check the steps and disputes above before you commit to a route.</div>'
+      : '';
+    var stepper = '';
+    if (t.id === PMA_ID) {
+      stepper = '<div class="stepper"><b>YOUR COUNT ' + state.pmaCount + '/' + PMA_TOTAL + ' meditations</b>' +
+        '<button type="button" id="pma-minus" aria-label="One fewer meditation">−</button>' +
+        '<button type="button" id="pma-plus" aria-label="One more meditation">+</button>' +
+        '<span>Track under Progress &gt; Collections &gt; Exploration &gt; Meditations. The trophy needs all 18; the 100% checklist needs 15 of 18.</span></div>';
+    }
+    var method = t.method_status === 'confirmed'
+      ? '<span class="flag-confirmed">method confirmed</span>'
+      : '<span class="flag-unconfirmed">method unconfirmed</span>';
+    $('detail').innerHTML =
+      '<p class="pos">Trophy ' + roadmapPos(t.id) + '/55 &middot; ' + esc(stageName(t.stage)) + ' &middot; ' + esc(catLabel(t.category)) + '</p>' +
+      '<div class="detail-top"><h2>' + esc(t.name) + '</h2>' +
+      '<span class="grade grade-' + esc(t.grade) + '">' + esc(gradeLabel(t.grade)) + ' · ' + t.psn_points + ' pts</span></div>' +
+      '<div class="badges">' + badges + '</div>' +
+      '<div class="' + (masked ? 'spoiler-hidden' : '') + '">' + body + steps + '</div>' +
+      disputes + watchBox + stepper +
+      '<div class="detail-foot"><span>Source: ' + esc(t.source) + ', ' + esc(t.source_date) + ' &middot; ' +
+      d.sources.length + ' sources for this trophy</span>' + method +
+      '<label class="check"><input type="checkbox" data-check="' + esc(t.id) + '"' + (state.earned[t.id] ? ' checked' : '') + '> Earned</label></div>';
+    var minus = $('pma-minus'), plus = $('pma-plus');
+    if (minus) minus.addEventListener('click', function () { setPma(state.pmaCount - 1); });
+    if (plus) plus.addEventListener('click', function () { setPma(state.pmaCount + 1); });
+  }
+  function setPma(n) {
+    state.pmaCount = Math.max(0, Math.min(PMA_TOTAL, n));
+    saveStored();
+    renderDetail();
   }
 
-  function renderAudit() {
-    var steps = 0, cited = 0, backedTwo = 0, guidesTwo = 0, disputes = 0;
-    state.trophies.forEach(function (t) {
-      var d = detailsFor(t.id);
-      var used = new Set();
-      (d.steps || []).forEach(function (s) {
-        steps += 1;
-        if (s.src && s.src.length) { cited += 1; if (s.src.length >= 2) backedTwo += 1; s.src.forEach(function (n) { used.add(n); }); }
-      });
-      (d.disputes || []).forEach(function (dp) { disputes += 1; (dp.sources || []).forEach(function (n) { used.add(n); }); });
-      if (used.size >= 2) guidesTwo += 1;
-    });
-    $('audit-steps').textContent = cited + '/' + steps;
-    $('audit-backed').textContent = String(backedTwo);
-    $('audit-guides').textContent = guidesTwo + '/' + state.trophies.length;
+  /* ---------- right rail ---------- */
+  function renderRail() {
+    var next = state.roadmap.filter(function (t) { return !state.earned[t.id]; }).slice(0, 5);
+    $('nextup').innerHTML = next.length
+      ? next.map(function (t, i) {
+          return '<li><button type="button" data-select="' + esc(t.id) + '">' + (i + 1) + '. ' + esc(t.name) + '</button>' +
+            '<span class="nu-stage">' + esc(stageName(t.stage)) + ' &middot; ' + esc(gradeLabel(t.grade)) + ' &middot; ' + t.psn_points + ' pts</span></li>';
+        }).join('')
+      : '<li>All 55 earned — Vice Got a Price! is yours.</li>';
+    var t = trophyById(state.selectedId) || state.roadmap[0];
+    var d = t ? detailsFor(t.id) : { sources: [] };
+    $('trophy-sources').innerHTML = (d.sources || []).map(function (n) {
+      var s = sourceByN(n);
+      if (!s) return '<li>[' + n + ']</li>';
+      return '<li><span class="src-site">[' + s.n + '] ' + esc(s.site) + '</span> — ' + esc(s.title) +
+        ' <span class="src-date">(' + esc(s.date) + ')</span></li>';
+    }).join('') || '<li>No sources listed for this trophy.</li>';
   }
 
+  /* ---------- roadmap tab ---------- */
   function renderRoadmap() {
-    var order = roadmapOrder();
-    var stagesHtml = '';
-    Object.keys(STAGE_NAMES).forEach(function (stage) {
-      var list = order.filter(function (t) { return String(t.stage) === String(stage); });
-      var earnedIn = list.filter(function (t) { return state.earned[t.id]; }).length;
-      var names = list.map(function (t) { return t.name + (state.earned[t.id] ? ' ✓' : ''); }).join(', ');
-      stagesHtml += '<li><h4>Stage ' + stage + ' — ' + esc(STAGE_NAMES[stage]) + '</h4>' +
-        '<p>' + esc(names) + '</p><p class="stage-progress">' + earnedIn + '/' + list.length + ' earned</p></li>';
-    });
-    $('stages').innerHTML = stagesHtml;
-    $('checklist-story').innerHTML = CHECKLIST_100.story.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('');
-    $('checklist-activities').innerHTML = CHECKLIST_100.activities.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('');
-    $('checklist-discovery').innerHTML = CHECKLIST_100.discovery.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('');
+    var stages = (state.meta && state.meta.stages) || [];
+    $('stages').innerHTML = stages.map(function (s) {
+      var group = state.trophies.filter(function (t) { return t.stage === s.n; });
+      var done = group.filter(function (t) { return state.earned[t.id]; }).length;
+      return '<li><span class="stage-meta">STAGE ' + s.n + ' &middot; ' + group.length + ' trophies &middot; ' + done + ' earned &middot; ' + esc(s.hours || '') + '</span>' +
+        '<b>' + esc(s.name) + '</b><p>' + esc(s.tip) + '</p></li>';
+    }).join('');
+    var px = state.sources.find(function (s) { return /powerpyx/i.test(s.site); });
+    $('checklist-cite').textContent = px ? '[' + px.n + ']' : '';
+    $('checklist').innerHTML = CHECKLIST.map(function (g) {
+      return '<div class="check-group"><h3>' + esc(g.group) + ' — ' + g.lines.length + ' lines (' + esc(g.weight) + ')</h3><ul>' +
+        g.lines.map(function (l) { return '<li>' + esc(l) + '</li>'; }).join('') + '</ul></div>';
+    }).join('');
   }
 
+  /* ---------- missables tab ---------- */
   function renderMissables() {
-    var watchIds = Object.keys(WATCH_TEXT);
-    $('watch-list').innerHTML = watchIds.map(function (id) {
-      var t = trophyById(id);
-      if (!t) return '';
-      return '<li><strong>' + esc(t.name) + '</strong> — ' + esc(WATCH_TEXT[id]) + '</li>';
+    var watch = state.trophies.filter(function (t) { return detailsFor(t.id).watch; });
+    $('watch-list').innerHTML = watch.map(function (t) {
+      var d = detailsFor(t.id);
+      var why = [];
+      if (t.missable) why.push('possibly missable');
+      if (d.disputes.length) why.push('sources disagree (' + d.disputes.length + ')');
+      if (d.unconfirmed) why.push('method unconfirmed');
+      return '<button type="button" class="watch-item" data-select="' + esc(t.id) + '" data-goto-tab="tracker">' +
+        '<b>' + esc(t.name) + '</b><span>' + roadmapPos(t.id) + '/55 &middot; ' + esc(gradeLabel(t.grade)) +
+        ' &middot; ' + why.join(' · ') + '</span></button>';
     }).join('');
   }
 
+  /* ---------- sources tab ---------- */
   function renderSources() {
-    $('source-list').innerHTML = state.sources.map(function (s) {
-      var cited = citedByCount(s.n);
-      return '<li><a href="' + esc(s.url) + '" target="_blank" rel="noopener">' + esc(s.title) + '</a> <span class="src-meta">— ' + esc(s.site) + ', ' + esc(s.date) + (s.note ? ' — ' + esc(s.note) : '') + '</span>' +
-        '<br><span class="src-cited">cited by ' + cited + ' of 55 guides</span></li>';
+    $('guide-disputes').innerHTML = GUIDE_DISPUTES.map(function (g) {
+      return '<div class="guide-dispute"><h4>' + esc(g.q) + '</h4>' +
+        '<p><strong>Version A:</strong> ' + esc(g.a) + '</p>' +
+        '<p><strong>Version B:</strong> ' + esc(g.b) + '</p>' +
+        '<p><strong>Our call:</strong> ' + esc(g.call) + '</p></div>';
+    }).join('');
+    var listCheck = state.sources.filter(function (s) { return s.role === 'list-check'; });
+    $('sources-intro').textContent =
+      state.sources.length + ' pages · ' + (state.sourcesMeta.sites || '') + ' sites · read ' +
+      (state.sourcesMeta.read || '') + '. List-check sources (full-list verification only, never cited by a step): ' +
+      listCheck.map(function (s) { return s.site; }).join(', ') + '.';
+    $('source-list').innerHTML = state.sources.slice().sort(function (a, b) { return a.n - b.n; }).map(function (s) {
+      var citedBy = state.trophies.filter(function (t) { return detailsFor(t.id).sources.indexOf(s.n) !== -1; }).length;
+      var role = s.role === 'list-check' ? 'LIST-CHECK' : 'GUIDE';
+      return '<li><span class="src-site">[' + s.n + '] ' + esc(s.site) + '</span> — ' + esc(s.title) +
+        ' <span class="src-role">' + role + '</span><br>' +
+        '<span class="src-cited">Cited by ' + citedBy + ' of 55 guides &middot; ' + esc(s.date) + '</span><br>' +
+        '<a href="' + esc(s.url) + '" target="_blank" rel="noopener">' + esc(s.url) + '</a></li>';
     }).join('');
   }
 
+  /* ---------- tabs ---------- */
   function setTab(tab) {
     state.tab = tab;
     ['tracker', 'roadmap', 'missables', 'sources'].forEach(function (name) {
-      $('tab-' + name).classList.toggle('active', name === tab);
-      $('tab-' + name).setAttribute('aria-selected', String(name === tab));
-      $('panel-' + name).hidden = name !== tab;
+      $('view-' + name).hidden = name !== tab;
+      var btn = $('tab-' + name);
+      btn.classList.toggle('active', name === tab);
+      btn.setAttribute('aria-pressed', String(name === tab));
     });
   }
 
-  function selectTrophy(id) {
-    if (!trophyById(id)) return;
-    state.selectedId = id;
-    setTab('tracker');
-    renderChecklist();
-    renderDetail();
-    var url = new URL(window.location.href);
-    url.searchParams.set('t', id);
-    window.history.replaceState(null, '', url.toString());
-  }
-
   function renderAll() {
-    renderChips();
-    renderChecklist();
-    renderDetail();
-    renderProgress();
     renderAudit();
+    renderChips();
+    renderList();
+    renderDetail();
+    renderRail();
     renderRoadmap();
     renderMissables();
     renderSources();
+    updateProgress();
+    syncSpoilerButton();
   }
 
-  function bindStatic() {
-    $('search').addEventListener('input', function () {
-      state.query = $('search').value.trim().toLowerCase();
-      renderChecklist();
+  function syncSpoilerButton() {
+    var b = $('toggle-spoiler');
+    b.textContent = state.spoilersShown ? 'Spoilers: shown' : 'Spoilers: hidden';
+    b.setAttribute('aria-pressed', String(state.spoilersShown));
+  }
+
+  function selectTrophy(id, gotoTab) {
+    if (!trophyById(id)) return;
+    state.selectedId = id;
+    if (gotoTab) setTab(gotoTab);
+    renderList();
+    renderDetail();
+    renderRail();
+  }
+
+  function readUrlParams() {
+    var p = new URLSearchParams(window.location.search);
+    if (p.get('tab') && ['tracker', 'roadmap', 'missables', 'sources'].indexOf(p.get('tab')) !== -1) state.tab = p.get('tab');
+    if (p.get('t') && trophyById(p.get('t'))) state.selectedId = p.get('t');
+    if (p.get('grade')) state.filterKey = 'grade:' + p.get('grade');
+    if (p.get('q')) { state.query = p.get('q').toLowerCase(); $('search').value = p.get('q'); }
+    if (p.get('spoilers') === 'show') state.spoilersShown = true;
+  }
+
+  function bindEvents() {
+    $('search').addEventListener('input', function (e) { state.query = e.target.value.trim().toLowerCase(); renderList(); });
+    $('chips').addEventListener('click', function (e) {
+      var b = e.target.closest('[data-chip]');
+      if (!b) return;
+      var key = b.getAttribute('data-chip');
+      state.filterKey = (state.filterKey === key) ? '' : key;
+      renderChips();
+      renderList();
+    });
+    $('trophy-list').addEventListener('click', function (e) {
+      var row = e.target.closest('[data-select]');
+      if (!row) return;
+      if (e.target.getAttribute && e.target.getAttribute('data-check')) return; /* checkbox handled below */
+      selectTrophy(row.getAttribute('data-select'));
+    });
+    document.addEventListener('change', function (e) {
+      var id = e.target.getAttribute && e.target.getAttribute('data-check');
+      if (!id) return;
+      if (e.target.checked) { state.earned[id] = true; state.demo = false; }
+      else delete state.earned[id];
+      saveStored();
+      renderAll();
+    });
+    document.addEventListener('click', function (e) {
+      var el = e.target.closest('[data-select]');
+      if (el && el.tagName === 'BUTTON' && el.classList.contains('watch-item')) return; /* handled below */
+      if (el && (el.closest('.nextup'))) { selectTrophy(el.getAttribute('data-select')); }
+    });
+    $('watch-list').addEventListener('click', function (e) {
+      var el = e.target.closest('[data-select]');
+      if (!el) return;
+      selectTrophy(el.getAttribute('data-select'), 'tracker');
     });
     document.querySelectorAll('.tab').forEach(function (btn) {
       btn.addEventListener('click', function () { setTab(btn.getAttribute('data-tab')); });
     });
     $('toggle-spoiler').addEventListener('click', function () {
       state.spoilersShown = !state.spoilersShown;
+      saveStored();
+      syncSpoilerButton();
       renderDetail();
     });
-    $('count-minus').addEventListener('click', function () {
-      var id = state.selectedId;
-      state.counts[id] = Math.max(0, (state.counts[id] || 0) - 1);
+    $('reset-btn').addEventListener('click', function () {
+      if (!window.confirm('Clear all earned ticks?')) return;
+      state.earned = {};
+      state.pmaCount = 0;
       state.demo = false;
-      saveStore();
-      renderDetail();
-      renderProgress();
-    });
-    $('count-plus').addEventListener('click', function () {
-      var id = state.selectedId;
-      state.counts[id] = Math.min(18, (state.counts[id] || 0) + 1);
-      state.demo = false;
-      saveStore();
-      renderDetail();
-      renderProgress();
+      saveStored();
+      renderAll();
     });
     $('export-btn').addEventListener('click', function () {
-      var blob = new Blob([JSON.stringify({ earned: state.earned, counts: state.counts }, null, 2)], { type: 'application/json' });
+      var blob = new Blob([JSON.stringify({ exported: new Date().toISOString(), earned: Object.keys(state.earned), pmaCount: state.pmaCount }, null, 2)], { type: 'application/json' });
       var a = document.createElement('a');
       a.href = URL.createObjectURL(blob);
       a.download = 'leonida-tracker-progress.json';
@@ -492,57 +513,52 @@
       URL.revokeObjectURL(a.href);
     });
     $('import-btn').addEventListener('click', function () { $('import-file').click(); });
-    $('import-file').addEventListener('change', function () {
-      var file = $('import-file').files[0];
-      if (!file) return;
+    $('import-file').addEventListener('change', function (e) {
+      var f = e.target.files && e.target.files[0];
+      if (!f) return;
       var reader = new FileReader();
       reader.onload = function () {
         try {
           var data = JSON.parse(reader.result);
-          state.earned = data.earned || {};
-          state.counts = data.counts || {};
+          var ids = Array.isArray(data) ? data : data.earned;
+          var next = {};
+          ids.forEach(function (id) { next[id] = true; });
+          state.earned = next;
+          if (data.pmaCount != null) state.pmaCount = data.pmaCount;
           state.demo = false;
-          saveStore();
+          saveStored();
           renderAll();
-        } catch (e) { alert('That file is not valid tracker progress JSON.'); }
+        } catch (err) { window.alert('That file is not valid tracker JSON.'); }
       };
-      reader.readAsText(file);
-    });
-    $('reset-btn').addEventListener('click', function () {
-      state.earned = {};
-      state.counts = {};
-      state.demo = false;
-      saveStore();
-      renderAll();
+      reader.readAsText(f);
+      e.target.value = '';
     });
   }
 
-  function init() {
-    loadStore();
-    Promise.all([loadJSON('data/trophies.json'), loadJSON('data/details.json'), loadJSON('data/sources.json')])
-      .then(function (results) {
-        state.trophies = results[0].trophies;
-        var detailList = results[1].details;
-        detailList.forEach(function (e) { state.details[e.id] = e; });
-        state.sources = results[2].sources;
-
-        var params = new URLSearchParams(window.location.search);
-        var tab = params.get('tab');
-        if (tab && ['tracker', 'roadmap', 'missables', 'sources'].indexOf(tab) !== -1) setTab(tab);
-        var grade = params.get('grade');
-        if (grade && GRADE_LABELS[grade]) state.filter = { type: 'grade', value: grade };
-        var t = params.get('t');
-        if (t && trophyById(t)) state.selectedId = t;
-
-        bindStatic();
-        renderAll();
-        setTab(state.tab);
-      })
-      .catch(function (err) {
-        document.body.insertAdjacentHTML('afterbegin', '<p style="padding:1rem;color:#8c2f1b">Could not load the trophy data: ' + esc(err.message) + '</p>');
-      });
-  }
-
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
-  else init();
+  Promise.all([
+    fetch('data/trophies.json').then(function (r) { if (!r.ok) throw new Error('trophies.json failed: ' + r.status); return r.json(); }),
+    fetch('data/details.json').then(function (r) { if (!r.ok) throw new Error('details.json failed: ' + r.status); return r.json(); }),
+    fetch('data/sources.json').then(function (r) { if (!r.ok) throw new Error('sources.json failed: ' + r.status); return r.json(); })
+  ]).then(function (results) {
+    var trophiesDoc = results[0], detailsDoc = results[1], sourcesDoc = results[2];
+    state.meta = trophiesDoc.meta;
+    state.trophies = trophiesDoc.trophies;
+    state.sources = sourcesDoc.sources;
+    state.sourcesMeta = sourcesDoc.meta;
+    detailsDoc.details.forEach(function (d) { state.detailsById[d.id] = d; });
+    /* Roadmap order: stage, then file order — the Platinum sorts last. */
+    state.roadmap = state.trophies.slice().sort(function (a, b) {
+      if ((a.grade === 'platinum') !== (b.grade === 'platinum')) return a.grade === 'platinum' ? 1 : -1;
+      if (a.stage !== b.stage) return a.stage - b.stage;
+      return state.trophies.indexOf(a) - state.trophies.indexOf(b);
+    });
+    loadStored();
+    readUrlParams();
+    setTab(state.tab);
+    renderAll();
+    bindEvents();
+  }).catch(function (err) {
+    $('detail').innerHTML = '<p class="empty">Could not load the trophy data (' + esc(err.message) + '). Serve app/ over HTTP and try again.</p>';
+    $('audit-line-1').textContent = 'Could not load the trophy data.';
+  });
 })();

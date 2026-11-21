@@ -4,139 +4,108 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Leonida Trophy Guide &amp; Tracker — All 55 GTA VI Trophies</title>
-<meta name="description" content="Every GTA VI trophy with its official description, a step-by-step cited guide, a platinum roadmap, a missable watch list and a saveable tracker. 55 trophies, 173 cited steps, 1,350 PSN points, one playthrough.">
+<meta name="description" content="Every GTA VI trophy with a cited step-by-step guide, disputes shown both ways, a 7-stage platinum roadmap and a tracker that saves. 55 trophies, 173/173 steps cited, 1,350 PSN points.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23151027'/%3E%3Ctext x='16' y='23' font-size='18' text-anchor='middle' fill='%23ff4d9d'%3E%E2%97%86%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="hero">
+<header class="top">
   <p class="kicker">GRAND THEFT AUTO VI &middot; PLAYSTATION 5 &middot; LEONIDA</p>
   <h1>Leonida Trophy Guide <span>&amp; Tracker</span></h1>
-  <p class="sub">All <strong>55 trophies</strong> — official descriptions, step-by-step guides with cited sources, a platinum roadmap and a tracker that saves. One playthrough, no online trophies, about 200 hours.</p>
+  <p class="sub">All <strong>55 trophies</strong> — every step cited, disputes shown both ways, a 7-stage platinum roadmap and a tracker that saves. One playthrough, no online trophies, about 200 hours.</p>
 
   <section class="audit" id="audit" aria-label="Verification audit">
-    <div class="audit-cell"><span class="audit-num" id="audit-steps">173/173</span><span class="audit-label">steps cited</span></div>
-    <div class="audit-cell"><span class="audit-num" id="audit-backed">102</span><span class="audit-label">steps backed by 2+ sources</span></div>
-    <div class="audit-cell"><span class="audit-num" id="audit-guides">52/55</span><span class="audit-label">guides backed by 2+ sources</span></div>
-    <div class="audit-cell"><span class="audit-num">28 pages &middot; 20 sites</span><span class="audit-label">read 21 Nov 2026</span></div>
-    <div class="audit-cell"><span class="audit-num">28</span><span class="audit-label">PSN-hidden, 25 identified</span></div>
-    <div class="audit-cell"><span class="audit-num">1</span><span class="audit-label">possibly missable</span></div>
-    <div class="audit-cell"><span class="audit-num">3</span><span class="audit-label">watch</span></div>
-    <div class="audit-cell"><span class="audit-num">5</span><span class="audit-label">unconfirmed</span></div>
-    <div class="audit-cell"><span class="audit-num">7</span><span class="audit-label">disputes</span></div>
-    <div class="audit-cell"><span class="audit-num">~200 h &middot; 4/10</span><span class="audit-label">one playthrough &middot; launched 19 Nov 2026</span></div>
+    <p class="audit-line" id="audit-line-1">Loading audit…</p>
+    <p class="audit-line audit-line-2" id="audit-line-2"></p>
   </section>
 
   <section class="progress" aria-label="Your progress">
     <div class="progress-head">
-      <span><strong id="earned-count">0</strong> / 55 earned &middot; <strong id="earned-points">0</strong> / 1,350 PSN points</span>
-      <span id="progress-pct">0%</span>
+      <span><strong id="earned-count">0</strong> / 55 earned &middot; <strong id="earned-points">0</strong> / 1,350 PSN points &middot; <strong id="progress-pct">0%</strong></span>
+      <span class="demo-label" id="demo-label" hidden>DEMO — 14 trophies marked earned to show the tracker</span>
     </div>
     <div class="bar"><div class="bar-fill" id="bar-fill" style="width:0%"></div></div>
     <p class="progress-note">Progress saves in this browser (localStorage). Tick a trophy when it pops; export a backup before clearing browser data.</p>
-    <p class="demo-note" id="demo-note" hidden>DEMO — 14 trophies marked earned to show the tracker.</p>
   </section>
 
-  <nav class="tabs" role="tablist" aria-label="Guide sections">
-    <button class="tab active" role="tab" aria-selected="true" data-tab="tracker" id="tab-tracker">Tracker</button>
-    <button class="tab" role="tab" aria-selected="false" data-tab="roadmap" id="tab-roadmap">Roadmap</button>
-    <button class="tab" role="tab" aria-selected="false" data-tab="missables" id="tab-missables">Missables</button>
-    <button class="tab" role="tab" aria-selected="false" data-tab="sources" id="tab-sources">Sources</button>
+  <nav class="tabs" aria-label="Guide sections">
+    <button type="button" class="tab active" data-tab="tracker" id="tab-tracker" aria-pressed="true">Tracker</button>
+    <button type="button" class="tab" data-tab="roadmap" id="tab-roadmap" aria-pressed="false">Roadmap</button>
+    <button type="button" class="tab" data-tab="missables" id="tab-missables" aria-pressed="false">Missables</button>
+    <button type="button" class="tab" data-tab="sources" id="tab-sources" aria-pressed="false">Sources</button>
   </nav>
 </header>
 
 <main>
-  <section id="panel-tracker" class="panel" role="tabpanel" aria-labelledby="tab-tracker">
+  <section id="view-tracker" aria-label="Trophy tracker">
     <div class="tracker-grid">
       <aside class="checklist" aria-label="Trophy checklist">
         <input type="search" id="search" placeholder="Search a trophy, mission or keyword…" aria-label="Search trophies">
-        <div class="chips" id="chips" aria-label="Filter trophies"></div>
+        <div class="chips" id="chips" role="group" aria-label="Filter trophies"></div>
         <p class="count-line" id="count-line">Showing 55 of 55 trophies.</p>
-        <div id="stage-groups"></div>
-        <div class="tracker-actions">
-          <button id="export-btn" type="button">Export progress</button>
-          <button id="import-btn" type="button">Import progress</button>
+        <div class="controls-row">
+          <button id="toggle-spoiler" type="button" aria-pressed="false">Spoilers: hidden</button>
+          <button id="export-btn" type="button">Export</button>
+          <button id="import-btn" type="button">Import</button>
           <input type="file" id="import-file" accept="application/json" hidden>
-          <button id="reset-btn" type="button">Reset progress</button>
+          <button id="reset-btn" type="button">Reset</button>
         </div>
+        <div id="trophy-list"></div>
       </aside>
 
-      <article class="detail" id="detail" aria-label="Trophy detail" aria-live="polite">
-        <div class="detail-head">
-          <span class="detail-grade" id="detail-grade"></span>
-          <h2 id="detail-name"></h2>
-          <p class="detail-meta" id="detail-meta"></p>
-          <div class="detail-tags" id="detail-tags"></div>
-        </div>
-        <p class="detail-official" id="detail-official"></p>
-        <div class="spoiler-wrap">
-          <button id="toggle-spoiler" type="button" aria-pressed="false">Show guide &amp; steps</button>
-          <div class="spoiler-body" id="spoiler-body" hidden>
-            <p class="detail-guide" id="detail-guide"></p>
-            <ol class="detail-steps" id="detail-steps"></ol>
-          </div>
-        </div>
-        <div class="watch-box" id="watch-box" hidden>
-          <h3>&#9888; Watch</h3>
-          <p id="watch-text"></p>
-        </div>
-        <div class="count-stepper" id="count-stepper" hidden>
-          <h3>Your count</h3>
-          <p><button type="button" id="count-minus" aria-label="Decrease count">−</button>
-          <strong id="count-value">0/18</strong>
-          <button type="button" id="count-plus" aria-label="Increase count">+</button>
-          <span class="count-note" id="count-note">meditations done</span></p>
-        </div>
-        <div id="disputes"></div>
-      </article>
+      <section class="detail" id="detail" aria-live="polite" aria-label="Trophy detail"></section>
 
-      <aside class="sidebar" aria-label="Next up and sources">
-        <section class="next-up" aria-label="Next up">
-          <h3>Next Up</h3>
-          <ol id="next-up"></ol>
+      <aside class="rail" aria-label="Next up and sources">
+        <section class="rail-card" aria-label="Next up">
+          <h2>Next Up</h2>
+          <p class="rail-note">Your roadmap order — the next trophies to chase.</p>
+          <ol class="nextup" id="nextup"></ol>
         </section>
-        <section class="goal" aria-label="Your goal">
-          <h3>Goal</h3>
-          <p id="goal-text"></p>
+        <section class="rail-card" aria-label="Goal">
+          <h2>Goal</h2>
+          <p class="goal-line"><strong id="goal-count">0 / 55</strong> trophies &middot; <strong id="goal-points">0 / 1,350</strong> PSN points</p>
+          <div class="bar"><div class="bar-fill" id="goal-bar" style="width:0%"></div></div>
+          <p class="rail-note">Platinum: <strong>Vice Got a Price!</strong> — finish the story, clear the 100% checklist (35 lines), mop up in free roam.</p>
         </section>
-        <section class="per-sources" aria-label="Sources for this trophy">
-          <h3>Sources</h3>
-          <ol id="per-sources"></ol>
+        <section class="rail-card" aria-label="Sources for this trophy">
+          <h2>Sources — this trophy</h2>
+          <ol class="trophy-sources" id="trophy-sources"></ol>
         </section>
       </aside>
     </div>
   </section>
 
-  <section id="panel-roadmap" class="panel" role="tabpanel" aria-labelledby="tab-roadmap" hidden>
+  <section id="view-roadmap" hidden aria-label="Platinum roadmap">
     <h2>Platinum Roadmap — 7 stages to &ldquo;Vice Got a Price!&rdquo;</h2>
-    <p class="roadmap-intro">Difficulty 4/10 &middot; ~200 hours &middot; 1 playthrough &middot; free roam after the story &middot; 100% checklist opens in Progress &gt; Stats after the credits.</p>
+    <p class="roadmap-intro">Difficulty 4/10 &middot; ~200 hours &middot; 1 playthrough &middot; free roam after the story &middot; the 100% checklist opens in Progress &gt; Stats after the credits. Trophies are listed in roadmap order (stage, then guide order; the Platinum is 55/55).</p>
     <ol class="stages" id="stages"></ol>
-    <h3>The 100% checklist — 35 lines</h3>
-    <p class="roadmap-intro">The in-game checklist for A Long Road, from the PowerPyx 100% Completion Checklist &amp; Guide (18 Nov 2026) and the Push Square 100% Completion Checklist (18 Nov 2026).</p>
-    <div class="checklist-100">
-      <section><h4>Story &amp; tasks (12)</h4><ol id="checklist-story"></ol></section>
-      <section><h4>Exploration &amp; activities (20)</h4><ol id="checklist-activities"></ol></section>
-      <section><h4>Discovery (3)</h4><ol id="checklist-discovery"></ol></section>
-    </div>
+    <h2>100% Completion Checklist — 35 lines <span class="cite" id="checklist-cite"></span></h2>
+    <p class="roadmap-intro">The checklist only becomes visible after you finish the story, but everything you do before then still counts. Nothing on it is missable — it can all be finished in free roam. Weights: Story &amp; Tasks 45%, Exploration &amp; Activities 45%, Discovery 10%.</p>
+    <div id="checklist"></div>
   </section>
 
-  <section id="panel-missables" class="panel" role="tabpanel" aria-labelledby="tab-missables" hidden>
+  <section id="view-missables" hidden aria-label="Missable watch list">
     <h2>&#9888; Missable Watch List</h2>
     <p><strong>Positive Mental Attitude</strong> is the only trophy reported as possibly missable. After the mission <em>Down to Earth</em>, find Lucia at Jason&rsquo;s house in the morning — she mentions meditating — follow her to the balcony, accept, and finish that meditation before leaving Chapter 1. Everything else can be done after the story in free roam.</p>
-    <ul>
+    <ul class="watch-advice">
       <li><strong>No mission replay, no New Game Plus.</strong> Keep a manual save at the start and end of each chapter (15 slots + autosave).</li>
       <li><strong>Cheats disable trophies and saving.</strong> Keep them off on your trophy save.</li>
       <li><strong>5 hidden trophies still unconfirmed</strong> (21 Nov 2026): In The Beginning&hellip;, Capital Offense, Bad Luck, I Guess, The Truth Is Out There, Ten Pin. They are flagged <span class="flag-unconfirmed">method unconfirmed</span> below — do not trust a single-source method for them.</li>
     </ul>
-    <h3>Watch list — 9 trophies to keep an eye on</h3>
-    <ul id="watch-list"></ul>
+    <h3>Watch list — 9 trophies</h3>
+    <p class="roadmap-intro">Trophies with a dispute, an unconfirmed method, a corrected step or a missable flag. Click one to open it in the tracker.</p>
+    <div id="watch-list"></div>
   </section>
 
-  <section id="panel-sources" class="panel" role="tabpanel" aria-labelledby="tab-sources" hidden>
+  <section id="view-sources" hidden aria-label="Sources and verification">
     <h2>Sources &amp; verification</h2>
-    <p>Rockstar has published no official trophy list of its own. Names and official descriptions below are the ones the live lists agree on, cross-checked across at least two sources on 21 Nov 2026. &ldquo;Official&rdquo; means the description shown on the console / Xbox list as reported by these sources. PSNProfiles, GTA-Zone and Game-Checklists were cited only as list checks where noted.</p>
+    <p>Rockstar has published no official trophy list of its own. Names and official descriptions below are the ones the live lists agree on, cross-checked across at least two sources. &ldquo;Official&rdquo; means the description shown on the console list as reported by these sources. <strong>23 official descriptions</strong> were corrected to the exact official text in this guide (the v2 guide paraphrased them). Grades: 1 Platinum, 2 Gold, 6 Silver, 46 Bronze. PSN points use the standard scale (Platinum 300, Gold 90, Silver 30, Bronze 15) = 1,350 total. Hidden count reported is 28; 25 hidden flags are identified in this guide and 3 remain unconfirmed.</p>
+    <h3>Where the guides disagree</h3>
+    <div id="guide-disputes"></div>
+    <h3>All 28 sources</h3>
+    <p class="roadmap-intro" id="sources-intro"></p>
     <ol class="source-list" id="source-list"></ol>
-    <p class="fineprint">Grades: 1 Platinum, 2 Gold, 6 Silver, 46 Bronze. PSN points use the standard scale (Platinum 300, Gold 90, Silver 30, Bronze 15) = 1,350 total. Hidden count reported by EGamers.io (19 Nov 2026) is 28; 25 hidden flags are identified in this guide and 3 remain unconfirmed. GTA VI and Grand Theft Auto are trademarks of Rockstar Games. This is an unofficial fan guide.</p>
+    <p class="fineprint">GTA VI and Grand Theft Auto are trademarks of Rockstar Games. This is an unofficial fan guide.</p>
   </section>
 </main>
 
@@ -144,6 +113,6 @@
   <p>Leonida Trophy Guide &amp; Tracker — built for the make.fun gta6-trophy-guide-01 bounty. Verified 21 Nov 2026.</p>
 </footer>
 
-<script type="module" src="app.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
