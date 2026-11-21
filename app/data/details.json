@@ -1,2118 +1,786 @@
 {
-  "note": "Per-trophy cited steps, disputes and watch flags for v3. Every step carries at least one source number from sources.json; every source number cited was read on 20 Nov 2026 and supports that step. 'guide' (the full paragraph) still lives in trophies.json and is unchanged. Names and official descriptions are NOT in this file — they live in trophies.json and were verified 55/55.",
-  "version": 3,
-  "trophies": [
+  "meta": {
+    "read": "2026-11-21",
+    "note": "Every step is cited to app/data/sources.json by number. Steps were written fresh on 21 Nov 2026 from the v2 guide paragraphs and the 28 sources; the two genuine content corrections (Gunslinger, Let's Go Bowling) follow PowerPyx, OutputLag and GTABase. Per-trophy sources is the exact union of that trophy's steps' and disputes' src arrays."
+  },
+  "details": [
     {
-      "count": null,
-      "disputes": [
-        {
-          "a": "The Platinum is the final trophy on PlayStation, worth 300 PSN points. On Xbox it is the final 100% achievement, worth 0G, since the other 54 achievements add up to the full 1,000 Gamerscore.",
-          "b": "EGamers and GTABase call the Xbox version the Mythic achievement instead of a 0G achievement.",
-          "call": "Same trophy, different platform label — PlayStation calls it the Platinum, Xbox lists it as the final achievement.",
-          "q": "What is the Platinum called on Xbox?",
-          "srcA": [
-            10
-          ],
-          "srcB": [
-            11,
-            9
-          ],
-          "sources": [
-            1,
-            6,
-            9,
-            11
-          ]
-        }
-      ],
       "id": "vice-got-a-price",
-      "inShort": "The finish line, not a task — it unlocks itself when the other 54 are done.",
-      "sources": [
-        1,
-        6,
-        8,
-        9,
-        10,
-        11
-      ],
-      "steps": [
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 6, 7, 16, 20],
+      "disputes": [
         {
-          "src": [
-            8,
-            10
-          ],
-          "t": "Earn the other 54 trophies — the Platinum pops on its own when the last one lands."
-        },
-        {
-          "src": [
-            8,
-            10
-          ],
-          "t": "If it has not popped, use the tracker on this page: the one trophy still open is the one to chase."
-        },
-        {
-          "src": [
-            1,
-            6
-          ],
-          "t": "Do the 100% checklist (A Long Road) last: most trophies finish on the way to it."
-        },
-        {
-          "src": [
-            10
-          ],
-          "t": "On Xbox the same trophy is the final 100% achievement (0G, since the other 54 add up to the full 1,000)."
+          "q": "How long does the Platinum take — 200 hours or 300?",
+          "a": "Around 200 hours (PowerPyx, KeenGamer, GTABase, OutputLag).",
+          "b": "Up to 300 hours or more (Push Square, marked WIP).",
+          "call": "Budget ~200 hours for the checklist route; the 300-hour figure counts doing everything in the game, not just the checklist.",
+          "sources": [1, 6, 7, 16, 20]
         }
       ],
-      "watch": null
+      "steps": [
+        { "src": [1, 6], "text": "Earn the other 54 trophies; the Platinum pops on its own the moment the last one lands." },
+        { "src": [1], "text": "No online trophies, no DLC and no extra task — if it has not popped, one trophy in the tracker is still open." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "just-like-paradise",
-      "inShort": "Finish the opening mission. It pops on its own.",
-      "sources": [
-        8,
-        10,
-        16
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 6],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            8,
-            10,
-            16
-          ],
-          "t": "Play the opening mission, Gone Fishing — Jason's first job."
-        },
-        {
-          "src": [
-            8,
-            10
-          ],
-          "t": "It pops during the story; no side objective is needed."
-        },
-        {
-          "src": [
-            8,
-            10
-          ],
-          "t": "It is the first trophy most players earn — the opening mission itself is the trigger."
-        }
-      ],
-      "watch": null
+        { "src": [1, 6], "text": "Play the opening mission Gone Fishing through to the end." },
+        { "src": [6], "text": "It pops during the story with no extra effort — the first trophy most players earn." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [
-        {
-          "a": "Down to Earth is the 14th of 22 Chapter 1 missions (KeenGamer walkthrough, PowerPyx walkthrough, Video Games Chronicle, Push Square).",
-          "b": "Beebom counts it 13th and GTABay 16th — their lists count the Prologue and optional missions differently.",
-          "call": "The trigger mission is the same either way (Down to Earth, Brian's smuggling flight). Only the numbering differs.",
-          "q": "Where does Down to Earth fall in Chapter 1?",
-          "srcA": [
-            7,
-            4
-          ],
-          "srcB": [
-            25,
-            26
-          ],
-          "sources": [
-            4,
-            7,
-            25,
-            26,
-            27,
-            28
-          ]
-        }
-      ],
       "id": "paradise-lost",
-      "inShort": "Finish Chapter 1. Do the balcony meditation first.",
-      "sources": [
-        2,
-        4,
-        6,
-        7,
-        8,
-        10,
-        25,
-        26,
-        27,
-        28
-      ],
-      "steps": [
-        {
-          "src": [
-            7,
-            4
-          ],
-          "t": "Play through all 22 Chapter 1 missions, ending with Discharge Time."
-        },
-        {
-          "src": [
-            6,
-            2,
-            10
-          ],
-          "t": "Before you leave Chapter 1, do the balcony meditation with Lucia at Jason's house — it is the one interaction tied to the possibly-missable meditation trophy."
-        },
-        {
-          "src": [
-            10,
-            8
-          ],
-          "t": "Keep a manual save at the chapter boundary — there is no mission replay."
-        }
-      ],
-      "watch": "Do the balcony meditation before leaving Chapter 1 — see Positive Mental Attitude."
-    },
-    {
-      "count": null,
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 4, 6, 7, 9, 15, 18, 23],
       "disputes": [
         {
-          "a": "T**s (two asterisks) — KeenGamer, Push Square, Exophase and OutputLag.",
-          "b": "T*ts (one asterisk) — GTAScoop.",
-          "call": "The console list shows two asterisks; this guide uses T**s.",
-          "q": "One asterisk or two in the trophy name?",
-          "srcA": [
-            6,
-            8,
-            16,
-            10
-          ],
-          "srcB": [
-            13
-          ],
-          "sources": [
-            6,
-            8,
-            10,
-            13,
-            16
-          ]
+          "q": "Which mission number is Down to Earth in Chapter 1?",
+          "a": "14th of 22 (KeenGamer, PowerPyx, VGC, Vice Atlas).",
+          "b": "13th (Beebom) / 16th (GTABay, counting the Prologue and optional missions).",
+          "call": "Same mission either way — the lists count the Prologue and optional missions differently.",
+          "sources": [4, 7, 9, 15, 18, 23]
         }
       ],
+      "steps": [
+        { "src": [1, 6], "text": "Finish every mission in Chapter 1; the trophy pops at the chapter close." },
+        { "src": [1, 7], "text": "Before leaving Chapter 1, do the balcony meditation with Lucia at Jason's house — the one possibly-missable interaction." },
+        { "src": [7], "text": "Keep a manual save at the Chapter 1 boundary; there is no mission replay." }
+      ]
+    },
+    {
       "id": "tits-ass-drug-money",
-      "inShort": "Finish Chapter 2. The name is censored in trophy lists.",
-      "sources": [
-        6,
-        8,
-        10,
-        13,
-        16
-      ],
-      "steps": [
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 6, 7, 16, 19, 21],
+      "disputes": [
         {
-          "src": [
-            8,
-            10,
-            16
-          ],
-          "t": "Finish Chapter 2 in full — the trophy pops at the chapter close."
-        },
-        {
-          "src": [
-            10
-          ],
-          "t": "Chapter trophies can pop at the start of the next chapter rather than on the last cutscene — do not worry if it does not pop instantly."
-        },
-        {
-          "src": [
-            10,
-            8
-          ],
-          "t": "Keep a manual save at the chapter boundary — there is no mission replay."
+          "q": "T**s or T*ts — how is the trophy name spelled?",
+          "a": "T**s (KeenGamer, Push Square, Exophase, OutputLag).",
+          "b": "T*ts (GTAScoop).",
+          "call": "PSN publishes it as T**s — that is the spelling used here.",
+          "sources": [6, 7, 16, 19, 21]
         }
       ],
-      "watch": null
+      "steps": [
+        { "src": [1, 6], "text": "Finish Chapter 2 in full." },
+        { "src": [21], "text": "The name is censored in trophy lists; PSN publishes it with two asterisks." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "vice-city-baby",
-      "inShort": "Finish Chapter 3. Start scanning and studying as you travel.",
-      "sources": [
-        3,
-        5,
-        6,
-        10,
-        16
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 2, 7],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            6,
-            10,
-            16
-          ],
-          "t": "Finish Chapter 3."
-        },
-        {
-          "src": [
-            10
-          ],
-          "t": "Chapter trophies can pop at the start of the next chapter rather than on the last cutscene."
-        },
-        {
-          "src": [
-            5,
-            3
-          ],
-          "t": "Start scanning unfamiliar vehicles with the WAiNK app and studying animals with binoculars as you travel — both feed the 100% checklist later."
-        }
-      ],
-      "watch": null
+        { "src": [1, 7], "text": "Finish Chapter 3." },
+        { "src": [2], "text": "Start scanning unfamiliar vehicles with WAiNK and studying animals with binoculars as you travel — both feed the 100% checklist." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "top-of-the-world-ma",
-      "inShort": "Finish Chapter 4. Vaults open near the end of it.",
-      "sources": [
-        6,
-        10,
-        16
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 6, 7],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            6,
-            10,
-            16
-          ],
-          "t": "Finish Chapter 4."
-        },
-        {
-          "src": [
-            10
-          ],
-          "t": "Chapter trophies can pop at the start of the next chapter rather than on the last cutscene."
-        },
-        {
-          "src": [
-            10
-          ],
-          "t": "The big bank-vault robberies unlock around here through the optional mission That's Where The Money Is — leave the eight large vaults until that mission opens them."
-        }
-      ],
-      "watch": null
+        { "src": [1, 7], "text": "Finish Chapter 4." },
+        { "src": [6], "text": "The big bank-vault robberies open around here through the optional mission That's Where The Money Is… — leave the eight large vaults until then." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "you-gotta-know-when-to-get-off",
-      "inShort": "Finish the final mission. The cleanup starts after the credits.",
-      "sources": [
-        1,
-        3,
-        8,
-        10,
-        16
-      ],
-      "steps": [
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 6, 7, 10, 15, 16, 18],
+      "disputes": [
         {
-          "src": [
-            8,
-            10,
-            16
-          ],
-          "t": "Finish the final story mission."
-        },
-        {
-          "src": [
-            10
-          ],
-          "t": "Keep a manual save from just before the final mission — there is no mission replay and no New Game Plus."
-        },
-        {
-          "src": [
-            1,
-            3,
-            10
-          ],
-          "t": "After the credits you keep free roam of Leonida, and the 100% checklist opens in Progress > Stats — most of the Platinum grind happens after this point."
+          "q": "How many story missions are there — 91, 93, 95 or 122?",
+          "a": "91 (KeenGamer, GameTrek).",
+          "b": "93 (Push Square) / 95 (VGC walkthrough hub) / 122 including optional missions (GTABay).",
+          "call": "The counts differ by what they include — optional missions and the Prologue. The story itself is the same.",
+          "sources": [7, 10, 15, 16, 18]
         }
       ],
-      "watch": null
+      "steps": [
+        { "src": [1, 6], "text": "Finish the final story mission." },
+        { "src": [1, 7], "text": "After the credits, free roam opens and the 100% checklist appears under Progress > Stats." },
+        { "src": [7], "text": "Most of the Platinum grind happens after this point — switch to the roadmap stages." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "trust",
-      "inShort": "Complete Breakfast Run. It also unlocks partner switching.",
-      "sources": [
-        10,
-        14,
-        16
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 6],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            14,
-            10,
-            16
-          ],
-          "t": "Complete the story mission Breakfast Run."
-        },
-        {
-          "src": [
-            10
-          ],
-          "t": "Partner switching opens right after Breakfast Run, in Chapter 2 — you can then switch between Jason and Lucia and call the other one in as a partner."
-        },
-        {
-          "src": [
-            10
-          ],
-          "t": "Like all story trophies it unlocks by playing the mission through — no side objective needed."
-        }
-      ],
-      "watch": null
+        { "src": [1, 6], "text": "Complete the story mission Breakfast Run." },
+        { "src": [6], "text": "No side objective is needed — it unlocks by playing the mission through." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "break-the-bank",
-      "inShort": "Complete The Cartel Heist.",
-      "sources": [
-        1,
-        10,
-        14,
-        16
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 6],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            14,
-            10,
-            16
-          ],
-          "t": "Complete the story mission The Cartel Heist."
-        },
-        {
-          "src": [
-            10
-          ],
-          "t": "Treat heist missions as practice for the robbery trophies in Stage 4 — the same escape-and-lose-the-heat loop applies."
-        },
-        {
-          "src": [
-            10,
-            1
-          ],
-          "t": "The Cartel Heist is a story mission — it cannot be missed on a playthrough that reaches the finale."
-        }
-      ],
-      "watch": null
+        { "src": [1, 6], "text": "Complete the story mission The Cartel Heist." },
+        { "src": [1], "text": "Treat heist missions as practice for the Stage 4 robbery trophies — the same escape-and-lose-the-heat loop applies." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "family-matters",
-      "inShort": "Complete Child's Play.",
-      "sources": [
-        1,
-        7,
-        10,
-        14,
-        16
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 6, 7],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            14,
-            10,
-            16
-          ],
-          "t": "Complete the story mission Child's Play."
-        },
-        {
-          "src": [
-            10,
-            1
-          ],
-          "t": "Unmissable as long as you play the story to the end."
-        },
-        {
-          "src": [
-            7,
-            14
-          ],
-          "t": "Child's Play is a Chapter 2 story mission."
-        }
-      ],
-      "watch": null
+        { "src": [1, 6], "text": "Complete the story mission Child's Play." },
+        { "src": [7], "text": "Unmissable as long as you play the story to the end." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "dwnfall",
-      "inShort": "Complete Headliners.",
-      "sources": [
-        1,
-        10,
-        14,
-        16
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 6, 7],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            14,
-            10,
-            16
-          ],
-          "t": "Complete the story mission Headliners."
-        },
-        {
-          "src": [
-            10,
-            1
-          ],
-          "t": "Another story-automatic trophy — it cannot be missed on a playthrough that reaches the finale."
-        },
-        {
-          "src": [
-            10,
-            1
-          ],
-          "t": "Story trophies pop as you play — no side objective is needed."
-        }
-      ],
-      "watch": null
+        { "src": [1, 6], "text": "Complete the story mission Headliners." },
+        { "src": [7], "text": "Another story-automatic trophy — it cannot be missed on a playthrough that reaches the finale." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "hi-jacked",
-      "inShort": "Complete VCIA Takedown. Learn the runways for later.",
-      "sources": [
-        10,
-        14,
-        16
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 6, 7],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            14,
-            10,
-            16
-          ],
-          "t": "Complete the story mission VCIA Takedown at Vice City International Airport."
-        },
-        {
-          "src": [
-            10
-          ],
-          "t": "Learn the runway layout here — the airport is also the scene of the Catch Me If You Can trophy, so note where the passenger planes dock."
-        },
-        {
-          "src": [
-            10
-          ],
-          "t": "The airport's passenger planes dock at boarding bridges — note gates E3 and E4 for later."
-        }
-      ],
-      "watch": null
+        { "src": [1, 6], "text": "Complete the story mission VCIA Takedown at Vice City International Airport." },
+        { "src": [1, 7], "text": "Learn the runway and terminal layout here — the airport is also the scene of Catch Me If You Can in Stage 4." },
+        { "src": [6], "text": "Expect heavy airport security on the way out; the mission itself has no extra objective." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "snow-storm",
-      "inShort": "Complete Operation Savage Glory.",
-      "sources": [
-        1,
-        7,
-        10,
-        14,
-        16
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 6, 7],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            14,
-            10,
-            16
-          ],
-          "t": "Complete the story mission Operation Savage Glory."
-        },
-        {
-          "src": [
-            1,
-            7
-          ],
-          "t": "The last of the named-mission story trophies; after it, only the finale stands between you and the post-story cleanup."
-        },
-        {
-          "src": [
-            10
-          ],
-          "t": "Keep a manual save from just before the final mission — there is no mission replay."
-        }
-      ],
-      "watch": null
+        { "src": [1, 6], "text": "Complete the story mission Operation Savage Glory." },
+        { "src": [7], "text": "The last of the named-mission story trophies; after it, only the finale stands between you and post-story cleanup." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [
-        {
-          "a": "Around 200 hours — PowerPyx, KeenGamer, GTABase and OutputLag all put the Platinum at roughly 200 hours.",
-          "b": "Up to 300 hours or more — Push Square, whose guide is marked work in progress and counts slower play.",
-          "call": "200 hours is the consensus of the dedicated trophy guides; Push Square's guide is still WIP.",
-          "q": "200 hours or 300 to the Platinum?",
-          "srcA": [
-            1,
-            6,
-            9,
-            10
-          ],
-          "srcB": [
-            8
-          ],
-          "sources": [
-            1,
-            6,
-            8,
-            9,
-            10
-          ]
-        }
-      ],
       "id": "a-long-road",
-      "inShort": "Reach 100% on the in-game checklist — 35 requirements, not everything.",
-      "sources": [
-        1,
-        3,
-        5,
-        6,
-        8,
-        9,
-        10,
-        12,
-        22
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [2, 6, 7, 17, 20],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            3,
-            1,
-            10
-          ],
-          "t": "Finish the story — the checklist only appears after the credits, under Progress > Stats > 100% Completion, but progress made during the story already counts."
-        },
-        {
-          "src": [
-            3,
-            12
-          ],
-          "t": "Work the story and tasks block first: 100 optional tasks, 39 gang operations, 22 bank jobs, 7 payday loan jobs, 8 vaults, and the fencing totals ($100k narcotics, $100k jewelry, $250k marked bills, $200k vehicles)."
-        },
-        {
-          "src": [
-            3,
-            12,
-            22
-          ],
-          "t": "Then the exploration block: 15 of 18 card sets, 100 WAiNK scans, 33 underwater discoveries, 100 of 125 flamingos, 42 shooting-range golds, 42 drone time trials, 300 of 397 stunts, 70 of 80 challenges."
-        },
-        {
-          "src": [
-            3,
-            5
-          ],
-          "t": "Finish the discovery block: 200 of 277 base-model vehicles scanned, 100 of 255 animals studied, 50 of 66 weapons found."
-        },
-        {
-          "src": [
-            3,
-            9
-          ],
-          "t": "Nothing on the checklist is permanently missable — everything can still be done in free roam after the story."
-        }
-      ],
-      "watch": null
+        { "src": [2, 7], "text": "Finish the story — the checklist only appears under Progress > Stats > 100% Completion after the credits, but earlier progress already counts." },
+        { "src": [2], "text": "Complete 100 optional tasks (black icons with pink letters, plus purple map icons)." },
+        { "src": [2, 17], "text": "Clear all robberies in full: 39 gang operations, 22 bank jobs, 7 payday loan jobs, 34 of 35 smash 'n' grabs, 50 of 91 stick ups, 8 vaults." },
+        { "src": [2, 17], "text": "Fence the four money goals: $100,000 narcotics, $100,000 jewelry, $250,000 marked bills, $200,000 vehicles." },
+        { "src": [2, 17], "text": "Finish the collectibles: 15 of 18 card sets, 100 WAiNK scans, 33 underwater discoveries, 30 of 34 magazines/books/comics, 15 of 18 meditations, 100 of 125 flamingos, 5 of 7 Kenton sets, 2 playlists, 70 of 79 styles." },
+        { "src": [2, 17], "text": "Finish the activities: 30 of 40 unique races won, 10 of 13 race challenge golds, 42 shooting-range golds, 4 video games played, 5 of 7 pool opponents, 2 of 3 mini golf, 90 of 100 basketball hoops, 42 drone time trials, 300 of 397 stunts, 70 of 80 challenges, 15 of 15 Bret's target decks." },
+        { "src": [2, 7], "text": "Finish discovery: 200 of 277 base-model vehicles scanned, 50 of 66 standard-issue weapons found, 100 of 255 animals studied." },
+        { "src": [2], "text": "Nothing on the checklist is missable — everything stays available in free roam after the story." },
+        { "src": [2, 6], "text": "Work the robbery and fencing numbers first — they also fund the garage and money trophies." },
+        { "src": [20], "text": "The story alone is worth 50% of the checklist; optional tasks 6%, gang operations 3%, the rest 1-2% each." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "cunning-stunts",
-      "inShort": "Complete 250 stunts. The checklist wants 300, so keep going.",
-      "sources": [
-        3,
-        8,
-        10,
-        12
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 2, 6, 16],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            8,
-            10,
-            3
-          ],
-          "t": "Complete 250 stunts across Leonida — stunt jumps, under-the-bridge flights, knife flights and base jumps all count."
-        },
-        {
-          "src": [
-            3,
-            12
-          ],
-          "t": "The 100% checklist wants 300 of 397 (130 stunt jumps, 202 under the bridges, 40 knife flights, 25 base jumps), so keep stunting past this trophy."
-        },
-        {
-          "src": [
-            10
-          ],
-          "t": "Stunt opportunities are everywhere on highways and ramps; the counter runs in the background while you travel."
-        },
-        {
-          "src": [
-            8
-          ],
-          "t": "You can see all the stunts you have discovered on the map under Touch Pad > Exploration > Stunt Spots."
-        }
-      ],
-      "watch": null
+        { "src": [2, 6], "text": "Complete any 250 of the 397 stunts: 130 stunt jumps, 202 under-the-bridges, 40 knife flights, 25 base jumps." },
+        { "src": [2], "text": "The checklist wants 300, so keep stunting past this trophy." },
+        { "src": [1, 16], "text": "Track progress under Progress > Activities > Stunts and on the map under Exploration > Stunt Spots." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "master-of-none",
-      "inShort": "Try all nine activity types once.",
-      "sources": [
-        1,
-        6
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 7, 14],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            6,
-            1
-          ],
-          "t": "Try each of the nine activity types at least once — races, shooting ranges, fishing, arcade games, pool, mini golf, basketball, drone races and the rest."
-        },
-        {
-          "src": [
-            6
-          ],
-          "t": "Do this early: it is a fast Bronze and it teaches you which activities feed the 100% checklist."
-        },
-        {
-          "src": [
-            6,
-            1
-          ],
-          "t": "Races and shooting ranges count as two of the nine — both are needed for other trophies anyway."
-        }
-      ],
-      "watch": null
+        { "src": [7, 14], "text": "Try each of the nine activity types once: fishing, hunting, golf, shooting range, pool, basketball, a video game, a race and a stunt." },
+        { "src": [1], "text": "Do this early — it is a fast Bronze and teaches you which activities feed the checklist." },
+        { "src": [7, 14], "text": "A race counts whether it is a car race, a race challenge or a Top Fun drone race." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "the-shootist",
-      "inShort": "Gold in all 42 Shooting Range challenges.",
-      "sources": [
-        1,
-        8,
-        9,
-        10,
-        12
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 2, 6, 10, 16],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            8,
-            12
-          ],
-          "t": "Earn a gold medal in all 42 Shooting Range challenges — 18 at Griffin, 24 at Rodgers Ranch."
-        },
-        {
-          "src": [
-            10
-          ],
-          "t": "There are two shooting ranges with 42 gold medals between them."
-        },
-        {
-          "src": [
-            1,
-            9
-          ],
-          "t": "This is one of the hardest trophies and it is also required in full for 100%, so budget real practice time."
-        },
-        {
-          "src": [
-            8,
-            1
-          ],
-          "t": "Learn one range's timing first, then repeat the pattern — accuracy and speed both matter, and replays are free."
-        }
-      ],
-      "watch": null
+        { "src": [1, 6], "text": "Earn a gold medal in all 42 Shooting Range challenges across the 12 ranges." },
+        { "src": [2, 16], "text": "This is also required in full for 100%, so budget real practice time." },
+        { "src": [1], "text": "Learn one range's timing first, then repeat the pattern — accuracy and speed both matter, and replays are free." },
+        { "src": [6, 10], "text": "Guides disagree on the range count — 12 ranges (GameTrek) vs two ranges holding all 42 golds (OutputLag) — but the target is the same: gold in all 42 challenges." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "top-fun",
-      "inShort": "Win a drone race at all 14 locations.",
-      "sources": [
-        3,
-        6,
-        10,
-        12
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 2, 6, 7],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            6,
-            10
-          ],
-          "t": "Win a Top Fun drone race at all 14 locations."
-        },
-        {
-          "src": [
-            3,
-            12
-          ],
-          "t": "The 100% checklist separately wants all 42 drone time trials, so fly every course twice: once to win the race, once to beat the trial time."
-        },
-        {
-          "src": [
-            6
-          ],
-          "t": "Learn the gates before pushing speed."
-        },
-        {
-          "src": [
-            10,
-            3
-          ],
-          "t": "Win at least one race at each location — the 14 locations are the same ones the time trials use."
-        }
-      ],
-      "watch": null
+        { "src": [1, 6], "text": "Win a Top Fun drone race at all 14 locations." },
+        { "src": [2, 7], "text": "The checklist separately wants all 42 drone time trials — fly every course twice: once to win, once to beat the trial time." },
+        { "src": [1], "text": "Learn the gates before pushing speed." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "earn-cash-not-kudos",
-      "inShort": "Win 20 different races. Do Yago's timed race when it appears.",
-      "sources": [
-        3,
-        6,
-        10,
-        12
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 2, 6, 7],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            6,
-            10
-          ],
-          "t": "Win 20 different races across Leonida."
-        },
-        {
-          "src": [
-            3,
-            12
-          ],
-          "t": "The 100% checklist wants 30 of 40 unique races won, so this trophy lands on the way — vary the race types instead of repeating one favourite."
-        },
-        {
-          "src": [
-            10
-          ],
-          "t": "Do Yago's timed race the moment it appears — the Chapter 3 race in Yago's street-racing strand carries an hourglass icon and the strand counts toward Strangers & Freaks. Save first, then race."
-        },
-        {
-          "src": [
-            6
-          ],
-          "t": "Keep a different vehicle ready for each discipline."
-        }
-      ],
-      "watch": "Yago's timed Chapter 3 race appears once — do it when it appears."
+        { "src": [1, 6], "text": "Win 20 different races across Leonida." },
+        { "src": [2, 7], "text": "The checklist wants 30 of 40 unique races won, so this trophy lands on the way." },
+        { "src": [1], "text": "Vary the race types instead of repeating one favourite, and keep a different vehicle ready for each discipline." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "baited-my-tackle",
-      "inShort": "Beat Cal in a fishing challenge.",
-      "sources": [
-        6,
-        10
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 6, 7],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            6
-          ],
-          "t": "Take Cal's fishing challenge when it appears."
-        },
-        {
-          "src": [
-            6
-          ],
-          "t": "Watch the line tension instead of mashing, and reel steadily when the fish runs."
-        },
-        {
-          "src": [
-            10
-          ],
-          "t": "Fishing raises Focus too — each fish you land adds about 10% to the Focus meter."
-        }
-      ],
-      "watch": null
+        { "src": [1, 6], "text": "Beat Cal in a fishing challenge." },
+        { "src": [7], "text": "Take the challenge when it appears; watch the line tension instead of mashing." },
+        { "src": [7], "text": "Reel steadily when the fish runs." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "stick-fiddler",
-      "inShort": "Complete one arcade game.",
-      "sources": [
-        3,
-        6,
-        10
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [2, 6, 7],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            10
-          ],
-          "t": "Complete any one arcade game — any of the four in-game games counts."
-        },
-        {
-          "src": [
-            6
-          ],
-          "t": "Pick the shortest cabinet you find and finish a full run."
-        },
-        {
-          "src": [
-            6,
-            3
-          ],
-          "t": "The 100% checklist also wants you to play all four video games, so note which cabinets you have tried."
-        }
-      ],
-      "watch": null
+        { "src": [6, 7], "text": "Complete any one arcade game — any of the four in-game games counts." },
+        { "src": [7], "text": "Pick the shortest cabinet you find and finish a full run." },
+        { "src": [2], "text": "The checklist also wants you to play all four video games, so note which cabinets you have tried." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "road-to-rehabilitation",
-      "inShort": "Finish Andy's strand, ending with Puff Puff Pass.",
-      "sources": [
-        1,
-        9,
-        13
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 7],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            13
-          ],
-          "t": "Finish Andy's stranger strand through to his final mission, Puff Puff Pass."
-        },
-        {
-          "src": [
-            1,
-            9
-          ],
-          "t": "Stranger strands unlock as you explore — check the map for stranger icons after each chapter and clear them before moving on."
-        },
-        {
-          "src": [
-            13,
-            1
-          ],
-          "t": "Andy's strand is one of the five named-character finals; each has its own trophy."
-        }
-      ],
-      "watch": null
+        { "src": [1, 7], "text": "Finish Andy's stranger strand through to his final mission, Puff Puff Pass." },
+        { "src": [7], "text": "Stranger strands unlock as you explore — check the map for stranger icons after each chapter." },
+        { "src": [1], "text": "Clear strands before moving on rather than leaving them all for the endgame." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "this-was-no-boat-accident",
-      "inShort": "Finish Kenton's strand. His treasure sets count toward 100%.",
-      "sources": [
-        3,
-        6,
-        10,
-        12
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 2, 7],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            6,
-            10
-          ],
-          "t": "Finish Kenton's strand to his final mission."
-        },
-        {
-          "src": [
-            3,
-            12
-          ],
-          "t": "Kenton also ties into treasure sets — five of his seven sets count toward 100% — so pick up his collectibles while his missions take you around the map."
-        },
-        {
-          "src": [
-            12
-          ],
-          "t": "Treasure hunting (Island Dreams) ties into Kenton's strand — five of seven sets plus all 33 underwater discoveries count toward 100%."
-        },
-        {
-          "src": [
-            3
-          ],
-          "t": "Kenton becomes temporarily unavailable after Chapter 1 but reappears between Chapters 2 and 3, so he is not missable — all his quests are still available after the story."
-        }
-      ],
-      "watch": null
+        { "src": [1, 7], "text": "Finish Kenton's strand to his final mission." },
+        { "src": [2], "text": "Kenton also ties into treasure sets — five of his seven sets count toward 100%." },
+        { "src": [2], "text": "Pick up his collectibles while his missions take you around the map." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "the-lone-rider",
-      "inShort": "Finish Billy's strand. Keep a fast bike ready.",
-      "sources": [
-        6,
-        10
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 7],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            6,
-            10
-          ],
-          "t": "Finish Billy's stranger strand through to his final mission."
-        },
-        {
-          "src": [
-            6
-          ],
-          "t": "Billy's missions are bike-heavy — keep a fast bike in your garage so you are not hunting for one mid-strand."
-        },
-        {
-          "src": [
-            6
-          ],
-          "t": "Billy's strand is bike-heavy throughout, not just at the end — the bike is the strand's tool, not a one-off."
-        }
-      ],
-      "watch": null
+        { "src": [1, 7], "text": "Finish Billy's stranger strand through to his final mission." },
+        { "src": [7], "text": "Billy's missions are bike-heavy — keep a fast bike in your garage." },
+        { "src": [1], "text": "Sweep the map icons between chapters rather than leaving strands for the endgame." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [
-        {
-          "a": "The five named-character finals count toward the 8 strands, so you need three more strands beyond them (the reading this guide used in v2).",
-          "b": "Andy's, Billy's and Tyrone's strands do NOT count — only some optional questlines count, because those three have their own trophies.",
-          "call": "Check the trophy's progress counter after each strand you finish, and do not assume the named finals count.",
-          "q": "Do the five named-character finals count toward the 8 strands?",
-          "srcA": [
-            13,
-            6
-          ],
-          "srcB": [
-            10
-          ],
-          "sources": [
-            10,
-            13
-          ]
-        }
-      ],
       "id": "strangers-and-freaks",
-      "inShort": "Complete 8 qualifying stranger strands. Check the counter after each one.",
-      "sources": [
-        1,
-        9,
-        10,
-        13
-      ],
-      "steps": [
-        {
-          "src": [
-            13,
-            1
-          ],
-          "t": "Complete eight qualifying stranger mission strands across Leonida."
-        },
-        {
-          "src": [
-            10
-          ],
-          "t": "Only some optional questlines count — check the trophy's progress counter after each strand you finish."
-        },
-        {
-          "src": [
-            1,
-            9
-          ],
-          "t": "Sweep the map icons between chapters rather than leaving them all for the endgame."
-        },
-        {
-          "src": [
-            10
-          ],
-          "t": "Andy's, Billy's and Tyrone's strands have their own trophies — see the dispute panel before counting on them."
-        }
-      ],
-      "watch": "Some stranger strands are only offered for a while — sweep map icons between chapters."
-    },
-    {
-      "count": null,
-      "disputes": [],
-      "id": "supply-and-demand",
-      "inShort": "Finish Randy's strand.",
-      "sources": [
-        6,
-        10
-      ],
-      "steps": [
-        {
-          "src": [
-            6,
-            10
-          ],
-          "t": "Finish Randy's stranger strand through to his final mission."
-        },
-        {
-          "src": [
-            6
-          ],
-          "t": "Randy's work leans on supply runs — stock up on ammo and armour before his later missions, which escalate quickly."
-        }
-      ],
-      "watch": null
-    },
-    {
-      "count": null,
-      "disputes": [],
-      "id": "spin-on-this",
-      "inShort": "Finish Tyrone's strand.",
-      "sources": [
-        6,
-        10
-      ],
-      "steps": [
-        {
-          "src": [
-            6,
-            10
-          ],
-          "t": "Finish Tyrone's stranger strand through to his final mission."
-        },
-        {
-          "src": [
-            6
-          ],
-          "t": "Clear Tyrone's strand before the finale if you can — stranger missions are easier to track while the story is still feeding you map icons."
-        }
-      ],
-      "watch": null
-    },
-    {
-      "count": {
-        "demo": 6,
-        "label": "meditations",
-        "total": 18,
-        "note": "15 of 18 count toward 100%; all 18 count toward the trophy."
-      },
+      "missable": false,
+      "unconfirmed": false,
+      "watch": true,
+      "sources": [1, 6, 7, 10, 22],
       "disputes": [
         {
-          "a": "PowerPyx, Bloxodes and TheGamersHub: it is UNCONFIRMED whether the Chapter 1 balcony meditation is required. The balcony spot is not marked like the rest, and the final Ascent meditation may count +2, so the trophy may be earnable without it.",
-          "b": "Beebom, GameTrek and OutputLag: all 18 are required and the balcony counts — miss it and the trophy is lost for that save.",
-          "call": "Do the balcony meditation in Chapter 1 and keep a Chapter 1 save until the trophy pops. The safe move covers both readings.",
-          "q": "Is the Chapter 1 balcony meditation required for the trophy?",
-          "srcA": [
-            2,
-            19,
-            20
-          ],
-          "srcB": [
-            17,
-            18,
-            10
-          ],
-          "sources": [
-            2,
-            10,
-            17,
-            18,
-            19,
-            20
-          ]
-        },
-        {
-          "a": "The 100% checklist needs 15 of 18 meditations (PowerPyx 100% guide).",
-          "b": "The trophy needs all 18 (Beebom, GameTrek).",
-          "call": "15 counts for 100%, but do all 18 for the trophy.",
-          "q": "15 meditations or 18?",
-          "srcA": [
-            3
-          ],
-          "srcB": [
-            17,
-            18
-          ],
-          "sources": [
-            3,
-            17,
-            18
-          ]
+          "q": "Do the five named-character finals count toward the 8 strands?",
+          "a": "Yes — all eight stranger strands count, including the named finals (KeenGamer, PowerPyx).",
+          "b": "No — Andy's, Billy's and Tyrone's strands do NOT count, only some questlines do (OutputLag).",
+          "call": "Check the in-game strand counter after each strand you finish — only strands that move the counter count.",
+          "sources": [1, 6, 7, 10]
         }
       ],
+      "steps": [
+        { "src": [1, 6], "text": "Complete eight qualifying stranger mission strands across Leonida." },
+        { "src": [6, 7], "text": "Check the trophy's in-game strand counter after each strand you finish — only strands that move the counter count." },
+        { "src": [6, 22], "text": "OutputLag reports Andy's, Billy's and Tyrone's strands do NOT count, because they have their own trophies." },
+        { "src": [1, 6], "text": "Do Yago's timed race the moment it appears in Chapter 3 — it carries an hourglass icon and its strand counts." },
+        { "src": [1, 7], "text": "Sweep the map icons between chapters rather than leaving all strands for the endgame." }
+      ]
+    },
+    {
+      "id": "supply-and-demand",
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 7],
+      "disputes": [],
+      "steps": [
+        { "src": [1, 7], "text": "Finish Randy's stranger strand through to his final mission." },
+        { "src": [7], "text": "Randy's work leans on supply runs — stock up on ammo and armour before his later missions." },
+        { "src": [7], "text": "His later missions escalate quickly, so go in prepared." }
+      ]
+    },
+    {
+      "id": "spin-on-this",
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 6, 7],
+      "disputes": [],
+      "steps": [
+        { "src": [1, 7], "text": "Finish Tyrone's stranger strand through to his final mission." },
+        { "src": [7], "text": "Clear Tyrone's strand before the finale if you can — stranger missions are easier to track while the story is still feeding you map icons." },
+        { "src": [6], "text": "Note the dispute on Strangers & Freaks: Tyrone's strand is one of the three OutputLag says do not count toward the 8." }
+      ]
+    },
+    {
       "id": "positive-mental-attitude",
-      "inShort": "Meditate at all 18 spots. Do the Chapter 1 balcony first — it is the only one that can disappear.",
-      "sources": [
-        2,
-        3,
-        6,
-        10,
-        17,
-        18,
-        19,
-        20
-      ],
-      "steps": [
+      "missable": true,
+      "unconfirmed": false,
+      "watch": true,
+      "sources": [1, 2, 3, 4, 6, 8, 9, 10, 12, 13, 14, 16, 17],
+      "disputes": [
         {
-          "src": [
-            2,
-            6,
-            10
-          ],
-          "t": "After the mission Down to Earth, find Lucia at Jason's house in the morning — she mentions meditating — follow her to the balcony and accept, and complete that balcony meditation before leaving Chapter 1."
+          "q": "Is the Chapter 1 balcony meditation required for the trophy?",
+          "a": "Yes — all 18 are required and the balcony counts (OutputLag, Beebom, GameTrek).",
+          "b": "Unconfirmed — the balcony spot is not marked like the rest and the final Ascent meditation may count +2 (PowerPyx, Bloxodes, TheGamersHub).",
+          "call": "Do the balcony in Chapter 1 and keep a Chapter 1 save — it costs nothing and removes the risk.",
+          "sources": [1, 3, 6, 9, 10, 12, 13, 14]
         },
         {
-          "src": [
-            2,
-            10,
-            17
-          ],
-          "t": "Meditate at the other 9 spots with both characters: each outdoor spot counts twice, once with Jason and once with Lucia, so bring your partner every time."
-        },
-        {
-          "src": [
-            2,
-            17,
-            18
-          ],
-          "t": "The 10 spots: Jason's House (1), Smooth Sand (2), Swamp (2), Worn Stone (2), Red Rocks (2), Water Wheel (2), Jutting Cliff (2), Waterfall (2), Seaside (2), Ascent Mountain (1) — 18 meditations in total."
-        },
-        {
-          "src": [
-            2,
-            17
-          ],
-          "t": "Ascent Mountain only appears on the map after every other spot is done — it is the last meditation."
-        },
-        {
-          "src": [
-            2,
-            3,
-            17
-          ],
-          "t": "Track progress under Progress > Collections > Exploration > Meditations; the 100% checklist only needs 15 of 18, but this trophy needs all 18."
-        },
-        {
-          "src": [
-            10,
-            2
-          ],
-          "t": "Keep a manual save from Chapter 1 until the trophy pops — nobody has confirmed the balcony meditation is strictly required, so do it anyway."
+          "q": "Does the trophy need 15 or 18 meditations?",
+          "a": "15 of 18 for the 100% checklist (PowerPyx 100% guide, Push Square).",
+          "b": "All 18 for the trophy (Beebom, GameTrek).",
+          "call": "15 counts toward 100%; the trophy needs all 18.",
+          "sources": [2, 3, 9, 10, 17]
         }
       ],
-      "watch": "Chapter 1 only — the balcony meditation disappears after Chapter 1."
+      "steps": [
+        { "src": [1, 3], "text": "Meditate at all 18 spots across Leonida — 10 spots, 18 meditations." },
+        { "src": [3, 4], "text": "Do the Chapter 1 balcony meditation first: after Down to Earth, find Lucia at Jason's house in the morning, follow her to the balcony and accept." },
+        { "src": [3, 8], "text": "Each outdoor spot counts twice — once for Jason, once for Lucia — after both are playable from Chapter 2 (Coffee Break)." },
+        { "src": [3], "text": "The other 8 outdoor spots: Smooth Sand, Swamp, Worn Stone, Red Rocks, Water Wheel, Jutting Cliff, Waterfall, Seaside." },
+        { "src": [3, 8], "text": "The final Ascent Mountain meditation appears on the map only after all other spots are done." },
+        { "src": [3, 16], "text": "Track progress under Progress > Collections > Exploration > Meditations, or filter the map by Exploration > Meditate Around Leonida." },
+        { "src": [2, 9], "text": "The 100% checklist only needs 15 of 18 — but this trophy needs all 18." },
+        { "src": [1, 6], "text": "Keep a Chapter 1 save until the trophy pops; the balcony cannot be redone after Chapter 1." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "fair-game",
-      "inShort": "Hunt a unique animal for Bret. His target decks count toward 100%.",
-      "sources": [
-        3,
-        5,
-        10,
-        12,
-        14
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 2, 6, 14],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            10,
-            14
-          ],
-          "t": "Hunt a unique animal for Bret — his hunting questline is Jason-only and runs through target decks."
-        },
-        {
-          "src": [
-            10
-          ],
-          "t": "A clean head or heart shot keeps the carcass pristine."
-        },
-        {
-          "src": [
-            3,
-            12
-          ],
-          "t": "All 15 of Bret's Target Deck objectives are required for 100%, so treat his hunts as checklist progress, not a detour."
-        },
-        {
-          "src": [
-            5,
-            3
-          ],
-          "t": "Study animals with binoculars first; the study count matters separately for 100% (100 of 255 animals)."
-        }
-      ],
-      "watch": null
+        { "src": [1, 6], "text": "Hunt a unique animal for Bret." },
+        { "src": [2], "text": "Bret's hunting work feeds the 100% checklist — all 15 of his Target Deck objectives are required there." },
+        { "src": [14], "text": "Bret texts Jason some time after Coffee Break in Chapter 2; Lucia never gets the strand." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "dont-touch-my-deck",
-      "inShort": "Complete 3 card sets. The checklist wants 15 of 18.",
-      "sources": [
-        3,
-        6,
-        10,
-        12
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 2, 6, 7],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            6,
-            10
-          ],
-          "t": "Complete three full collectible card sets."
-        },
-        {
-          "src": [
-            3,
-            12
-          ],
-          "t": "The 100% checklist wants 15 of 18 sets (480 cards in all), so three is only the start — collect cards whenever you pass a spawn."
-        },
-        {
-          "src": [
-            3,
-            12
-          ],
-          "t": "480 cards in 18 sets exist in total; 15 sets are needed for 100%."
-        },
-        {
-          "src": [
-            6
-          ],
-          "t": "Trade duplicates rather than hunting single cards across the map."
-        }
-      ],
-      "watch": null
+        { "src": [1, 6], "text": "Complete three full collectible card sets." },
+        { "src": [2, 7], "text": "The checklist wants 15 of 18 sets, so three is only the start." },
+        { "src": [1], "text": "Collect cards whenever you pass a spawn, and trade duplicates rather than hunting single cards across the map." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "you-wainker",
-      "inShort": "Scan 100 locations with the WAiNK app.",
-      "sources": [
-        3,
-        5,
-        6
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 2, 6, 7],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            5,
-            6
-          ],
-          "t": "Use the WAiNK app at 100 locations — hold D-Pad Up to pull out the app, then look at a vehicle and scan it with R1/RB."
-        },
-        {
-          "src": [
-            3,
-            6
-          ],
-          "t": "Open the app on every new vehicle and landmark you meet from the very first hour — the 100% checklist needs the same 100 scans."
-        },
-        {
-          "src": [
-            5
-          ],
-          "t": "You can also scan aircraft and boats — they count too."
-        }
-      ],
-      "watch": null
+        { "src": [1, 6], "text": "Use the WAiNK app at 100 locations — landmarks, curiosities and sculptures all count." },
+        { "src": [2, 7], "text": "The checklist needs the same 100 scans, so this trophy and the checklist finish together if you scan as you go." },
+        { "src": [1], "text": "Open the app on every new vehicle and landmark from the very first hour." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "one-last-thing",
-      "inShort": "Complete 50 of 80 challenges. The checklist wants 70.",
-      "sources": [
-        1,
-        3,
-        10,
-        12,
-        14
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 2, 6, 7],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            3,
-            12,
-            14
-          ],
-          "t": "Complete 50 of the 80 challenges — eight categories of ten, listed under Progress > Challenges."
-        },
-        {
-          "src": [
-            3,
-            1
-          ],
-          "t": "The 100% checklist wants 70, so pick the 50 easiest first and leave the hardest ten entirely alone."
-        },
-        {
-          "src": [
-            10,
-            3
-          ],
-          "t": "Challenges are listed under Progress > Challenges; many complete on their own while you play."
-        }
-      ],
-      "watch": null
+        { "src": [1, 6], "text": "Complete 50 of the 80 challenges." },
+        { "src": [2, 7], "text": "The checklist wants 70, so pick the 50 easiest first and leave the hardest ten entirely alone." },
+        { "src": [6], "text": "Challenges are listed under Progress > Challenges and many complete on their own while you play." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "hot-together",
-      "inShort": "Lose a 4-star wanted level with your partner — and get clear of the heat zone.",
-      "sources": [
-        10,
-        13
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 6, 20],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            10
-          ],
-          "t": "Get a four-star wanted level with your partner beside you — robbing a bank vault with your partner does it straight away."
-        },
-        {
-          "src": [
-            10
-          ],
-          "t": "Escape the heat: the trophy only pops once you are out of the red heat zone — getting out of the flashing search area is not enough."
-        },
-        {
-          "src": [
-            13
-          ],
-          "t": "A fast car, a planned route out of the search zone, and no stopping to fight are what make this pop."
-        }
-      ],
-      "watch": null
+        { "src": [1, 6], "text": "Lose a four-star wanted level with your partner and escape the heat." },
+        { "src": [6, 20], "text": "Vault jobs give you a 4-star wanted level straight away, so escaping one with your partner also earns this." },
+        { "src": [6], "text": "The trophy only pops once you have left the red heat zone — getting out of the flashing search area is not enough." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "retail-therapy",
-      "inShort": "Rob 3 shops back-to-back with your partner, without losing the heat.",
-      "sources": [
-        6,
-        10
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 6, 20],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            10
-          ],
-          "t": "Call your partner, then rob three shops in a row while the police are still chasing you."
-        },
-        {
-          "src": [
-            10
-          ],
-          "t": "If the stars fade and you are only in the red heat zone, the chain breaks — keep moving and do not let the heat clear."
-        },
-        {
-          "src": [
-            10,
-            6
-          ],
-          "t": "Plan a route past three close shops and hit them in quick succession; the trophy can take about 30 seconds to pop after you leave the third shop."
-        }
-      ],
-      "watch": null
+        { "src": [1, 6], "text": "Rob three shops back-to-back with your partner without losing your wanted level." },
+        { "src": [6, 20], "text": "Call your partner, then rob three shops in a row while the police are still chasing you — if the stars fade and you are only in the red heat zone, the chain breaks." },
+        { "src": [6], "text": "The trophy can take about 30 seconds to pop after you leave the third shop, so give it a moment before you hit a fourth." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "whip-it-good",
-      "inShort": "Discover 100 vehicles. Scan everything — the checklist wants 200.",
-      "sources": [
-        3,
-        5,
-        10
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 2, 6, 7],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            10,
-            5
-          ],
-          "t": "Discover 100 vehicles — scanning a vehicle with the WAiNK app counts as discovering it, so scan traffic as you drive."
-        },
-        {
-          "src": [
-            3,
-            5
-          ],
-          "t": "The 100% checklist wants 200 of the 277 base models, so keep going past 100."
-        },
-        {
-          "src": [
-            10
-          ],
-          "t": "Scan traffic as you drive — every new vehicle you pass is a discovery."
-        }
-      ],
-      "watch": null
+        { "src": [1, 6], "text": "Discover 100 vehicles — a WAiNK scan counts as a discovery." },
+        { "src": [2, 7], "text": "The checklist wants 200 of 277 base-model vehicles, so keep going past 100." },
+        { "src": [6], "text": "Scan traffic as you drive — a WAiNK scan is enough, you do not need to drive the vehicle." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "gunslinger",
-      "inShort": "Take down 5 enemies in one Combat Focus.",
-      "sources": [
-        1,
-        9,
-        10
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": true,
+      "sources": [1, 11, 20],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            1,
-            10
-          ],
-          "t": "Combat Focus is the slow-motion aim: press L3 and R3 while aiming."
-        },
-        {
-          "src": [
-            1,
-            9,
-            10
-          ],
-          "t": "Wait for a crowded fight — a gang shootout at an illegal operation — and use an assault rifle on a group of gang enemies. Police, soldiers and civilians do not seem to count."
-        },
-        {
-          "src": [
-            10
-          ],
-          "t": "Each fish you land adds about 10% to the Focus meter, and Adrenaline extends Focus — top the meter up before the fight."
-        }
-      ],
-      "watch": null
+        { "src": [1, 11], "text": "Take down 5 enemies in a single use of Combat Focus (L3 + R3 while aiming)." },
+        { "src": [1, 20], "text": "Police, soldiers and civilians do NOT count — pick a gang shootout at an illegal operation, where the targets are gang members." },
+        { "src": [1, 11], "text": "Buff Focus first with food, drinks or a shower at home, and bring Adrenaline to extend it mid-fight." },
+        { "src": [1, 11], "text": "Use an assault rifle like the Duke 556 — full-auto and more accurate than pistols or SMGs — and level Focus to 3-4 first for more time." },
+        { "src": [1], "text": "Wear body armour so you can walk out of cover and get close to the enemies." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "catch-me-if-you-can",
-      "inShort": "Steal a docked passenger plane at VCIA and fly 1 km clear.",
-      "sources": [
-        1,
-        9,
-        10
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": true,
+      "sources": [1, 6, 7],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            1,
-            9,
-            10
-          ],
-          "t": "At Vice City International Airport, steal a large passenger plane docked at a boarding bridge — the planes at gates E3 and E4 work; planes parked elsewhere on the airfield do not count."
-        },
-        {
-          "src": [
-            1,
-            10
-          ],
-          "t": "Go up to the cockpit, back out toward the runway and take off."
-        },
-        {
-          "src": [
-            1,
-            10
-          ],
-          "t": "The trophy is delayed: fly about 1 km away from the airport and it pops. Save first, because the police come fast."
-        }
-      ],
-      "watch": null
+        { "src": [6, 7], "text": "At Vice City International Airport, steal a large passenger plane docked at a boarding bridge — the planes at gates E3 and E4 work; planes parked elsewhere do not count." },
+        { "src": [6], "text": "Go up to the cockpit, back out toward the runway and take off." },
+        { "src": [6, 7], "text": "The trophy is delayed: fly about 1 km away from the airport and it pops." },
+        { "src": [1, 6], "text": "Save first — the police come fast the moment you cross the tarmac." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "challenging-tank",
-      "inShort": "Get into a Rhino tank at Mile Zero Air Station and use it.",
-      "sources": [
-        6,
-        10
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 6, 20],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            10
-          ],
-          "t": "Tanks are parked on the south side of Mile Zero Air Station, on Goose Key at the bottom of the Keys."
-        },
-        {
-          "src": [
-            10
-          ],
-          "t": "Save first, get in, and drive and fire until it pops."
-        },
-        {
-          "src": [
-            6
-          ],
-          "t": "Approach with a fast escape vehicle parked nearby — the base response is heavy."
-        }
-      ],
-      "watch": null
+        { "src": [1, 6], "text": "Steal a Rhino military tank and use it in combat." },
+        { "src": [6, 20], "text": "Tanks are parked on the south side of Mile Zero Air Station, on Goose Key at the bottom of the Keys." },
+        { "src": [6], "text": "Save first, get in, and drive and fire until it pops." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "sneakthief",
-      "inShort": "Rob a jewelry store unseen — Snap Gun on the back door, safe code from the note.",
-      "sources": [
-        9,
-        10
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 6, 20],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            9,
-            10
-          ],
-          "t": "Yasmani's Chapter 3 job, Yasmani's Jewelry Jobs, gives you the Snap Gun and opens jewelry store robberies."
-        },
-        {
-          "src": [
-            9,
-            10
-          ],
-          "t": "Go to a store's locked back door and use the Snap Gun on it — kicking the door in sets off the alarm."
-        },
-        {
-          "src": [
-            9,
-            10
-          ],
-          "t": "Inside the back room, find the note with the safe code, open the safe, and leave without being seen. Richardson Jewelry & Diamonds in Vice City is a good target."
-        }
-      ],
-      "watch": null
+        { "src": [1, 6], "text": "Rob a jewelry store without being detected." },
+        { "src": [6, 20], "text": "Yasmani's Chapter 3 job Yasmani's Jewelry Jobs gives you the Snap Gun and opens jewelry store robberies — use it on a store's locked back door; kicking the door in sets off the alarm." },
+        { "src": [6], "text": "Inside the back room, find the note with the safe code, open the safe, and leave without being seen." },
+        { "src": [6, 20], "text": "Richardson Jewelry & Diamonds in Vice City is a good target; if someone spots you, reload and try again." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "maximum-withdrawal",
-      "inShort": "Rob 5 bank vaults and escape. The checklist needs all 8.",
-      "sources": [
-        3,
-        10,
-        12
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 2, 6, 20],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            10
-          ],
-          "t": "Bank vaults unlock through That's Where The Money Is, an optional mission near the end of Chapter 4."
-        },
-        {
-          "src": [
-            10
-          ],
-          "t": "Tail an armored security van to a large bank and get into the vault while the guard has it open — you cannot carry all the bags alone, so bring your partner."
-        },
-        {
-          "src": [
-            10
-          ],
-          "t": "Vault jobs give you a four-star wanted level straight away, so escaping one with your partner also earns Hot Together."
-        },
-        {
-          "src": [
-            3,
-            12
-          ],
-          "t": "The 100% checklist needs all eight vaults, so five is a milestone, not the end."
-        }
-      ],
-      "watch": null
+        { "src": [1, 6], "text": "Rob five bank vaults and escape." },
+        { "src": [6, 20], "text": "Vaults unlock through That's Where The Money Is, an optional mission near the end of Chapter 4 — tail an armored security van to a large bank and get into the vault while the guard has it open." },
+        { "src": [2], "text": "The checklist needs all eight vaults, so five is a milestone, not the end." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "a-classic-blitz-play",
-      "inShort": "Rob an armored truck and escape the heat zone.",
-      "sources": [
-        10,
-        14
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 6, 20],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            10,
-            14
-          ],
-          "t": "Armored trucks run set routes around the city — ram one to a stop or block it, crack it open, grab the cash."
-        },
-        {
-          "src": [
-            10
-          ],
-          "t": "Break line of sight before the police box you in; the trophy only pops once you are out of the red heat zone. A bike is the best getaway here."
-        },
-        {
-          "src": [
-            10
-          ],
-          "t": "Learn one truck route and wait for it — the trucks run set routes, so the ambush can be planned."
-        }
-      ],
-      "watch": null
+        { "src": [1, 6], "text": "Rob an armored truck and escape." },
+        { "src": [6, 20], "text": "Armored trucks run set routes around the city — ram one to a stop or block it, crack it open and grab the cash." },
+        { "src": [1], "text": "Break line of sight before the police box you in; a bike is the best getaway here." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "the-goodtime-state",
-      "inShort": "Explore all of Leonida.",
-      "sources": [
-        6,
-        10
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 2, 6, 7],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            6,
-            10
-          ],
-          "t": "Explore all of Leonida and uncover the complete map — drive, fly and sail the edges; the map fills in as you travel."
-        },
-        {
-          "src": [
-            6
-          ],
-          "t": "Combine this with WAiNK scans and stunt runs instead of making dedicated map trips."
-        },
-        {
-          "src": [
-            6
-          ],
-          "t": "The far corners and islands are the parts people miss."
-        }
-      ],
-      "watch": null
+        { "src": [1, 6], "text": "Explore all of Leonida and uncover the complete map." },
+        { "src": [1, 7], "text": "Drive, fly and sail the edges — the map fills in as you travel." },
+        { "src": [2], "text": "Combine this with WAiNK scans and stunt runs instead of making dedicated map trips." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "pest-control",
-      "inShort": "Rob one illegal operation from each of the nine gangs.",
-      "sources": [
-        3,
-        6,
-        10,
-        12
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 2, 6, 7],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            6,
-            10
-          ],
-          "t": "Rob at least one illegal operation belonging to each of the nine gangs — keep a checklist of which gangs you have hit."
-        },
-        {
-          "src": [
-            3,
-            12
-          ],
-          "t": "The 100% checklist wants 39 gang operations in total, so this is a down-payment on that."
-        },
-        {
-          "src": [
-            3
-          ],
-          "t": "Gang operations get marked by yellow icons on the map when you enter their location."
-        }
-      ],
-      "watch": null
+        { "src": [1, 6], "text": "Rob at least one illegal operation belonging to each of the nine gangs." },
+        { "src": [2, 7], "text": "The checklist wants all 39 gang operations, so this is a down-payment on that." },
+        { "src": [1], "text": "Keep a checklist of which gangs you have hit and do not double up on one gang while another is untouched." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "in-the-beginning",
-      "inShort": "Method unconfirmed — cocktail on Ocean Beach, per the description only.",
-      "sources": [
-        14
-      ],
+      "missable": false,
+      "unconfirmed": true,
+      "watch": true,
+      "sources": [21],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            14
-          ],
-          "t": "UNCONFIRMED (20 Nov 2026): the description points to enjoying a cocktail overlooking Ocean Beach — try ordering a drink at a beachfront bar on Ocean Beach and lingering at the view."
-        },
-        {
-          "src": [
-            14
-          ],
-          "t": "Treat any single-source method as a rumour until a second source confirms it. Do not burn a save on this one."
-        }
-      ],
-      "watch": "Method unconfirmed — do not trust a single-source method."
+        { "src": [21], "text": "UNCONFIRMED as of 21 Nov 2026: the description points to enjoying a cocktail overlooking Ocean Beach — try ordering a drink at a beachfront bar there and lingering at the view." },
+        { "src": [21], "text": "Treat any single-source method as a rumour until a second source confirms it; do not burn a save on this one." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "capital-offense",
-      "inShort": "Method unconfirmed — drive out of a showroom, per the description only.",
-      "sources": [
-        14
-      ],
+      "missable": false,
+      "unconfirmed": true,
+      "watch": true,
+      "sources": [21],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            14
-          ],
-          "t": "UNCONFIRMED (20 Nov 2026): the hint is to smash your way out of a vehicle showroom in classic style — the old drive-through-the-window exit."
-        },
-        {
-          "src": [
-            14
-          ],
-          "t": "Try it with a sturdy car at a showroom, but the exact trigger is still being confirmed across sources, so verify before repeating."
-        }
-      ],
-      "watch": "Method unconfirmed — do not trust a single-source method."
+        { "src": [21], "text": "UNCONFIRMED as of 21 Nov 2026: the hint is to smash your way out of a vehicle showroom in classic style — the old drive-through-the-window exit." },
+        { "src": [21], "text": "Try it with a sturdy car at a showroom, but the exact trigger is still being confirmed across sources — verify before repeating." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "lets-go-bowling",
-      "inShort": "Steal the three key valuables at Kolt & Associates' bowling alley.",
-      "sources": [
-        1,
-        6,
-        9
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": true,
+      "sources": [5, 6, 20],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            1,
-            6,
-            9
-          ],
-          "t": "Steal the three key valuables at Kingpin Bowling (Kolt & Associates' bowling alley in Port Gellhorn) — the luxury watch in the south-east office, the Gutterball Moreland 850 shotgun on the north-east table, and the office safe, blown open with Sticky Bombs (buy them at Ammu-Nation first)."
-        },
-        {
-          "src": [
-            1,
-            9
-          ],
-          "t": "It unlocks in Chapter 2 via the optional mission Hit Kingpin Bowling, which marks the alley automatically."
-        },
-        {
-          "src": [
-            1,
-            9
-          ],
-          "t": "The trophy pops after you escape the police, not when you pick up the third item — and you do not need all three in one visit: the operation respawns after a long while, so it is not missable."
-        }
-      ],
-      "watch": null
+        { "src": [5, 6], "text": "Hit Kingpin Bowling is an optional mission in Chapter 2 (after Coffee Break) at Kingpin Bowling in Port Gellhorn — the Kolt & Associates bowling alley." },
+        { "src": [5, 6], "text": "You do NOT need all 3 valuables in one visit: the operation respawns after a long while, so it is not missable — previously collected valuables still count when you return." },
+        { "src": [5, 20], "text": "The three key valuables: the luxury watch in the south-east office, the Gutterball Moreland 850 shotgun on the pool table in the north-east corner, and the safe in the small north-east office — blow it open with Sticky Bombs from Ammu-Nation." },
+        { "src": [5, 6], "text": "The trophy pops after escaping the police — exit the alley, find a vehicle and drive away; it is a bit delayed." },
+        { "src": [5], "text": "If you missed a valuable, wait for the alley icon to respawn (long cooldown, some time in Chapter 3) and grab what you missed." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "personal-best",
-      "inShort": "Max Strength for both Jason and Lucia.",
-      "sources": [
-        6,
-        10
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 6, 7],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            10
-          ],
-          "t": "Max out the Strength stat for both Jason and Lucia — buy a gym membership and train with your partner there, since the partner trains alongside you."
-        },
-        {
-          "src": [
-            6
-          ],
-          "t": "Gym work, melee and heavy lifting raise Strength over time."
-        },
-        {
-          "src": [
-            6
-          ],
-          "t": "Switch characters when one caps out so neither is left behind."
-        }
-      ],
-      "watch": null
+        { "src": [1, 6], "text": "Max out the Strength stat for both Jason and Lucia at the same time." },
+        { "src": [6], "text": "Buy a gym membership and train with your partner there — the partner trains alongside you." },
+        { "src": [7], "text": "Gym work, melee and heavy lifting raise Strength over time; switch characters when one caps out." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "actions-speak-louder",
-      "inShort": "500 actions that change your Criminal Profile. It finishes on its own.",
-      "sources": [
-        6,
-        10
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 6, 7],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            10,
-            6
-          ],
-          "t": "Perform 500 actions affecting your Criminal Profile — robberies, crimes, escapes and story choices all feed it."
-        },
-        {
-          "src": [
-            10
-          ],
-          "t": "Robberies and fights feed it, so it fills up without a separate grind."
-        },
-        {
-          "src": [
-            10
-          ],
-          "t": "It will finish on its own during a full 100% run; check the profile counter in-game to see how close you are."
-        }
-      ],
-      "watch": null
+        { "src": [1, 6], "text": "Perform 500 actions affecting your Criminal Profile." },
+        { "src": [6, 7], "text": "Robberies, crimes, escapes and story choices all feed it — it fills up without a separate grind." },
+        { "src": [1], "text": "Check the profile counter in-game to see how close you are." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "bad-luck-i-guess",
-      "inShort": "Method unconfirmed — 'Second time's the charm' is the only hint.",
-      "sources": [
-        14
-      ],
+      "missable": false,
+      "unconfirmed": true,
+      "watch": true,
+      "sources": [21],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            14
-          ],
-          "t": "UNCONFIRMED (20 Nov 2026): the only published hint is 'Second time's the charm', which suggests failing something once and succeeding on the retry."
-        },
-        {
-          "src": [
-            14
-          ],
-          "t": "No source has confirmed what that something is — do not chase guesses; check back after more players report it."
-        }
-      ],
-      "watch": "Method unconfirmed — do not trust a single-source method."
+        { "src": [21], "text": "UNCONFIRMED as of 21 Nov 2026: the only published hint is 'Second time's the charm', which suggests failing something once and succeeding on the retry." },
+        { "src": [21], "text": "No source has confirmed what that something is — do not chase guesses; check back after more players report it." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "the-truth-is-out-there",
-      "inShort": "Method unconfirmed — reads like a rare random event.",
-      "sources": [
-        6,
-        14
-      ],
+      "missable": false,
+      "unconfirmed": true,
+      "watch": true,
+      "sources": [6, 7],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            14,
-            6
-          ],
-          "t": "UNCONFIRMED (20 Nov 2026): the only published hint is 'What the hell just happened?', which reads like a rare random event or easter egg."
-        },
-        {
-          "src": [
-            14,
-            6
-          ],
-          "t": "No source has confirmed a trigger — leave this one for last and watch for new reports rather than grinding blind."
-        }
-      ],
-      "watch": "Method unconfirmed — do not trust a single-source method."
+        { "src": [6, 7], "text": "UNCONFIRMED as of 21 Nov 2026: the only published hint is 'What the hell just happened?', which reads like a rare random event or easter egg." },
+        { "src": [7], "text": "No source has confirmed a trigger — leave this one for last." },
+        { "src": [7], "text": "Watch for new reports rather than grinding blind." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "ten-pin",
-      "inShort": "Method being confirmed — melee drive-by that bowls a target over.",
-      "sources": [
-        6,
-        14
-      ],
+      "missable": false,
+      "unconfirmed": true,
+      "watch": false,
+      "sources": [6, 7],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            14,
-            6
-          ],
-          "t": "METHOD BEING CONFIRMED (20 Nov 2026): bowl 'em over with a melee drive-by — the working reading is a melee strike from a moving vehicle that knocks a target down like a bowling pin."
-        },
-        {
-          "src": [
-            14,
-            6
-          ],
-          "t": "Try it at the bowling alley area, but the precise method is still being confirmed across sources."
-        }
-      ],
-      "watch": "Method unconfirmed — do not trust a single-source method."
+        { "src": [6, 7], "text": "METHOD BEING CONFIRMED as of 21 Nov 2026: bowl 'em over with a melee drive-by — a melee strike from a moving vehicle that knocks a target down like a bowling pin." },
+        { "src": [7], "text": "Try it at the bowling alley area, but the precise method is still being confirmed across sources." },
+        { "src": [7], "text": "KeenGamer still marks this method unconfirmed — treat any how-to as provisional." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "dime-on-the-dollar",
-      "inShort": "Launder $250,000 in marked bills through contacts.",
-      "sources": [
-        3,
-        6,
-        10,
-        12
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 2, 6, 20],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            10,
-            12
-          ],
-          "t": "Marked bills come from bank and payday loan jobs — fence them by selling to your contacts."
-        },
-        {
-          "src": [
-            10,
-            3
-          ],
-          "t": "The $250,000 total is cumulative. The 100% checklist needs the same $250,000 fenced, so this trophy and the checklist finish together."
-        },
-        {
-          "src": [
-            6
-          ],
-          "t": "Bank the bills regularly instead of hoarding them."
-        }
-      ],
-      "watch": null
+        { "src": [1, 6], "text": "Launder a cumulative $250,000 in Marked Bills through your contacts." },
+        { "src": [6, 20], "text": "Marked bills come from bank and payday loan jobs; sell them to your contacts — the $250,000 total is cumulative." },
+        { "src": [2], "text": "The checklist needs the same $250,000 fenced, so this trophy and the checklist finish together." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "treat-yo-self",
-      "inShort": "Spend $100,000 across all shops.",
-      "sources": [
-        6,
-        10
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 6, 7],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            6,
-            10
-          ],
-          "t": "Spend $100,000 across all shops — weapons, clothes, food and gear all count, and the total is cumulative."
-        },
-        {
-          "src": [
-            6
-          ],
-          "t": "Do not force it early: by the time you have bought the garages, weapons and ammo for a full 100% run, this will already be close."
-        },
-        {
-          "src": [
-            10,
-            6
-          ],
-          "t": "The garages alone cost about $160,000 — buying them takes you most of the way there."
-        }
-      ],
-      "watch": null
+        { "src": [1, 6], "text": "Spend a total of $100,000 across shops — weapons, clothes, food and gear all count, and the total is cumulative." },
+        { "src": [7], "text": "Do not force it early: by the time you have bought the garages, weapons and ammo for a full 100% run, this will already be close." },
+        { "src": [7], "text": "Track the total as you play — every shop purchase counts toward it." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "little-boxes",
-      "inShort": "Buy all 8 garages (~$160,000). Story garages do not count.",
-      "sources": [
-        6,
-        10
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 6],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            10
-          ],
-          "t": "Buy the eight garages in the Vice City Real Estate app, which unlocks after the Chapter 2 mission Daily Driver. Together they cost about $160,000."
-        },
-        {
-          "src": [
-            10
-          ],
-          "t": "Garages the story gives you do not count."
-        },
-        {
-          "src": [
-            6
-          ],
-          "t": "Save for these through the story — robberies and fencing fund them — and buy each garage as soon as you can afford it."
-        }
-      ],
-      "watch": null
+        { "src": [1, 6], "text": "Purchase all eight purchasable garage properties." },
+        { "src": [6], "text": "Buy them in the Vice City Real Estate app, which unlocks after the Chapter 2 mission Daily Driver — together they cost about $160,000." },
+        { "src": [6], "text": "Garages the story gives you do not count; buy each garage as soon as you can afford it." }
+      ]
     },
     {
-      "count": null,
-      "disputes": [],
       "id": "on-the-spot",
-      "inShort": "Register 10 vehicles through the Scooter Bros app.",
-      "sources": [
-        3,
-        10
-      ],
+      "missable": false,
+      "unconfirmed": false,
+      "watch": false,
+      "sources": [1, 2, 6],
+      "disputes": [],
       "steps": [
-        {
-          "src": [
-            3,
-            10
-          ],
-          "t": "The Chapter 2 mission Moses opens the Scooter Bros app. Take a stolen car to Moses, choose Respray, then Register."
-        },
-        {
-          "src": [
-            3,
-            10
-          ],
-          "t": "From Chapter 3 you can also register cars with a standard tracker at Pay 'n' Spray."
-        },
-        {
-          "src": [
-            10
-          ],
-          "t": "Each car needs a free garage space, so buy garages first and register cheap cars."
-        }
-      ],
-      "watch": null
+        { "src": [1, 6], "text": "Register 10 vehicles through the Scooter Bros app." },
+        { "src": [2, 6], "text": "The Chapter 2 mission Moses opens the Scooter Bros app — take a stolen car to Moses, choose Respray, then Register." },
+        { "src": [2, 6], "text": "From Chapter 3 you can also register cars with a standard tracker at Pay 'n' Spray; each car needs a free garage space, so buy garages first." }
+      ]
     }
   ]
 }

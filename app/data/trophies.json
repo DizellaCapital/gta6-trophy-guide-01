@@ -3,8 +3,8 @@
     "game": "Grand Theft Auto VI",
     "platform": "PlayStation 5",
     "title": "Leonida Trophy Guide & Tracker — all 55 GTA VI trophies",
-    "verified": "2026-11-20",
-    "verified_note": "Researched fresh on 20 Nov 2026 from live trophy lists published 18-19 Nov 2026, after the game's 19 Nov 2026 launch. Rockstar has published no official trophy list of its own; names and official descriptions below are the ones the live lists agree on, cross-checked across at least two sources.",
+    "verified": "2026-11-21",
+    "verified_note": "Researched fresh on 20-21 Nov 2026 from live trophy lists published 18-20 Nov 2026, after the game's 19 Nov 2026 launch. Rockstar has published no official trophy list of its own; names and official descriptions below are the ones the live lists agree on, cross-checked across at least two sources (Exophase and OutputLag agree on all 55 descriptions). Guide paragraphs are the guide author's own words. Full source list: app/data/sources.json (28 pages, 20 sites).",
     "counts": {
       "total": 55,
       "platinum": 1,
@@ -19,18 +19,18 @@
     "psn_points": { "platinum": 300, "gold": 90, "silver": 30, "bronze": 15 },
     "platinum_estimate": { "difficulty": "4/10", "hours": "~200", "playthroughs": 1 },
     "sources": [
-      { "name": "Push Square — GTA 6: Trophy Guide & Roadmap", "url": "https://www.pushsquare.com/guides/gta-6-trophy-guide-and-roadmap", "date": "2026-11-18" },
+      { "name": "PowerPyx — GTA 6 Trophy Guide & Roadmap", "url": "https://www.powerpyx.com/gta-6-grand-theft-auto-vi-trophy-guide-roadmap/", "date": "2026-11-18" },
+      { "name": "OutputLag — GTA 6 Trophy List: All 55 Trophies and Achievements", "url": "https://outputlag.com/guides/gta-6-trophy-list/", "date": "2026-11-18" },
+      { "name": "Exophase — Grand Theft Auto VI Trophies (PS5)", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/", "date": "2026-11-18" },
       { "name": "KeenGamer — GTA 6 Trophy Guide & Platinum Roadmap", "url": "https://www.keengamer.com/articles/guides/gta-6-trophy-guide-platinum-roadmap-all-55-trophies/", "date": "2026-11-19" },
-      { "name": "GTAVibes — GTA 6 Trophy List: All 55 Trophies and Achievements", "url": "https://www.gtavibes.com/guides/gta-6-trophy-list-achievements", "date": "2026-11-18" },
-      { "name": "EGamers.io — GTA 6 Trophy List: All 55 Trophies And Achievements", "url": "https://egamers.io/gta-6-trophy-list-all-55-trophies-and-achievements-plus-the-hardest-ones/", "date": "2026-11-19" },
-      { "name": "GTAScoop — GTA 6 Trophies & Achievements: Full List of 55 and Platinum", "url": "https://gtascoop.com/guides/gta-6-trophies-achievements/", "date": "2026-11-18" },
-      { "name": "GamesFuze — GTA 6 Trophy List: All 55 Trophies & Achievements", "url": "https://gamesfuze.com/gta-6-wiki/achievements/", "date": "2026-11-19" }
+      { "name": "Push Square — GTA 6: Trophy Guide & Roadmap", "url": "https://www.pushsquare.com/guides/gta-6-trophy-guide-and-roadmap", "date": "2026-11-18" },
+      { "name": "GTABase — GTA 6 Trophy Guide & Achievements List", "url": "https://www.gtabase.com/articles/gta-6/gta-6-achievements-trophies-list-ps5-xbox-series", "date": "2026-11-18" }
     ],
     "warnings": [
-      "Cheats disable trophies and saving — keep them off on your trophy save (GTABase / TechWiser via EGamers.io, 19 Nov 2026).",
+      "Cheats disable trophies and saving — keep them off on your trophy save (PowerPyx / GTABase, 18 Nov 2026).",
       "There is no mission replay and no New Game Plus — keep a manual save at the start and end of each chapter; 15 manual slots plus autosave (KeenGamer, 19 Nov 2026).",
-      "Positive Mental Attitude is the only trophy reported as possibly missable: one meditation spot at Jason's house is only open in Chapter 1 (KeenGamer / GTAVibes, 18-19 Nov 2026).",
-      "Five hidden trophies still have unconfirmed unlock methods as of 20 Nov 2026 — they are flagged method_status unconfirmed below; do not trust a single-source method for them."
+      "Positive Mental Attitude is the only trophy reported as possibly missable: one meditation spot at Jason's house is only open in Chapter 1 (PowerPyx / KeenGamer, 18-19 Nov 2026).",
+      "Five hidden trophies still have unconfirmed unlock methods as of 21 Nov 2026 — they are flagged method_status unconfirmed below; do not trust a single-source method for them."
     ],
     "stages": [
       { "n": 1, "name": "Story — the chapters", "hours": "opening hours", "tip": "Play naturally; chapter trophies pop as you finish each chapter." },
@@ -723,7 +723,7 @@
       "spoiler": false,
       "hidden": false,
       "missable": false,
-      "official": "Rob an armored truck and escape.",
+      "official": "Rob an Armored Truck and escape.",
       "guide": "Rob an armored truck and escape. Armored trucks run set routes around the city — ram one to a stop or block it, crack it open, grab the cash and break line of sight before the police box you in. A bike is the best getaway here.",
       "source": "GTAVibes",
       "source_date": "2026-11-18",
